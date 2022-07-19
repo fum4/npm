@@ -1,0 +1,50 @@
+{
+  "name": "react-router-redux-history",
+  "version": "0.1.0",
+  "description": "Redux history made easy",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && NODE_ENV=production tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fum4/react-router-redux-history.git"
+  },
+  "keywords": [
+    "react",
+    "router",
+    "redux",
+    "history",
+    "store",
+    "url",
+    "middleware"
+  ],
+  "author": "fum4",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fum4/react-router-redux-history/issues"
+  },
+  "homepage": "https://github.com/fum4/react-router-redux-history#readme",
+  "peerDependencies": {
+    "react": "^16.4.0 || ^17.0.0",
+    "react-redux": "^6.0.0 || ^7.1.0",
+    "react-router": "^4.3.1 || ^5.0.0",
+    "redux": "^3.6.0 || ^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.9",
+    "@babel/core": "^7.18.9",
+    "@babel/preset-env": "^7.18.9",
+    "@babel/preset-react": "^7.18.6",
+    "@reduxjs/toolkit": "^1.8.3",
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/history": "^4.7.11",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "connected-react-router": "^6.9.3",
+    "lodash": "^4.17.21"
+  }
+}
