@@ -15,7 +15,7 @@ import {
   LocationState,
   LocationChange,
   SliceActions
-} from './types';
+} from '../types';
 
 import { isForwardAction, isBackAction } from './helpers';
 

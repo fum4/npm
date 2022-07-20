@@ -1,4 +1,4 @@
-import { AppRouterState } from './types';
+import { AppRouterState } from '../types';
 
 let pageHideListener;
 

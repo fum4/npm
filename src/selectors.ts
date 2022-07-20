@@ -1,7 +1,7 @@
 import { RouterLocation } from 'connected-react-router';
 import type { Action } from 'history';
 
-import { ActionTypes, LocationState } from './types';
+import { ActionTypes, LocationState } from '../types';
 
 export const selectAction = (state): Action => state.router.action;
 export const selectActionAlias = (state): ActionTypes => state.router.actionAlias;

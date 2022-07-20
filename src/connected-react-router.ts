@@ -3,7 +3,7 @@ import { PayloadAction, Reducer } from '@reduxjs/toolkit';
 import type { History } from 'history';
 import cloneDeep from 'lodash/cloneDeep';
 
-import { AppRouterState, LocationChange, LocationState } from './types';
+import { AppRouterState, LocationChange, LocationState } from '../types';
 
 const createConnectedRouter = (history: History) => {
   const connectedRouterReducer = connectRouter<LocationState>(history) as Reducer<AppRouterState>;
