@@ -2,9 +2,8 @@ import type { History } from 'history';
 
 import createRouterMiddleware from './middleware';
 import createRouterSlice from './slice';
-export * from './selectors';
 
-const configureRouterHistory = (history: History) => {
+export const configureRouterHistory = (history: History) => {
   const { routerReducer, routerActions } = createRouterSlice(history);
   const routerMiddleware = createRouterMiddleware(history, routerActions);
 
@@ -14,4 +13,5 @@ const configureRouterHistory = (history: History) => {
   };
 }
 
-export default configureRouterHistory;
+export { ConnectedRouter } from 'connected-react-router';
+export * from './selectors';
