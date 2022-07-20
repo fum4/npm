@@ -1,6 +1,6 @@
 {
-  "name": "react-router-redux-history",
-  "version": "0.1.12",
+  "name": "react-redux-history",
+  "version": "0.1.0",
   "description": "Redux history made easy",
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fum4/react-router-redux-history.git"
+    "url": "git+https://github.com/fum4/react-redux-history.git"
   },
   "keywords": [
     "react",
@@ -23,9 +23,9 @@
   "author": "fum4",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fum4/react-router-redux-history/issues"
+    "url": "https://github.com/fum4/react-redux-history/issues"
   },
-  "homepage": "https://github.com/fum4/react-router-redux-history#readme",
+  "homepage": "https://github.com/fum4/react-redux-history#readme",
   "peerDependencies": {
     "react": "^16.4.0 || ^17.0.0 || ^18.2.0",
     "react-redux": "^6.0.0 || ^7.1.0 || ^8.0.2",
