@@ -105,8 +105,8 @@ const createRouterSlice = (history) => {
   const { actions, reducer } = routerSlice;
 
   return {
-    actions,
-    reducer,
+    routerActions: actions,
+    routerReducer: reducer,
   }
 }
 
