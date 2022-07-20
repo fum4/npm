@@ -4,14 +4,6 @@ import type { Middleware } from 'redux';
 import findIndex from 'lodash/findIndex';
 
 import {
-  push,
-  replace,
-  back,
-  forward,
-  setSkipping,
-} from './slice';
-
-import {
   selectHistory,
   selectIsSkipping,
   selectCurrentIndex,
@@ -21,15 +13,17 @@ import {
 import {
   ActionTypes,
   LocationState,
-  LocationChange
+  LocationChange,
+  SliceActions
 } from './types';
 
 import { isForwardAction, isBackAction } from './helpers';
 
-const createRouterMiddleware = (historyApi: History): Middleware => {
+const createRouterMiddleware = (historyApi: History, sliceActions: SliceActions): Middleware => {
   return (store) => (next) => (action: LocationChangeAction<LocationState>) => {
     if (action.type === LOCATION_CHANGE && !action.payload?.isFirstRendering) {
       const { payload: { action: routerAction, location } } = action;
+      const { push, replace, forward, back, setSkipping } = sliceActions;
 
       switch (routerAction) {
         case ActionTypes.PUSH:

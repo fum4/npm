@@ -1,5 +1,4 @@
-import { ActionTypes, AppRouterState } from './types';
-import { runConnectedRouter } from './slice';
+import { ActionTypes, AppRouterState, LocationChange, LocationState } from './types';
 import persistOnPageHide from './persist';
 
 import {
@@ -9,7 +8,7 @@ import {
   isNextRoute
 } from './helpers'
 
-const getInitialState = (): AppRouterState => {
+const getInitialState = (runConnectedRouter): AppRouterState => {
   const serializedSessionRouterState = sessionStorage.getItem('routerState');
   const sessionRouterState = serializedSessionRouterState && JSON.parse(serializedSessionRouterState);
   const isSessionRouterStateValid = verifyState(sessionRouterState);
@@ -63,6 +62,4 @@ const getInitialState = (): AppRouterState => {
   return initialState;
 };
 
-const initialState = getInitialState();
-
-export default initialState;
+export default getInitialState;

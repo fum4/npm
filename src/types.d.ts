@@ -1,9 +1,10 @@
 import {
-  RouterLocation,
   LocationChangePayload,
-  RouterState,
-  RouterActionType
+  RouterActionType,
+  RouterLocation,
+  RouterState
 } from 'connected-react-router';
+import { CaseReducerActions, PayloadAction } from '@reduxjs/toolkit';
 
 export enum ActionTypes {
   POP = 'POP',
@@ -16,14 +17,10 @@ export enum ActionTypes {
 /**
  * @property skipBack - Routes to automatically skip back when reaching the screen
  * @property skipForward - Routes to automatically skip forward when reaching the screen
- * @property forceRender - Flag indicating the component should be forced to re-render / re-fetch data
- * @property isAuthRedirect - Flag indicating if user has been redirected to current location after authenticating
  */
 export interface LocationState {
   skipBack?: number;
   skipForward?: number;
-  isAuthRedirect?: boolean;
-  forceRender?: Record<never, never>;
 }
 
 export interface LocationChange extends LocationChangePayload<LocationState> {
@@ -50,3 +47,11 @@ export interface AppRouterState<S = LocationState> extends RouterState<S> {
   actionAlias: ActionTypes;
   action: RouterActionType;
 }
+
+export type SliceActions = CaseReducerActions<{
+  push(state: AppRouterState, action: PayloadAction<LocationChange>): AppRouterState<LocationState>;
+  replace(state: AppRouterState, action: PayloadAction<LocationChange>): AppRouterState<LocationState>;
+  back(state: AppRouterState, action: PayloadAction<LocationChange>): void;
+  forward(state: AppRouterState, action: PayloadAction<LocationChange>): void;
+  setSkipping(state: AppRouterState, action: PayloadAction<boolean>): void;
+}>
