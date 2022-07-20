@@ -1,4 +1,4 @@
-import { ActionTypes, AppRouterState } from '../types';
+import { ActionTypes, AppRouterState } from './types';
 import persistOnPageHide from './persist';
 
 import {

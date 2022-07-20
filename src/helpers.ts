@@ -2,7 +2,7 @@ import { RouterLocation } from 'connected-react-router';
 import isEqual from 'lodash/isEqual';
 import pickBy from 'lodash/pickBy';
 
-import { AppRouterState, LocationState } from '../types';
+import { AppRouterState, LocationState } from './types';
 
 export const verifyState = (state: AppRouterState): boolean => {
   if (state) {

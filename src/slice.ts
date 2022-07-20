@@ -8,7 +8,7 @@ import {
   AppRouterState,
   LocationChange,
   ActionTypes
-} from '../types';
+} from './types';
 
 const createRouterSlice = (history) => {
   const runConnectedRouter = createConnectedRouter(history);
