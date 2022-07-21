@@ -9,7 +9,7 @@
 
 # ⚛ Redux history made easy!
 
-A simple and super lightweight library for managing navigation history in React and Redux.
+A simple, lightweight library for managing navigation history in React and Redux.
 
 ### Used in production by [Utilmond](https://utilmond.com). Check it out!
 
