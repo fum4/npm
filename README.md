@@ -1,9 +1,11 @@
 ### 🚧 Beta version
-<img src="https://img.shields.io/maintenance/yes/2030" alt="maintained" />
-<img src="https://img.shields.io/github/issues-raw/fum4/react-redux-history" alt="issues" />
-<img src="https://img.shields.io/bundlephobia/min/react-redux-history" alt="minsize" />
-<img src="https://img.shields.io/npm/l/react-redux-history" alt="license" />
-<img src="https://img.shields.io/npm/v/react-redux-history?color=red" alt="version" />
+<div>
+    <img src="https://img.shields.io/maintenance/yes/2030" alt="maintained" />
+    <img src="https://img.shields.io/github/issues-raw/fum4/react-redux-history" alt="issues" />
+    <img src="https://img.shields.io/bundlephobia/min/react-redux-history" alt="minsize" />
+    <img src="https://img.shields.io/npm/l/react-redux-history" alt="license" />
+    <img src="https://img.shields.io/npm/v/react-redux-history?color=red" alt="version" />
+</div>
 
 # ⚛ Redux history made easy!
 
