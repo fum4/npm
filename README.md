@@ -1,7 +1,9 @@
-### 🚧 Work in progress
+### 🚧 Alpha version
 # ⚛ Redux history made easy!
 
 A simple and super lightweight library for managing navigation history in React and Redux.
+
+### Used in production by [Utilmond](https://utilmond.com). Check it out!
 
 ## Features
 
@@ -11,14 +13,14 @@ A simple and super lightweight library for managing navigation history in React 
 
 ⏭️ Skipping screens capability out of the box just by passing a flag when navigating
 
-👀 Everything you need to know about your navigation state and history directly in your favorite developer tools:
+👀 Everything you need to know about your navigation state and history directly in your favorite developer tools
 
 <img src="assets/redux-devtools.webp" alt="Redux DevTools with router history" width="500"/>
 
 ## Installation
 
 ```shell
-npm install react-redux-history
+npm install react-redux-history react-router redux history
 ```
 
 ## Setup
@@ -93,7 +95,7 @@ ReactDOM.render(
 )
 ```
 
-Note: the `history` object provided to `configureRouterHistory` and `ConnectedRouter` component must be the same `history` object!
+**Note**: the `history` object provided to `configureRouterHistory` and `ConnectedRouter` component must be the same `history` object!
 
 ## Skip back / forward
 
@@ -107,6 +109,8 @@ history.push({
 ```
 
 In this example, every time the user will try to go back from *page_5* he will be skipped back 4 pages, reaching *page_1*. The same behaviour will apply when going forward from *page_1*, the user will be skipped back to *page_5*.
+
+**Note**: due to the restrictive nature of browser navigation back or forward actions cannot be stopped. That means that in the previous example the user will actually reach *page_4* before being redirected to *page_1*. If there is conflicting logic (such as extra redirects) in *page_4* component it will be fired before the middleware manages to completely skip all screens. In order to get past this issue we can use the `isSkipping` flag to, for instance, not render the component tree while skipping. You can find a selector for this in the selectors section.
 
 ## Persistent history
 
@@ -126,6 +130,6 @@ There are also a few useful selectors for easy access:
 - selectPreviousLocation
 - selectNextLocation
 
-Note: the difference between `action` and `actionAlias` is that `action` will display "POP" for both back and forward navigations. It represents the action emitted by the browser. `actionAlias` will be more descriptive by using the actual "BACK" or "FORWARD" labels.
+**Note**: the difference between `action` and `actionAlias` is that `action` will display "POP" for both back and forward navigations. It represents the action emitted by the browser. `actionAlias` will be more descriptive by using the actual "BACK" and "FORWARD" labels.
 
 ### Huge thanks to [connected-react-router](https://github.com/supasate/connected-react-router) for making this possible! 🍻
