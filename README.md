@@ -1,11 +1,17 @@
-### 🚧 Alpha version
+### 🚧 Beta version
+<img src="https://img.shields.io/maintenance/yes/2030" alt="maintained" />
+<img src="https://img.shields.io/github/issues-raw/fum4/react-redux-history" alt="issues" />
+<img src="https://img.shields.io/bundlephobia/min/react-redux-history" alt="minsize" />
+<img src="https://img.shields.io/npm/l/react-redux-history" alt="license" />
+<img src="https://img.shields.io/npm/v/react-redux-history?color=red" alt="version" />
+
 # ⚛ Redux history made easy!
 
 A simple and super lightweight library for managing navigation history in React and Redux.
 
 ### Used in production by [Utilmond](https://utilmond.com). Check it out!
 
-## Features
+## ✨ Features
 
 📜 Saves all routing history in store and offers selectors for easy access
 
@@ -17,13 +23,13 @@ A simple and super lightweight library for managing navigation history in React 
 
 <img src="https://i.ibb.co/CHnXqCd/redux-devtools.png" alt="Redux DevTools with router history" width="500" />
 
-## Installation
+## 🔗 Installation
 
 ```shell
 npm install react-redux-history react-router redux history
 ```
 
-## Setup
+## 📤 Setup
 
 ### Step 1)
 
@@ -97,9 +103,9 @@ ReactDOM.render(
 
 **Note**: the `history` object provided to `configureRouterHistory` and `ConnectedRouter` component must be the same `history` object!
 
-## Skip back / forward
+## ⏭️ Skip back / forward
 
-By setting a skipBack / skipForward flag on a specific route the user will be automatically skipped over certain routes.
+By setting a `skipBack` / `skipForward` flag on a specific route the user will be automatically skipped over certain routes.
 
 ```javascript
 history.push({
@@ -112,11 +118,11 @@ In this example, every time the user will try to go back from *page_5* he will b
 
 **Note**: due to the restrictive nature of browser navigation back or forward actions cannot be stopped. That means that in the previous example the user will actually reach *page_4* before being redirected to *page_1*. If there is conflicting logic (such as extra redirects) in *page_4* component it will be fired before the middleware manages to completely skip all screens. In order to get past this issue we can use the `isSkipping` flag to, for instance, not render the component tree while skipping. You can find a selector for this in the selectors section.
 
-## Persistent history
+## 🌲 Persistent history
 
 History is persisted even after page refresh by using local storage to save the state on page hide.
 
-## Selectors for easy access
+## 🚦 Selectors for easy access
 
 There are also a few useful selectors for easy access:
 
@@ -132,4 +138,4 @@ There are also a few useful selectors for easy access:
 
 **Note**: the difference between `action` and `actionAlias` is that `action` will display "POP" for both back and forward navigations. It represents the action emitted by the browser. `actionAlias` will be more descriptive by using the actual "BACK" and "FORWARD" labels.
 
-### Huge thanks to [connected-react-router](https://github.com/supasate/connected-react-router) for making this possible! 🍻
+### Huge thanks going to [Utilmond team](https://utilmond.com/about-us) and [connected-react-router](https://github.com/supasate/connected-react-router) for making this possible! 🍻

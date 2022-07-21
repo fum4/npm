@@ -1,6 +1,6 @@
 {
   "name": "react-redux-history",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Redux history made easy",
   "main": "lib/index.js",
   "module": "lib/index.js",
