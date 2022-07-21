@@ -15,6 +15,8 @@ A simple and super lightweight library for managing navigation history in React 
 
 👀 Everything you need to know about your navigation state and history directly in your favorite developer tools
 
+<img src="https://i.ibb.co/CHnXqCd/redux-devtools.png" alt="Redux DevTools with router history" width="500" />
+
 ## Installation
 
 ```shell
