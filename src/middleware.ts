@@ -94,7 +94,6 @@ const createRouterMiddleware = (historyApi: History, sliceActions: SliceActions)
             return next(back(payload));
           }
 
-          // TODO: might try to remove this
           if (isSkipping) {
             return setTimeout(() => next(setSkipping(false)));
           }

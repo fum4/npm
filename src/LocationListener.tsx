@@ -17,7 +17,7 @@ export const useLocationListener = (history: BrowserHistory) => {
     });
 
     return history.listen(onLocationChanged);
-  }, [ dispatch ]);
+  }, [ history, dispatch ]);
 }
 
 export const LocationListener = ({ history }: LocationListenerProps) => {
