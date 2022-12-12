@@ -133,7 +133,7 @@ There are also a few useful selectors for easy access:
 - selectIsSkipping
 - selectCurrentIndex
 - selectHistory
-- selectLocation
+- selectCurrentLocation
 - selectLocationState
 - selectPreviousLocation
 - selectNextLocation

@@ -13,5 +13,5 @@ export const configureRouterHistory = (history: History) => {
   };
 }
 
-export { ConnectedRouter } from 'connected-react-router';
 export * from './selectors';
+export * from './LocationListener';

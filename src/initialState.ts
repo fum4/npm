@@ -1,59 +1,52 @@
-import { ActionTypes, AppRouterState } from './types';
-import persistOnPageHide from './persist';
+import type { BrowserHistory } from 'history';
+
+import { persistOnPageHide, getSessionState } from './persist';
+import { ActionTypes, type AppRouterState } from './types';
 
 import {
-  verifyState,
+  injectQuery,
   isSameRoute,
   isPreviousRoute,
   isNextRoute
 } from './helpers'
 
-const getInitialState = (runConnectedRouter): AppRouterState => {
-  const serializedSessionRouterState = sessionStorage.getItem('routerState');
-  const sessionRouterState = serializedSessionRouterState && JSON.parse(serializedSessionRouterState);
-  const isSessionRouterStateValid = verifyState(sessionRouterState);
-  const { location, action } = runConnectedRouter();
-
+const getInitialState = (history: BrowserHistory): AppRouterState => {
+  const location = injectQuery(history.location);
   const defaultState: AppRouterState = {
-    history: [ location ],
+    action: ActionTypes.Push,
+    locationHistory: [ location ],
     currentIndex: 0,
     isSkipping: false,
-    actionAlias: action as ActionTypes,
-    action,
-    location,
   };
 
-  const initialState = isSessionRouterStateValid ? sessionRouterState : defaultState;
+  const sessionRouterState = getSessionState();
+  const initialState = sessionRouterState || defaultState;
 
-  if (isSessionRouterStateValid) {
-    const isRefresh = isSameRoute(location, initialState.history, initialState.currentIndex);
+  if (sessionRouterState) {
+    const isRefresh = isSameRoute(location, initialState.locationHistory, initialState.currentIndex);
 
     if (!isRefresh) {
-      const isPreviousLocation = isPreviousRoute(location, initialState.history, initialState.currentIndex);
-      const isNextLocation = isNextRoute(location, initialState.history, initialState.currentIndex);
+      const isPreviousLocation = isPreviousRoute(location, initialState.locationHistory, initialState.currentIndex);
+      const isNextLocation = isNextRoute(location, initialState.locationHistory, initialState.currentIndex);
       const isNewLocation = !isPreviousLocation && !isNextLocation;
 
       if (isPreviousLocation) {
         initialState.currentIndex -= 1;
-        initialState.actionAlias = ActionTypes.BACK;
-        initialState.action = ActionTypes.POP;
+        initialState.action = ActionTypes.Back;
       }
 
       if (isNextLocation) {
         initialState.currentIndex += 1;
-        initialState.actionAlias = ActionTypes.FORWARD;
-        initialState.action = ActionTypes.POP;
+        initialState.action = ActionTypes.Forward;
       }
 
       if (isNewLocation) {
         initialState.currentIndex += 1;
-        initialState.actionAlias = ActionTypes.PUSH;
-        initialState.action = ActionTypes.PUSH;
-        initialState.history.splice(initialState.currentIndex, initialState.history.length, location);
+        initialState.action = ActionTypes.Push;
+        initialState.locationHistory.splice(initialState.currentIndex, initialState.locationHistory.length, location);
       }
     }
 
-    initialState.location = location;
     initialState.isSkipping = false;
   }
 
