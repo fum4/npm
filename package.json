@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "module": "lib/index.js",
   "scripts": {
-    "build": "rm -rf dist && NODE_ENV=production tsc"
+    "build": "rm -rf lib && NODE_ENV=production tsc"
   },
   "repository": {
     "type": "git",
