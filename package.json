@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "module": "lib/index.js",
   "scripts": {
-    "build": "rm -rf dist && NODE_ENV=production tsc"
+    "build": "rm -rf lib && NODE_ENV=production tsc"
   },
   "repository": {
     "type": "git",
@@ -27,10 +27,10 @@
   },
   "homepage": "https://github.com/fum4/react-redux-history#readme",
   "peerDependencies": {
-    "react": "^16.4.0 || ^17.0.0 || ^18.2.0",
-    "react-redux": "^6.0.0 || ^7.1.0 || ^8.0.2",
-    "react-router": "^4.3.1 || ^5.0.0",
-    "redux": "^3.6.0 || ^4.0.0"
+    "react": "^18.0.0",
+    "react-redux": "^8.0.0",
+    "react-router": "^6.0.0",
+    "history": "^5.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.9",
@@ -41,9 +41,5 @@
     "@tsconfig/recommended": "^1.0.1",
     "@types/history": "^4.7.11",
     "typescript": "^4.7.4"
-  },
-  "dependencies": {
-    "connected-react-router": "^6.9.3",
-    "lodash": "^4.17.21"
   }
 }

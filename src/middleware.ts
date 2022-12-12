@@ -1,44 +1,44 @@
-import { LOCATION_CHANGE, LocationChangeAction } from 'connected-react-router';
-import type { History } from 'history';
+import { Action, type History } from 'history';
 import type { Middleware } from 'redux';
-import findIndex from 'lodash/findIndex';
+
+import { findIndex } from './helpers';
 
 import {
-  selectHistory,
+  selectLocationHistory,
   selectIsSkipping,
   selectCurrentIndex,
-  selectLocationState
+  selectCurrentLocationState
 } from './selectors';
 
 import {
-  ActionTypes,
-  LocationState,
-  LocationChange,
-  SliceActions
+  type SliceActions,
+  type LocationChangeAction,
+  type LocationChangePayload,
+  LOCATION_CHANGE
 } from './types';
 
 import { isForwardAction, isBackAction } from './helpers';
 
 const createRouterMiddleware = (historyApi: History, sliceActions: SliceActions): Middleware => {
-  return (store) => (next) => (action: LocationChangeAction<LocationState>) => {
-    if (action.type === LOCATION_CHANGE && !action.payload?.isFirstRendering) {
+  return (store) => (next) => (action: LocationChangeAction) => {
+    if (action.type === LOCATION_CHANGE) {
       const { payload: { action: routerAction, location } } = action;
       const { push, replace, forward, back, setSkipping } = sliceActions;
 
       switch (routerAction) {
-        case ActionTypes.PUSH:
+        case Action.Push:
           return next(push(action.payload));
 
-        case ActionTypes.REPLACE:
+        case Action.Replace:
           return next(replace(action.payload));
 
-        case ActionTypes.POP: {
+        case Action.Pop: {
           const state = store.getState();
-          const history = selectHistory(state);
+          const history = selectLocationHistory(state);
           const isSkipping = selectIsSkipping(state);
           const currentIndex = selectCurrentIndex(state);
-          const { skipForward, skipBack } = selectLocationState(state) || {};
-          const payload: LocationChange = { ...action.payload };
+          const { skipForward, skipBack } = selectCurrentLocationState(state) || {};
+          const payload: LocationChangePayload = { ...action.payload } as LocationChangePayload;
 
           if (isForwardAction(location, history, currentIndex)) {
             const nextLocationIndex = skipForward ? (
@@ -94,6 +94,7 @@ const createRouterMiddleware = (historyApi: History, sliceActions: SliceActions)
             return next(back(payload));
           }
 
+          // TODO: might try to remove this
           if (isSkipping) {
             return setTimeout(() => next(setSkipping(false)));
           }
