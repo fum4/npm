@@ -40,6 +40,7 @@ const createRouterSlice = (history) => {
 
         state.action = ActionTypes.Replace;
         state.locationHistory.splice(state.currentIndex, 1, newLocation);
+        state.locationHistory[state.currentIndex].state.forceRender = false;
 
         persistOnPageHide(current(state));
       },
@@ -62,6 +63,7 @@ const createRouterSlice = (history) => {
         state.isSkipping = isSkipping;
         state.action = ActionTypes.Back;
         state.currentIndex = nextLocationIndex;
+        state.locationHistory[nextLocationIndex].state.forceRender = false;
 
         persistOnPageHide(current(state));
       },
@@ -84,6 +86,7 @@ const createRouterSlice = (history) => {
         state.isSkipping = isSkipping;
         state.action = ActionTypes.Forward;
         state.currentIndex = nextLocationIndex;
+        state.locationHistory[nextLocationIndex].state.forceRender = false;
 
         persistOnPageHide(current(state));
       },
