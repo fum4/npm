@@ -37,7 +37,7 @@ const createRouterMiddleware = (historyApi: History, sliceActions: SliceActions)
           const history = selectLocationHistory(state);
           const isSkipping = selectIsSkipping(state);
           const currentIndex = selectCurrentIndex(state);
-          const { skipForward, skipBack } = selectCurrentLocationState(state) || {};
+          const { skipForward, skipBack } = selectCurrentLocationState(state);
           const payload: LocationChangePayload = { ...action.payload } as LocationChangePayload;
 
           if (isForwardAction(location, history, currentIndex)) {

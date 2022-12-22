@@ -4,14 +4,14 @@ import { persistOnPageHide, getSessionState } from './persist';
 import { ActionTypes, type AppRouterState } from './types';
 
 import {
-  injectQuery,
+  parseLocation,
   isSameRoute,
   isPreviousRoute,
   isNextRoute
 } from './helpers'
 
 const getInitialState = (history: BrowserHistory): AppRouterState => {
-  const location = injectQuery(history.location);
+  const location = parseLocation(history.location);
   const defaultState: AppRouterState = {
     action: ActionTypes.Push,
     locationHistory: [ location ],
