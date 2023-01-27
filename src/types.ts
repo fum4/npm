@@ -15,6 +15,7 @@ export enum ActionTypes {
 export interface LocationState {
   skipBack?: number;
   skipForward?: number;
+  forceRender?: Record<never, never>;
 }
 
 export interface RouterLocation<S = LocationState> extends Location {

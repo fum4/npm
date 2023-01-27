@@ -41,6 +41,8 @@ const createRouterSlice = (history) => {
         state.action = ActionTypes.Replace;
         state.locationHistory.splice(state.currentIndex, 1, newLocation);
 
+        delete state.locationHistory[state.currentIndex].state.forceRender;
+
         persistOnPageHide(current(state));
       },
       back: (state: AppRouterState, action: PayloadAction<LocationChangePayload>) => {
@@ -63,6 +65,8 @@ const createRouterSlice = (history) => {
         state.action = ActionTypes.Back;
         state.currentIndex = nextLocationIndex;
 
+        delete state.locationHistory[nextLocationIndex].state.forceRender;
+
         persistOnPageHide(current(state));
       },
       forward: (state: AppRouterState, action: PayloadAction<LocationChangePayload>) => {
@@ -84,6 +88,8 @@ const createRouterSlice = (history) => {
         state.isSkipping = isSkipping;
         state.action = ActionTypes.Forward;
         state.currentIndex = nextLocationIndex;
+
+        delete state.locationHistory[nextLocationIndex].state.forceRender;
 
         persistOnPageHide(current(state));
       },
