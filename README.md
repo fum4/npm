@@ -27,6 +27,8 @@ If you are in a rush though please [open an issue](https://github.com/fum4/react
 
 🌲 History is persisted even after reloading the page
 
+💪 Force current route to re-render
+
 ⏭️ Skipping screens capability out of the box just by passing a flag when navigating
 
 👀 Everything you need to know about your navigation state and history directly in your favorite developer tools
@@ -127,12 +129,21 @@ In this example, every time the user will try to go back from *page_5* he will b
 
 History is persisted even after page refresh by using local storage to save the state on page hide.
 
+## 💪 Force current route to re-render
+
+Sometimes you might want to force the current route to re-render, a behaviour which is not possible out of the box with `react-router`.
+
+This can be achieved by selecting the `forceRender` state in the component you wish to re-render. Then simply 're-navigate' to the route while passing `forceRender: {}` in the state object. 
+
+*The `forceRender` flag can also be used as a dependency in order to re-trigger effects.*
+
 ## 🚦 Selectors for easy access
 
 There are also a few useful selectors for easy access:
 
 - selectAction
 - selectIsSkipping
+- selectForceRender
 - selectLocationHistory
 - selectCurrentIndex
 - selectCurrentLocation
