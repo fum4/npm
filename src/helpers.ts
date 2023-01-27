@@ -55,6 +55,11 @@ export const injectQuery = (location: Location): RouterLocation<LocationState> =
   return { ...location, query };
 };
 
+export const parseLocation = (location: Location): RouterLocation<LocationState> => ({
+  ...injectQuery(location),
+  ...(!location.state && { state: {} }),
+});
+
 export const findIndex = (array: any[], predicate: Record<string, any>): number => {
   if (Array.isArray(array)) {
     const targetKey = Object.keys(predicate)[0];
