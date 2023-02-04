@@ -15,3 +15,4 @@ export const configureRouterHistory = (history: History) => {
 
 export * from './selectors';
 export * from './LocationListener';
+export * from './useNavigateAway';

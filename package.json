@@ -19,7 +19,11 @@
     "history",
     "store",
     "url",
-    "middleware"
+    "middleware",
+    "navigation",
+    "navigate",
+    "away",
+    "block"
   ],
   "author": "fum4",
   "license": "MIT",
