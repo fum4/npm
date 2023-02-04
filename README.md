@@ -46,7 +46,7 @@ If you are in a rush though you can [open an issue][15], this way we can priorit
 
 ...and last but not least
 
-👀 Everything you need to know about your navigation state and history directly in your favorite developer tools:
+👀 Everything you need to know about your navigation state in your favorite developer tools:
 
 <br>
 
@@ -153,7 +153,7 @@ They helped us a lot in our projects and we hope they will help you too!
 
 ## 🌲 Persistent history <a id="persist"></a>
 
-History is persisted out of the box even after page refresh by leveraging local storage on page hide. 
+History is persisted out of the box after page refresh by leveraging local storage on page hide. 
 
 This helps provide a better user experience and allows you to build a more robust navigation system.
 
