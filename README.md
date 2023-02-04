@@ -7,6 +7,8 @@
 [![npm][3]][4]
 [![license][5]][6]
 
+<br>
+
 # ⚛ Navigation history made easy!
 
 ### A simple, lightweight library for managing navigation history in React and Redux.
@@ -14,37 +16,50 @@
 #### Used in production by [Utilmond][13]. Check it out!
 
 <br>
+<br>
 
 ## 👌 Have any requests?
-For any requests such as new features, backwards compatibility with `react-router 5`, other routing libraries or environments such as `Cordova` please [open a GitHub issue][15]. 
+
+For any requests such as new features, compatibility with other routing libraries or environments such as Cordova please [open a GitHub issue][15]. 
 
 Some of them are already implemented and will be incrementally added. 
 
-If you are in a rush though please [open an issue][15], this way we can prioritize correspondingly :)
+If you are in a rush though you can [open an issue][15], this way we can prioritize correspondingly :)
 
 <br>
 
 ## ✨ Features
 
-📜 Saves all routing history in store and offers selectors for easy access
+📜 Save all navigation history in store. [Get started](#setup)
 
-🌲 History is persisted after reloading the page
+🌲 Persist history after reloading the page. [Read more](#persist)
 
-⏭️ Skipping screens capability out of the box just by passing a flag when navigating
+⏭️ Skipping screens capability out of the box just by passing a flag when navigating. [Read more](#skip-back)
 
-💪 Force current route to re-render capability
+⛵ Intercept location changes before they are rendered on screen. [Read more](#navigate-away)
 
-⛵ Intercept location changes before they are rendered on screen
+💪 Force current route to re-render capability. [Read more](#force-render)
 
-👀 Everything you need to know about your navigation state and history directly in your favorite developer tools
-
-<br>
-
-<img src="https://i.ibb.co/Y7xv9W9/react-redux-history-store-snapshot.png" alt="Redux DevTools with router history" width="500" />
+🚦 Selectors for easy access. [Read more](#selectors)
 
 <br>
 
-## 📤 Installation
+...and last but not least
+
+👀 Everything you need to know about your navigation state and history directly in your favorite developer tools:
+
+<br>
+
+<img src="https://i.imgur.com/K2fjcwH.png" alt="Redux DevTools with router history" width="500" />
+
+<br>
+<br>
+
+# Setup <a id="setup"></a>
+
+### Step 1)
+
+Let's get started by installing the package:
 
 ```shell
 npm install react-redux-history react react-redux react-router history
@@ -52,9 +67,7 @@ npm install react-redux-history react react-redux react-router history
 
 <br>
 
-## 🔗 Setup
-
-### Step 1)
+### Step 2)
 
 Create a history object:
 
@@ -65,7 +78,9 @@ import { createBrowserHistory } from 'history'
 export const history = createBrowserHistory() // export this as we will need it later
 ```
 
-### Step 2)
+<br>
+
+### Step 3)
 
 Pass the `history` object as an argument to `configureRouterHistory`. The returned reducer and middleware will be used to connect to the store.
 
@@ -76,7 +91,9 @@ import { configureRouterHistory } from 'react-router-redux-history'
 const { routerReducer, routerMiddleware } = configureRouterHistory(history)
 ```
 
-### Step 3)
+<br>
+
+### Step 4)
 
 Add the reducer and middleware to your store. If you are using Redux Toolkit it might look something like this:
 
@@ -95,7 +112,9 @@ const store = configureStore({
 export default store
 ```
 
-### Step 4)
+<br>
+
+### Step 5)
 
 Lastly, add either `<LocationListener history={history} />` or `useLocationListener(history)` somewhere at the root of your app.
 
@@ -122,8 +141,25 @@ const App = () => {
 **Note**: the `history` object provided to `configureRouterHistory` and `useLocationListener` / `LocationListener` must be the same `history` object !
 
 <br>
+<br>
 
-## ⏭️ Skip back / forward
+# Features
+
+This package comes with several built-in features.
+
+They helped us a lot in our projects and we hope they will help you too!
+
+<br>
+
+## 🌲 Persistent history <a id="persist"></a>
+
+History is persisted out of the box even after page refresh by leveraging local storage on page hide. 
+
+This helps provide a better user experience and allows you to build a more robust navigation system.
+
+<br>
+
+## ⏭️ Skip back / forward <a id="skip-back"></a>
 
 By setting a `skipBack` / `skipForward` flag on a specific route the user will be automatically skipped over certain routes.
 
@@ -140,50 +176,11 @@ In this example, every time the user will try to go back from *page_5* he will b
 
 <br>
 
-## 💪 Force current route to re-render
-
-Sometimes you might want to force the current route to re-render, a behaviour which is not possible out of the box with `react-router`.
-
-This can be achieved by selecting the `forceRender` state in the component you wish to re-render. Then simply 're-navigate' to the route while passing `forceRender: {}` in the state object. 
-
-*The `forceRender` flag can also be used as a dependency in order to re-trigger effects.*
-
-```javascript
-import { useSelector } from 'react-redux'
-import { selectForceRender } from 'react-redux-history'
-
-const Component = () => {
-    // The component will re-render every time the `forceRender` flag reference changes
-    const forceRender = useSelector(selectForceRender)
-    
-    useEffect(() => {
-      // do something
-    }, [ forceRender ])
-    
-    return (
-      <button onClick={() => {
-        history.push({
-          // By default `react-router` will not trigger re-rendering when the pathname is the same
-          pathname: 'current_pathname', 
-          state: { 
-            // Simply pass a new object to force re-rendering
-            forceRender: {} 
-          } 
-        })
-      }}>
-        Re-render
-      </button>
-    )
-}
-```
-
-<br>
-
-## ⛵ Navigate away
+## ⛵ Navigate away <a id="navigate-away"></a>
 
 We provide the `useNavigateAway` hook in order to intercept location changes before React gets a chance to paint them on screen.
 
-Historically, `react-router` provided a way to block user navigation. As it is an anti-pattern and provides a bad user experience it has been highly controversial, being removed just to be added back in later versions because lots of users relied on it.
+**Context:** Historically, react-router has provided a way to block user navigation. Even so, this is a bad practice and provides a bad experience for the user. More than that, it has been heavily misused. The feature was therefore removed and later added back because lots of users already relied on it.
 
 We do not endorse this approach, but we do understand that sometimes it is necessary. However, we suggest using this hook more as a solution to **manipulating** the navigation flow, rather than **blocking** it. An example would be replacing the next location or editing its state.
 
@@ -210,7 +207,7 @@ const Component = () => {
 }
 ```
 
-There is also a _component_ version of the hook. 
+There is also a _component_ version of the hook.
 
 It comes handy when dealing with libraries such as Formik and you need to pass Formik props to the hook:
 
@@ -238,25 +235,56 @@ const Component = () => {
 
 <br>
 
-## 🌲 Persistent history
+## 💪 Force current route to re-render <a id="force-render"></a>
 
-History is persisted even after page refresh by using local storage to save the state on page hide.
+Sometimes you might want to force the current route to re-render, a behaviour which is not possible out of the box with react-router.
+
+This can be achieved by selecting the `forceRender` state in the component you wish to re-render. Then simply 're-navigate' to the route while passing `forceRender: {}` in the state object. 
+
+```javascript
+import { useSelector } from 'react-redux'
+import { selectForceRender } from 'react-redux-history'
+
+const Component = () => {
+    // The component will re-render every time the `forceRender` flag reference changes
+    const forceRender = useSelector(selectForceRender)
+    
+    useEffect(() => {
+      // The flag can also be used as a dependency in order to re-trigger effects
+    }, [ forceRender ])
+    
+    return (
+      <button onClick={() => {
+        history.push({
+          // By default `react-router` will not trigger re-rendering when the pathname is the same
+          pathname: 'current_pathname', 
+          state: { 
+            // Simply pass a new object to force re-rendering
+            forceRender: {} 
+          } 
+        })
+      }}>
+        Re-render
+      </button>
+    )
+}
+```
 
 <br>
 
-## 🚦 Selectors for easy access
+## 🚦 Selectors for easy access <a id="selectors"></a>
 
 There are also a few useful selectors for easy access:
 
-- selectAction
-- selectIsSkipping
-- selectForceRender
-- selectLocationHistory
-- selectCurrentIndex
-- selectCurrentLocation
-- selectCurrentLocationState
-- selectPreviousLocation
-- selectNextLocation
+- `selectAction`
+- `selectIsSkipping`
+- `selectForceRender`
+- `selectLocationHistory`
+- `selectCurrentIndex`
+- `selectCurrentLocation`
+- `selectCurrentLocationState`
+- `selectPreviousLocation`
+- `selectNextLocation`
 
 <br><br><br>
 
@@ -283,3 +311,7 @@ There are also a few useful selectors for easy access:
 [13]: https://utilmond.com
 [14]: https://utilmond.com/about-us
 [15]: https://github.com/fum4/react-redux-history/issues
+[16]: https://github.com/fum4/react-redux-history/issues
+[17]: https://github.com/fum4/react-redux-history/issues
+[18]: https://github.com/fum4/react-redux-history/issues
+[19]: https://github.com/fum4/react-redux-history/issues
