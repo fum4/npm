@@ -148,6 +148,35 @@ This can be achieved by selecting the `forceRender` state in the component you w
 
 *The `forceRender` flag can also be used as a dependency in order to re-trigger effects.*
 
+```javascript
+import { useSelector } from 'react-redux'
+import { selectForceRender } from 'react-redux-history'
+
+const Component = () => {
+    // The component will re-render every time the `forceRender` flag reference changes
+    const forceRender = useSelector(selectForceRender)
+    
+    useEffect(() => {
+      // do something
+    }, [ forceRender ])
+    
+    return (
+      <button onClick={() => {
+        history.push({
+          // By default `react-router` will not trigger re-rendering when the pathname is the same
+          pathname: 'current_pathname', 
+          state: { 
+            // Simply pass a new object to force re-rendering
+            forceRender: {} 
+          } 
+        })
+      }}>
+        Re-render
+      </button>
+    )
+}
+```
+
 <br>
 
 ## ⛵ Navigate away
@@ -157,6 +186,55 @@ We provide the `useNavigateAway` hook in order to intercept location changes bef
 Historically, `react-router` provided a way to block user navigation. As it is an anti-pattern and provides a bad user experience it has been highly controversial, being removed just to be added back in later versions because lots of users relied on it.
 
 We do not endorse this approach, but we do understand that sometimes it is necessary. However, we suggest using this hook more as a solution to **manipulating** the navigation flow, rather than **blocking** it. An example would be replacing the next location or editing its state.
+
+```javascript
+import { useNavigateAway } from 'react-redux-history'
+import { history } from 'src/store'
+
+const Component = () => {
+  useNavigateAway(({ nextLocation, action, navigate }) => {
+    if (action === 'POP') {
+      const updatedLocation = {
+        ...nextLocation,
+        state: {
+          ...nextLocation.state,
+          someFlag: true
+        }
+      }
+
+      navigate(updatedLocation) 
+    }
+  }, history)
+  
+  // ...
+}
+```
+
+There is also a _component_ version of the hook. 
+
+It comes handy when dealing with libraries such as Formik and you need to pass Formik props to the hook:
+
+```javascript
+import { NavigateAway } from 'react-redux-history'
+import { history } from 'src/store'
+
+const Component = () => {
+  // ...
+  
+  return (
+    <Formik>
+      {(formikProps) => (
+        <NavigateAway
+          history={history}
+          callback={({ nextLocation, action, navigate }) => {
+            // Pass the Formik props to the callback
+          }}
+       />
+      )}
+    </Formik>
+  )
+}
+```
 
 <br>
 

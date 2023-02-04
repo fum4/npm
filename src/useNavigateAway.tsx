@@ -4,8 +4,8 @@ import type { Update, History } from 'history';
 
 import type { NavigateAwayProps, NavigateAwayCallback } from './types';
 
-export const NavigateAway = (props: NavigateAwayProps, history: History): null => {
-  useNavigateAway(props.callback, history);
+export const NavigateAway = ({ callback, history }: NavigateAwayProps): null => {
+  useNavigateAway(callback, history);
   return null;
 }
 
