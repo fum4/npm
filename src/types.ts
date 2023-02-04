@@ -61,7 +61,7 @@ export type SliceActions = CaseReducerActions<{
   back(state: AppRouterState, action: PayloadAction<Update | LocationChangePayload>): void;
   forward(state: AppRouterState, action: PayloadAction<Update | LocationChangePayload>): void;
   setSkipping(state: AppRouterState, action: PayloadAction<boolean>): void;
-}>
+}, 'router'>
 
 export interface LocationListenerProps {
   history: BrowserHistory;
