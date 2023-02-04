@@ -28,11 +28,13 @@ If you are in a rush though please [open an issue][15], this way we can prioriti
 
 📜 Saves all routing history in store and offers selectors for easy access
 
-🌲 History is persisted even after reloading the page
+🌲 History is persisted after reloading the page
+
+⏭️ Skipping screens capability out of the box just by passing a flag when navigating
 
 💪 Force current route to re-render capability
 
-⏭️ Skipping screens capability out of the box just by passing a flag when navigating
+⛵ Intercept location changes before they are rendered on screen
 
 👀 Everything you need to know about your navigation state and history directly in your favorite developer tools
 
@@ -145,6 +147,16 @@ Sometimes you might want to force the current route to re-render, a behaviour wh
 This can be achieved by selecting the `forceRender` state in the component you wish to re-render. Then simply 're-navigate' to the route while passing `forceRender: {}` in the state object. 
 
 *The `forceRender` flag can also be used as a dependency in order to re-trigger effects.*
+
+<br>
+
+## ⛵ Navigate away
+
+We provide the `useNavigateAway` hook in order to intercept location changes before React gets a chance to paint them on screen.
+
+Historically, `react-router` provided a way to block user navigation. As it is an anti-pattern and provides a bad user experience it has been highly controversial, being removed just to be added back in later versions because lots of users relied on it.
+
+We do not endorse this approach, but we do understand that sometimes it is necessary. However, we suggest using this hook more as a solution to **manipulating** the navigation flow, rather than **blocking** it. An example would be replacing the next location or editing its state.
 
 <br>
 
