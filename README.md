@@ -11,11 +11,14 @@
 
 # ⚛ Navigation history made easy!
 
-### A simple, lightweight library for managing navigation history in React and Redux.
+## A powerful, lightweight library for managing navigation history in React and Redux.
 
-#### Used in production by [Utilmond][13]. Check it out!
+### Used in production by [Utilmond][13]. Check it out!
 
 <br>
+
+## 🤔 Why this library? Read more about our motivation [here](#motivation).
+
 <br>
 
 ## 👌 Have any requests?
@@ -139,8 +142,7 @@ const App = () => {
 
 **Note**: the `history` object provided to `configureRouterHistory` and `useLocationListener` / `LocationListener` must be the same `history` object !
 
-<br>
-<br>
+<br><br>
 
 # Configuration
 
@@ -151,10 +153,9 @@ The following options are available:
 - `storageKey` - the key to use when saving the state to session storage. Defaults to `routerState`
 - `storageLimit` - the maximum number of entries to save in session storage. Defaults to `Infinity`
 
-<br>
-<br>
+<br><br>
 
-# Features
+# Features <a id="features"></a>
 
 This package comes with several built-in features.
 
@@ -297,6 +298,33 @@ There are also a few useful selectors for easy access:
 - `selectPreviousLocation`
 - `selectNextLocation`
 
+<br><br>
+
+
+# Why this library? <a id="motivation"></a>
+
+### TL;DR: Persistence, features, redux-first is a myth
+
+<br>
+
+We provide an **easy** and **reliable** way to handle your navigation history using Redux, learning from shortcomings we faced using other libraries such as [connected-react-router][17] or [redux-first-history][18].
+
+Beside offering a more **robust**, **lightweight** and **reliable** solution, we also provide a few extra features that we found useful in our projects. They are documented in the [sections above](#features).
+
+Some of these features are not possible to implement using other libraries, mainly because they do not provide a way to properly persist the history state. 
+This is indeed not a straightforward job. The browser navigation API is **very restrictive** and offers too little information to reliably calculate the history state 100% of the time.
+
+While this might seem like a strong enough reason to not implement this feature we believe that sometimes, in order to provide a better user experience, it is a **must-have**.
+This package will provide a reliable and consistent history state, even after page refreshes.
+Even though it is technically possible, it is **highly** improbable to mess with it, even for bad actors actively trying to break it. 
+A specific combination of page refreshes and manual url manipulations is required in order to do so and we guarantee this cannot happen in a real world scenario by accident :)
+
+Apart from this, which for us was a strong enough reason to build this package in the first place, some libraries such as [connected-react-router][17] are not compatible with the latest versions of _react-router_.
+Other libraries such as [redux-first-history][18] prefer a "redux-first" approach which we do not endorse. Why? Because there is no such thing as "redux-first" when it comes to browser navigation. 
+As long as users directly interact with browser navigation buttons the browser is in charge of the history, not your app. This inevitably raises false expectations and possibly unexpected behaviour.
+
+We hope you find value in our proposition and our work. If you have any questions or suggestions please feel free to open [an issue][15] or a [PR][16].
+
 <br><br><br>
 
 ### Huge thanks going to [Utilmond team][14] for making this possible! 🍻
@@ -322,7 +350,6 @@ There are also a few useful selectors for easy access:
 [13]: https://utilmond.com
 [14]: https://utilmond.com/about-us
 [15]: https://github.com/fum4/react-redux-history/issues
-[16]: https://github.com/fum4/react-redux-history/issues
-[17]: https://github.com/fum4/react-redux-history/issues
-[18]: https://github.com/fum4/react-redux-history/issues
-[19]: https://github.com/fum4/react-redux-history/issues
+[16]: https://github.com/fum4/react-redux-history/pulls
+[17]: https://www.npmjs.com/package/connected-react-router
+[18]: https://www.npmjs.com/package/redux-first-history

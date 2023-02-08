@@ -23,7 +23,12 @@
     "navigation",
     "navigate",
     "away",
-    "block"
+    "block",
+    "react-router",
+    "connected",
+    "connected-react-router",
+    "redux-history",
+    "redux-first-history"
   ],
   "author": "fum4",
   "license": "MIT",
