@@ -164,7 +164,7 @@ They helped us a lot in our projects and we hope they will help you too!
 
 ## 🌲 Persistent history <a id="persist"></a>
 
-History is persisted out of the box after page refresh by leveraging local storage on page hide. 
+History is persisted out of the box after page refresh by leveraging session storage on page hide. 
 
 This helps provide a better user experience and allows you to build a more robust navigation system.
 
