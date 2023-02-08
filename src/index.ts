@@ -4,8 +4,14 @@ import createRouterMiddleware from './middleware';
 import createRouterSlice from './slice';
 import type { Options } from './types';
 
-export const configureRouterHistory = (history: History, { storageKey = 'routerState' } = {} as Partial<Options>) => {
-  const { routerReducer, routerActions } = createRouterSlice(history, { storageKey });
+export const configureRouterHistory = (
+  history: History,
+  {
+    storageKey = 'routerState',
+    storageLimit = Infinity
+  } = {} as Partial<Options>
+) => {
+  const { routerReducer, routerActions } = createRouterSlice(history, { storageKey, storageLimit });
   const routerMiddleware = createRouterMiddleware(history, routerActions);
 
   return {

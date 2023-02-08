@@ -10,7 +10,7 @@ import {
   isNextRoute
 } from './helpers'
 
-const getInitialState = (history: History, { storageKey }: Options): AppRouterState => {
+const getInitialState = (history: History, { storageKey, storageLimit }: Options): AppRouterState => {
   const location = parseLocation(history.location);
   const defaultState: AppRouterState = {
     action: ActionTypes.Push,
@@ -50,7 +50,7 @@ const getInitialState = (history: History, { storageKey }: Options): AppRouterSt
     initialState.isSkipping = false;
   }
 
-  persistOnPageHide(initialState, { storageKey });
+  persistOnPageHide(initialState, { storageKey, storageLimit });
 
   return initialState;
 };

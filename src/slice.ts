@@ -13,10 +13,10 @@ import {
   ActionTypes
 } from './types';
 
-const createRouterSlice = (history: History, { storageKey }: Options) => {
+const createRouterSlice = (history: History, { storageKey, storageLimit }: Options) => {
   const routerSlice = createSlice({
     name: 'router',
-    initialState: getInitialState(history, { storageKey }),
+    initialState: getInitialState(history, { storageKey, storageLimit }),
     reducers: {
       push: (state: AppRouterState, action: LocationChangeAction) => {
         const newLocation = parseLocation(action.payload.location);
@@ -25,7 +25,7 @@ const createRouterSlice = (history: History, { storageKey }: Options) => {
         state.action = ActionTypes.Push;
         state.locationHistory.splice(state.currentIndex, state.locationHistory.length, newLocation);
 
-        persistOnPageHide(current(state), { storageKey });
+        persistOnPageHide(current(state), { storageKey, storageLimit });
       },
       replace: (state: AppRouterState, action: LocationChangeAction) => {
         const newLocation = parseLocation(action.payload.location);
@@ -45,7 +45,7 @@ const createRouterSlice = (history: History, { storageKey }: Options) => {
 
         delete state.locationHistory[state.currentIndex].state.forceRender;
 
-        persistOnPageHide(current(state), { storageKey });
+        persistOnPageHide(current(state), { storageKey, storageLimit });
       },
       back: (state: AppRouterState, action: PayloadAction<LocationChangePayload>) => {
         const { nextLocationIndex, isSkipping = false } = action.payload;
@@ -69,7 +69,7 @@ const createRouterSlice = (history: History, { storageKey }: Options) => {
 
         delete state.locationHistory[nextLocationIndex].state.forceRender;
 
-        persistOnPageHide(current(state), { storageKey });
+        persistOnPageHide(current(state), { storageKey, storageLimit });
       },
       forward: (state: AppRouterState, action: PayloadAction<LocationChangePayload>) => {
         const { nextLocationIndex, isSkipping = false } = action.payload;
@@ -93,12 +93,12 @@ const createRouterSlice = (history: History, { storageKey }: Options) => {
 
         delete state.locationHistory[nextLocationIndex].state.forceRender;
 
-        persistOnPageHide(current(state), { storageKey });
+        persistOnPageHide(current(state), { storageKey, storageLimit });
       },
       setSkipping: (state: AppRouterState, action: PayloadAction<boolean>) => {
         state.isSkipping = action.payload;
 
-        persistOnPageHide(current(state), { storageKey });
+        persistOnPageHide(current(state), { storageKey, storageLimit });
       },
     },
   });

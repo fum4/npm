@@ -82,4 +82,5 @@ export interface NavigateAwayProps {
 
 export interface Options {
   storageKey: string;
+  storageLimit: number;
 }

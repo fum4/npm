@@ -69,39 +69,32 @@ npm install react-redux-history react react-redux react-router history
 
 ### Step 2)
 
-Create a history object:
+Create a `history` object and pass it to `configureRouterHistory`. The returned reducer and middleware will be used to connect to the store.
 
 ```javascript
 // store.js
 import { createBrowserHistory } from 'history'
+import { configureRouterHistory } from 'react-redux-history'
 
 export const history = createBrowserHistory() // export this as we will need it later
+
+// optional, defaults are listed below
+const options = {
+  storageKey: 'routerState',
+  storageLimit: Infinity,
+}
+
+const { 
+  routerReducer, 
+  routerMiddleware 
+} = configureRouterHistory(history, options)
 ```
 
 <br>
 
 ### Step 3)
 
-Pass the `history` object as an argument to `configureRouterHistory`. The returned reducer and middleware will be used to connect to the store.
-
-```javascript
-// store.js
-import { configureRouterHistory } from 'react-redux-history'
-
-// optional, defaults are listed below
-const options = {
-  // what key to use for session storage entry
-  storageKey: 'routerState'
-}
-
-const { routerReducer, routerMiddleware } = configureRouterHistory(history, options)
-```
-
-<br>
-
-### Step 4)
-
-Add the reducer and middleware to your store. If you are using Redux Toolkit it might look something like this:
+Add the reducer and middleware to your store. If you are using Redux Toolkit it should look something like this:
 
 ```javascript
 // store.js
@@ -120,7 +113,7 @@ export default store
 
 <br>
 
-### Step 5)
+### Step 4)
 
 Lastly, add either `<LocationListener history={history} />` or `useLocationListener(history)` somewhere at the root of your app.
 
@@ -145,6 +138,18 @@ const App = () => {
 ```
 
 **Note**: the `history` object provided to `configureRouterHistory` and `useLocationListener` / `LocationListener` must be the same `history` object !
+
+<br>
+<br>
+
+# Configuration
+
+The middleware can be configured by passing an options object as the second argument to `configureRouterHistory`. 
+
+The following options are available:
+
+- `storageKey` - the key to use when saving the state to session storage. Defaults to `routerState`
+- `storageLimit` - the maximum number of entries to save in session storage. Defaults to `Infinity`
 
 <br>
 <br>

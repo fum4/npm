@@ -2,17 +2,22 @@ import type { AppRouterState, Options } from './types';
 
 let pageHideListener;
 
-const saveToSessionStorage = (state: Readonly<AppRouterState>, { storageKey }: Options) => {
-  sessionStorage.setItem(storageKey, JSON.stringify(state));
+const saveToSessionStorage = (state: Readonly<AppRouterState>, { storageKey, storageLimit }: Options) => {
+  sessionStorage.setItem(storageKey, JSON.stringify({
+    ...state,
+    locationHistory: state.locationHistory.slice(-storageLimit)
+  }));
 };
 
-export const persistOnPageHide = (state: Readonly<AppRouterState>, { storageKey }: Options) => {
-  if (pageHideListener) {
-    window.removeEventListener('pagehide', pageHideListener);
-  }
+export const persistOnPageHide = (state: Readonly<AppRouterState>, { storageKey, storageLimit }: Options) => {
+  if (storageLimit) {
+    if (pageHideListener) {
+      window.removeEventListener('pagehide', pageHideListener);
+    }
 
-  pageHideListener = () => saveToSessionStorage(state, { storageKey });
-  window.addEventListener('pagehide', pageHideListener, { once: true });
+    pageHideListener = () => saveToSessionStorage(state, { storageKey, storageLimit });
+    window.addEventListener('pagehide', pageHideListener, { once: true });
+  }
 };
 
 export const getSessionState = (storageKey: string): AppRouterState => {
