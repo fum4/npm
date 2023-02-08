@@ -1,10 +1,10 @@
 import { useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import type { BrowserHistory, Update } from 'history';
+import type { History, Update } from 'history';
 
 import { LOCATION_CHANGE, type LocationListenerProps } from './types';
 
-export const useLocationListener = (history: BrowserHistory) => {
+export const useLocationListener = (history: History) => {
   const dispatch = useDispatch();
 
   useLayoutEffect(() => {

@@ -1,23 +1,25 @@
-import type { AppRouterState } from './types';
+import type { AppRouterState, Options } from './types';
 
 let pageHideListener;
 
-const saveToSessionStorage = (state: Readonly<AppRouterState>): void => sessionStorage.setItem('routerState', JSON.stringify(state));
+const saveToSessionStorage = (state: Readonly<AppRouterState>, { storageKey }: Options) => {
+  sessionStorage.setItem(storageKey, JSON.stringify(state));
+};
 
-export const persistOnPageHide = (state: Readonly<AppRouterState>): void => {
+export const persistOnPageHide = (state: Readonly<AppRouterState>, { storageKey }: Options) => {
   if (pageHideListener) {
     window.removeEventListener('pagehide', pageHideListener);
   }
 
-  pageHideListener = () => saveToSessionStorage(state);
+  pageHideListener = () => saveToSessionStorage(state, { storageKey });
   window.addEventListener('pagehide', pageHideListener, { once: true });
 };
 
-export const getSessionState = (): AppRouterState => {
+export const getSessionState = (storageKey: string): AppRouterState => {
   let sessionRouterState: AppRouterState;
 
   try {
-    const serializedSessionRouterState = sessionStorage.getItem('routerState');
+    const serializedSessionRouterState = sessionStorage.getItem(storageKey);
 
     sessionRouterState = serializedSessionRouterState && JSON.parse(serializedSessionRouterState);
 

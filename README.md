@@ -86,9 +86,15 @@ Pass the `history` object as an argument to `configureRouterHistory`. The return
 
 ```javascript
 // store.js
-import { configureRouterHistory } from 'react-router-redux-history'
+import { configureRouterHistory } from 'react-redux-history'
 
-const { routerReducer, routerMiddleware } = configureRouterHistory(history)
+// optional, defaults are listed below
+const options = {
+  // what key to use for session storage entry
+  storageKey: 'routerState'
+}
+
+const { routerReducer, routerMiddleware } = configureRouterHistory(history, options)
 ```
 
 <br>

@@ -1,6 +1,6 @@
 import type { NavigateFunction } from 'react-router';
 import type { CaseReducerActions, PayloadAction } from '@reduxjs/toolkit';
-import type { BrowserHistory, Action, Location, Update, History } from 'history';
+import type { Action, Location, Update, History } from 'history';
 
 export enum ActionTypes {
   Push = 'PUSH',
@@ -64,7 +64,7 @@ export type SliceActions = CaseReducerActions<{
 }, 'router'>
 
 export interface LocationListenerProps {
-  history: BrowserHistory;
+  history: History;
 }
 
 export type NavigateAwayCallback = ({ action, nextLocation }: NavigateAwayCallbackParams) => void;
@@ -78,4 +78,8 @@ export interface NavigateAwayCallbackParams {
 export interface NavigateAwayProps {
   callback: NavigateAwayCallback;
   history: History;
+}
+
+export interface Options {
+  storageKey: string;
 }

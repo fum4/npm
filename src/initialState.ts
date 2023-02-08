@@ -1,7 +1,7 @@
-import type { BrowserHistory } from 'history';
+import type { History } from 'history';
 
 import { persistOnPageHide, getSessionState } from './persist';
-import { ActionTypes, type AppRouterState } from './types';
+import { ActionTypes, type AppRouterState, type Options } from './types';
 
 import {
   parseLocation,
@@ -10,7 +10,7 @@ import {
   isNextRoute
 } from './helpers'
 
-const getInitialState = (history: BrowserHistory): AppRouterState => {
+const getInitialState = (history: History, { storageKey }: Options): AppRouterState => {
   const location = parseLocation(history.location);
   const defaultState: AppRouterState = {
     action: ActionTypes.Push,
@@ -19,7 +19,7 @@ const getInitialState = (history: BrowserHistory): AppRouterState => {
     isSkipping: false,
   };
 
-  const sessionRouterState = getSessionState();
+  const sessionRouterState = getSessionState(storageKey);
   const initialState = sessionRouterState || defaultState;
 
   if (sessionRouterState) {
@@ -50,7 +50,7 @@ const getInitialState = (history: BrowserHistory): AppRouterState => {
     initialState.isSkipping = false;
   }
 
-  persistOnPageHide(initialState);
+  persistOnPageHide(initialState, { storageKey });
 
   return initialState;
 };
