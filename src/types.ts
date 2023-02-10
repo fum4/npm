@@ -50,6 +50,11 @@ export interface LocationChangePayload<S = LocationState> extends AppRouterState
 
 export const LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
 
+export interface DispatchedLocationChangeAction {
+  type: Action;
+  payload: Location | { delta: number };
+}
+
 export interface LocationChangeAction {
   type: typeof LOCATION_CHANGE;
   payload: Update | LocationChangePayload;

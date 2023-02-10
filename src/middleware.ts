@@ -1,26 +1,20 @@
-import { Action, type History } from 'history';
+import { Action, type History, type Location } from 'history';
 import type { Middleware } from 'redux';
 
-import { findIndex } from './helpers';
+import { selectCurrentIndex, selectCurrentLocationState, selectIsSkipping, selectLocationHistory } from './selectors';
+import { findIndex, isBackAction, isForwardAction } from './helpers';
 
 import {
-  selectLocationHistory,
-  selectIsSkipping,
-  selectCurrentIndex,
-  selectCurrentLocationState
-} from './selectors';
-
-import {
-  type SliceActions,
+  LOCATION_CHANGE,
+  type DispatchedLocationChangeAction,
   type LocationChangeAction,
   type LocationChangePayload,
-  LOCATION_CHANGE
+  type SliceActions
 } from './types';
 
-import { isForwardAction, isBackAction } from './helpers';
-
 const createRouterMiddleware = (historyApi: History, sliceActions: SliceActions): Middleware => {
-  return (store) => (next) => (action: LocationChangeAction) => {
+  return (store) => (next) => (action: LocationChangeAction | DispatchedLocationChangeAction) => {
+    // If the action is a location change, we need to update the store
     if (action.type === LOCATION_CHANGE) {
       const { payload: { action: routerAction, location } } = action;
       const { push, replace, forward, back, setSkipping } = sliceActions;
@@ -98,6 +92,27 @@ const createRouterMiddleware = (historyApi: History, sliceActions: SliceActions)
             return setTimeout(() => next(setSkipping(false)));
           }
         }
+      }
+    }
+
+    // If the action is a **dispatched** location change, we need to update the history
+    if (typeof action.type === typeof Action) {
+      if (action.type === Action.Push) {
+        const { state, ...location } = action.payload as Location;
+
+        historyApi.push(location, state);
+      }
+
+      if (action.type === Action.Replace) {
+        const { state, ...location } = action.payload as Location;
+
+        historyApi.replace(location, state);
+      }
+
+      if (action.type === Action.Pop) {
+        const { delta } = action.payload as { delta: number };
+
+        historyApi.go(delta);
       }
     }
 
