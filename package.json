@@ -1,12 +1,12 @@
 {
   "name": "react-redux-history",
-  "version": "1.3.0",
+  "version": "1.4.0-0",
   "description": "Navigation history made easy",
   "main": "lib/index.js",
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "prepare" : "npm run build",
+    "prepare": "npm run build",
     "prebuild": "rimraf lib",
     "build": "rm -rf lib && NODE_ENV=production tsc",
     "release": "release-it"
