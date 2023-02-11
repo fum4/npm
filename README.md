@@ -188,7 +188,7 @@ In this example, every time the user will try to go back from *page_5* he will b
 
 We provide the `useNavigateAway` hook in order to intercept location changes before React gets a chance to paint them on screen.
 
-**Context:** Historically, react-router has provided a way to block user navigation. Even so, this is a bad practice and provides a bad experience for the user. More than that, it has been heavily misused. The feature was therefore removed and later added back because lots of users already relied on it.
+**Context:** Historically, react-router has provided a way to block user navigation. Even so, this is a bad practice and provides a bad experience to the user. More than that, it has been heavily misused. The feature was therefore removed and added back later because lots of users already relied on it.
 
 We do not endorse this approach, but we do understand that sometimes it is necessary. However, we suggest using this hook more as a solution to **manipulating** the navigation flow, rather than **blocking** it. An example would be replacing the next location or editing its state.
 

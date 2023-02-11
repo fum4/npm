@@ -4,10 +4,16 @@
   "description": "Navigation history made easy",
   "main": "lib/index.js",
   "module": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
+    "prepare" : "npm run build",
+    "prebuild": "rimraf lib",
     "build": "rm -rf lib && NODE_ENV=production tsc",
     "release": "release-it"
   },
+  "files": [
+    "lib/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fum4/react-redux-history.git"
@@ -55,6 +61,7 @@
     "@types/react-redux": "^7.1.25",
     "@types/react-router": "^5.1.20",
     "release-it": "^15.5.1",
+    "rimraf": "^4.1.2",
     "typescript": "^4.7.4"
   }
 }
