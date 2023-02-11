@@ -2,6 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node",
     "lib": [
       "dom",
       "dom.iterable",
@@ -10,7 +12,8 @@
     "outDir": "lib",
     "jsx": "react",
     "allowJs": true,
-    "esModuleInterop": true,
+    "declaration": true,
+    "esModuleInterop": true
   },
   "include": [ "src/**/*" ],
   "exclude": [ "node_modules" ]

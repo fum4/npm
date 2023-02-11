@@ -11,13 +11,9 @@
 
 # ⚛ Navigation history made easy!
 
-## A powerful, lightweight library for managing navigation history in React and Redux.
+## A lightweight library for managing navigation history in React and Redux.
 
 ### Used in production by [Utilmond][13]. Check it out!
-
-<br>
-
-## 🤔 Why this library? Read more about our motivation [here](#motivation).
 
 <br>
 
@@ -153,6 +149,12 @@ The following options are available:
 - `storageKey` - the key to use when saving the state to session storage. Defaults to `routerState`
 - `storageLimit` - the maximum number of entries to save in session storage. Defaults to `Infinity`
 
+<br>
+
+**Be careful when limiting session storage entries**. The user is still able to go back to previous pages even if they are not saved in session storage. This can cause unexpected behaviour on page reload, especially if you use `skipBack` / `skipForward` or similar logic that alters the navigation flow.
+
+We recommend leaving it as `Infinity` unless you have a good reason to limit it. If you do need to limit it though, we suggest choosing a large enough value such that users cannot easily manage to get past it.
+
 <br><br>
 
 # Features <a id="features"></a>
@@ -192,7 +194,7 @@ In this example, every time the user will try to go back from *page_5* he will b
 
 We provide the `useNavigateAway` hook in order to intercept location changes before React gets a chance to paint them on screen.
 
-**Context:** Historically, react-router has provided a way to block user navigation. Even so, this is a bad practice and provides a bad experience for the user. More than that, it has been heavily misused. The feature was therefore removed and later added back because lots of users already relied on it.
+**Context:** Historically, react-router has provided a way to block user navigation. Even so, this is a bad practice and provides a bad experience to the user. More than that, it has been heavily misused. The feature was therefore removed and added back later because lots of users already relied on it.
 
 We do not endorse this approach, but we do understand that sometimes it is necessary. However, we suggest using this hook more as a solution to **manipulating** the navigation flow, rather than **blocking** it. An example would be replacing the next location or editing its state.
 
