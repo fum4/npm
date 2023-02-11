@@ -5,6 +5,7 @@ let pageHideListener;
 const saveToSessionStorage = (state: Readonly<AppRouterState>, { storageKey, storageLimit }: Options) => {
   sessionStorage.setItem(storageKey, JSON.stringify({
     ...state,
+    currentIndex: Math.min(state.currentIndex, storageLimit - 1 - (state.locationHistory.length - 1 - state.currentIndex)),
     locationHistory: state.locationHistory.slice(-storageLimit)
   }));
 };

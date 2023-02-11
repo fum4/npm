@@ -149,6 +149,10 @@ The following options are available:
 - `storageKey` - the key to use when saving the state to session storage. Defaults to `routerState`
 - `storageLimit` - the maximum number of entries to save in session storage. Defaults to `Infinity`
 
+Be careful when limiting session storage entries. The user is still able to go back to previous pages even if they are not saved in session storage. This can cause unexpected behaviour on page reload, especially if you use `skipBack` / `skipForward` or similar logic that alters the navigation flow.
+
+We recommend leaving it at `Infinity` unless you have a good reason to limit it. If you do need to limit it though, we suggest choosing a large enough value such that users cannot easily manage to get past it.
+
 <br><br>
 
 # Features <a id="features"></a>

@@ -8,7 +8,7 @@
   "scripts": {
     "prepare": "npm run build",
     "prebuild": "rimraf lib",
-    "build": "rm -rf lib && NODE_ENV=production tsc",
+    "build": "NODE_ENV=production tsc",
     "release": "release-it"
   },
   "files": [

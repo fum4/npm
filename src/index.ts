@@ -23,3 +23,4 @@ export const configureRouterHistory = (
 export * from './selectors';
 export * from './LocationListener';
 export * from './useNavigateAway';
+export * from './types';
