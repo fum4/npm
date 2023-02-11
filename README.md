@@ -17,10 +17,6 @@
 
 <br>
 
-## 🤔 Why this library? Read more about our motivation [here](#motivation).
-
-<br>
-
 ## 👌 Have any requests?
 
 For any requests such as new features, compatibility with other routing libraries or environments such as Cordova please [open a GitHub issue][15]. 
@@ -297,33 +293,6 @@ There are also a few useful selectors for easy access:
 - `selectCurrentLocationState`
 - `selectPreviousLocation`
 - `selectNextLocation`
-
-<br><br>
-
-
-# Why this library? <a id="motivation"></a>
-
-### TL;DR: Persistence, features, redux-first is a myth
-
-<br>
-
-We provide an **easy** and **reliable** way to handle your navigation history using Redux, learning from shortcomings we faced using other libraries such as [connected-react-router][17] or [redux-first-history][18].
-
-Beside offering a more **robust**, **lightweight** and **reliable** solution, we also provide a few extra features that we found useful in our projects. They are documented in the [sections above](#features).
-
-Some of these features are not possible to implement using other libraries, mainly because they do not provide a way to properly persist the history state. 
-This is indeed not a straightforward job. The browser navigation API is **very restrictive** and offers too little information to reliably calculate the history state 100% of the time.
-
-While this might seem like a strong enough reason to not implement this feature we believe that sometimes, in order to provide a better user experience, it is a **must-have**.
-This package will provide a reliable and consistent history state, even after page refreshes.
-Even though it is technically possible, it is **highly** improbable to mess with it, even for bad actors actively trying to break it. 
-A specific combination of page refreshes and manual url manipulations is required in order to do so and we guarantee this cannot happen in a real world scenario by accident :)
-
-Apart from this, which for us was a strong enough reason to build this package in the first place, some libraries such as [connected-react-router][17] are not compatible with the latest versions of _react-router_.
-Other libraries such as [redux-first-history][18] prefer a "redux-first" approach which we do not endorse. Why? Because there is no such thing as "redux-first" when it comes to browser navigation. 
-As long as users directly interact with browser navigation buttons the browser is in charge of the history, not your app. This inevitably raises false expectations and possibly unexpected behaviour.
-
-We hope you find value in our proposition and our work. If you have any questions or suggestions please feel free to open [an issue][15] or a [PR][16].
 
 <br><br><br>
 
