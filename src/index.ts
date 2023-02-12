@@ -20,6 +20,7 @@ export const configureRouterHistory = (
   };
 }
 
+export * from './actions';
 export * from './selectors';
 export * from './LocationListener';
 export * from './useNavigateAway';
