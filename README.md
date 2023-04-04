@@ -310,6 +310,12 @@ There are also a few useful selectors for easy access:
 [![redux][9]][10]
 [![react-router][11]][12]
 
+<br>
+
+## 🏅 Sponsors
+
+<img alt="Sponsor - JetBrains" width="250px" height="250px" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png?_ga=2.63300143.1068496944.1680591996-1938842262.1680591996" />
+
 [1]: https://img.shields.io/maintenance/yes/2030
 [2]: https://img.shields.io/bundlephobia/min/react-redux-history
 [3]: https://img.shields.io/npm/v/react-redux-history?color=white
