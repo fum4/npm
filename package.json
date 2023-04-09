@@ -12,8 +12,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@react-redux-history/eslint-config": "workspace:*",
     "eslint": "latest",
-    "eslint-config-custom": "workspace:*",
     "prettier": "latest",
     "turbo": "latest"
   },
