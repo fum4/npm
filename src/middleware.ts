@@ -1,30 +1,31 @@
-import { Action, type History, type Location } from 'history';
+import { type History, Action } from 'history';
 import type { Middleware } from 'redux';
 
 import { selectCurrentIndex, selectCurrentLocationState, selectIsSkipping, selectLocationHistory } from './selectors';
 import { findIndex, isBackAction, isForwardAction } from './helpers';
 
 import {
-  LOCATION_CHANGE,
-  type DispatchedLocationChangeAction,
-  type LocationChangeAction,
-  type LocationChangePayload,
+  LOCATION_CHANGED,
+  LOCATION_CHANGE_REQUEST,
+  type LocationChangeRequestAction,
+  type LocationChangedAction,
   type SliceActions
 } from './types';
 
-const createRouterMiddleware = (historyApi: History, sliceActions: SliceActions): Middleware => {
-  return (store) => (next) => (action: LocationChangeAction | DispatchedLocationChangeAction) => {
-    // If the action is a location change, we need to update the store
-    if (action.type === LOCATION_CHANGE) {
-      const { payload: { action: routerAction, location } } = action;
-      const { push, replace, forward, back, setSkipping } = sliceActions;
+const createRouterMiddleware = (historyApi: History, sliceActions: SliceActions): Middleware => (
+  (store) => (next) => (action: LocationChangedAction | LocationChangeRequestAction) => {
+    // Listen for history changes and update the store
+    if (action.type === LOCATION_CHANGED) {
+      const { payload: { type, location } } = action;
 
-      switch (routerAction) {
+      switch (type) {
         case Action.Push:
-          return next(push(action.payload));
+          // @ts-ignore
+          return next(sliceActions.push(location));
 
         case Action.Replace:
-          return next(replace(action.payload));
+          // @ts-ignore
+          return next(sliceActions.replace(location));
 
         case Action.Pop: {
           const state = store.getState();
@@ -32,7 +33,6 @@ const createRouterMiddleware = (historyApi: History, sliceActions: SliceActions)
           const isSkipping = selectIsSkipping(state);
           const currentIndex = selectCurrentIndex(state);
           const { skipForward, skipBack } = selectCurrentLocationState(state);
-          const payload: LocationChangePayload = { ...action.payload } as LocationChangePayload;
 
           if (isForwardAction(location, history, currentIndex)) {
             const nextLocationIndex = skipForward ? (
@@ -49,16 +49,16 @@ const createRouterMiddleware = (historyApi: History, sliceActions: SliceActions)
 
             // How many routes left to skip in order to reach the target one.
             // Keep in mind that one transition has already been made by clicking the forward button
-            const routesToSkip = skipForward && nextLocationIndex - currentIndex - 1;
+            const routesToSkip = skipForward ? nextLocationIndex - currentIndex - 1 : 0;
 
             if (routesToSkip) {
               historyApi.go(routesToSkip);
             }
 
-            payload.isSkipping = !!routesToSkip;
-            payload.nextLocationIndex = nextLocationIndex;
-
-            return next(forward(payload));
+            return next(sliceActions.forward({
+              isSkipping: Boolean(routesToSkip),
+              nextLocationIndex,
+            }));
           }
 
           if (isBackAction(location, history, currentIndex)) {
@@ -76,48 +76,48 @@ const createRouterMiddleware = (historyApi: History, sliceActions: SliceActions)
 
             // How many routes left to skip in order to reach the target one.
             // Keep in mind that one transition has already been made by clicking the back button
-            const routesToSkip = skipBack && nextLocationIndex - currentIndex + 1;
+            const routesToSkip = skipBack ? nextLocationIndex - currentIndex + 1 : 0;
 
             if (routesToSkip) {
               historyApi.go(routesToSkip);
             }
 
-            payload.isSkipping = !!routesToSkip;
-            payload.nextLocationIndex = nextLocationIndex;
-
-            return next(back(payload));
+            return next(sliceActions.back({
+              isSkipping: Boolean(routesToSkip),
+              nextLocationIndex,
+            }));
           }
 
           if (isSkipping) {
-            return setTimeout(() => next(setSkipping(false)));
+            return setTimeout(() => next(sliceActions.setSkipping(false)));
           }
         }
       }
     }
 
-    // If the action is a **dispatched** location change, we need to update the history
-    if (typeof action.type === typeof Action) {
-      if (action.type === Action.Push) {
-        const { state, ...location } = action.payload as Location;
+    // Listen for location change requests and update history
+    if (action.type === LOCATION_CHANGE_REQUEST) {
+      const { payload: { type, location, delta } } = action;
 
-        historyApi.push(location, state);
-      }
+      switch (type) {
+        case Action.Push: {
+          const { state, ...locationWithoutState } = location;
 
-      if (action.type === Action.Replace) {
-        const { state, ...location } = action.payload as Location;
+          return historyApi.push(locationWithoutState, state);
+        }
+        case Action.Replace: {
+          const { state, ...locationWithoutState } = location;
 
-        historyApi.replace(location, state);
-      }
-
-      if (action.type === Action.Pop) {
-        const { delta } = action.payload as { delta: number };
-
-        historyApi.go(delta);
+          return historyApi.replace(locationWithoutState, state);
+        }
+        case Action.Pop: {
+          return historyApi.go(delta);
+        }
       }
     }
 
     return next(action);
-  };
-};
+  }
+);
 
 export default createRouterMiddleware;

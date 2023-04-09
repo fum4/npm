@@ -1,53 +1,46 @@
-import { createSlice, current, type PayloadAction } from '@reduxjs/toolkit';
-import type { History } from 'history';
+import { type PayloadAction, createSlice, current } from '@reduxjs/toolkit';
+import type { Location, History } from 'history';
 
 import getInitialState from './initialState';
 import { persistOnPageHide } from './persist';
 import { parseLocation } from './helpers';
+import { type AppRouterState, type Options, ActionTypes } from './types';
 
-import {
-  type AppRouterState,
-  type LocationChangeAction,
-  type LocationChangePayload,
-  type Options,
-  ActionTypes
-} from './types';
-
-const createRouterSlice = (history: History, { storageKey, storageLimit }: Options) => {
-  const routerSlice = createSlice({
+const createRouterSlice = (history: History, { storageKey, storageLimit }: Options) => (
+  createSlice({
     name: 'router',
     initialState: getInitialState(history, { storageKey, storageLimit }),
     reducers: {
-      push: (state: AppRouterState, action: LocationChangeAction) => {
-        const newLocation = parseLocation(action.payload.location);
+      push: (state: AppRouterState, action: PayloadAction<Location>) => {
+        const location = parseLocation(action.payload);
 
         state.currentIndex += 1;
         state.action = ActionTypes.Push;
-        state.locationHistory.splice(state.currentIndex, state.locationHistory.length, newLocation);
+        state.locationHistory.splice(state.currentIndex, state.locationHistory.length, location);
 
         persistOnPageHide(current(state), { storageKey, storageLimit });
       },
-      replace: (state: AppRouterState, action: LocationChangeAction) => {
-        const newLocation = parseLocation(action.payload.location);
+      replace: (state: AppRouterState, action: PayloadAction<Location>) => {
+        const location = parseLocation(action.payload);
         // Copy skip flags when replacing in case they are not overwritten by new state
         const { skipBack, skipForward } = state.locationHistory[state.currentIndex].state;
 
-        if (!newLocation.state?.skipBack && skipBack) {
-          newLocation.state = { ...newLocation.state, skipBack };
+        if (!location.state?.skipBack && skipBack) {
+          location.state = { ...location.state, skipBack };
         }
 
-        if (!newLocation.state?.skipForward && skipForward) {
-          newLocation.state = { ...newLocation.state, skipForward };
+        if (!location.state?.skipForward && skipForward) {
+          location.state = { ...location.state, skipForward };
         }
 
         state.action = ActionTypes.Replace;
-        state.locationHistory.splice(state.currentIndex, 1, newLocation);
+        state.locationHistory.splice(state.currentIndex, 1, location);
 
         delete state.locationHistory[state.currentIndex].state.forceRender;
 
         persistOnPageHide(current(state), { storageKey, storageLimit });
       },
-      back: (state: AppRouterState, action: PayloadAction<LocationChangePayload>) => {
+      back: (state: AppRouterState, action: PayloadAction<{ nextLocationIndex: number, isSkipping: boolean }>) => {
         const { nextLocationIndex, isSkipping = false } = action.payload;
 
         if (isSkipping) {
@@ -59,7 +52,7 @@ const createRouterSlice = (history: History, { storageKey, storageLimit }: Optio
             skipForward,
           };
         } else {
-          // Delete the flag when it is no longer accurate
+          // Delete flag when no longer accurate
           delete state.locationHistory[nextLocationIndex].state?.skipForward;
         }
 
@@ -71,7 +64,7 @@ const createRouterSlice = (history: History, { storageKey, storageLimit }: Optio
 
         persistOnPageHide(current(state), { storageKey, storageLimit });
       },
-      forward: (state: AppRouterState, action: PayloadAction<LocationChangePayload>) => {
+      forward: (state: AppRouterState, action: PayloadAction<{ nextLocationIndex: number, isSkipping: boolean }>) => {
         const { nextLocationIndex, isSkipping = false } = action.payload;
 
         if (isSkipping) {
@@ -83,7 +76,7 @@ const createRouterSlice = (history: History, { storageKey, storageLimit }: Optio
             skipBack,
           };
         } else {
-          // Delete the flag when it is no longer accurate
+          // Delete flag when no longer accurate
           delete state.locationHistory[nextLocationIndex].state?.skipBack;
         }
 
@@ -101,14 +94,7 @@ const createRouterSlice = (history: History, { storageKey, storageLimit }: Optio
         persistOnPageHide(current(state), { storageKey, storageLimit });
       },
     },
-  });
-
-  const { actions, reducer } = routerSlice;
-
-  return {
-    routerActions: actions,
-    routerReducer: reducer,
-  }
-}
+  })
+);
 
 export default createRouterSlice;

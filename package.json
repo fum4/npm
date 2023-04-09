@@ -6,10 +6,10 @@
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "prepare": "npm run build",
     "prebuild": "rimraf lib",
     "build": "NODE_ENV=production tsc",
-    "release": "release-it"
+    "release": "release-it",
+    "preview": "rimraf node_modules && npm i && npm run build && rimraf node_modules"
   },
   "files": [
     "lib/**/*"
