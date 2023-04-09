@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c741aaed-5569-41ff-b211-b75e4171a633" name="Changes" comment="Update README">
+      <change afterPath="$PROJECT_DIR$/apps/react-redux-history-demo/app/step/[id]/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/react-redux-history-demo/app/step/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/react-redux-history-demo/app/steps-completed/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/.npmignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/react-redux-history-demo/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/react-redux-history-demo/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/react-redux-history-demo/package.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/navigate-away/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/src/helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/src/helpers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/src/persist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/src/persist.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,10 +25,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="JavaScript File" />
         <option value="TypeScript File" />
         <option value="tsconfig.json" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -129,7 +135,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/fum4/_work/@nomadware.io/packages/navigate-away",
+    "last_opened_file_path": "/Users/fum4/_work/nomadware-oss",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -137,7 +143,7 @@
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/usr/local/lib/node_modules/prettier",
     "settings.editor.selected.configurable": "AtomConfig",
-    "ts.external.directory.path": "/Users/fum4/_work/@nomadware.io/packages/react-redux-history/node_modules/typescript/lib",
+    "ts.external.directory.path": "/Users/fum4/_work/nomadware-oss/packages/navigate-away/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -150,11 +156,29 @@
       <recent name="$PROJECT_DIR$/packages/core" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps/react-redux-history-demo/public" />
       <recent name="$PROJECT_DIR$/packages/react-redux-history" />
       <recent name="$PROJECT_DIR$/packages/react-redux-history/src" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/apps/react-redux-history-demo/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -184,6 +208,7 @@
       <workItem from="1680995175573" duration="13953000" />
       <workItem from="1681009770281" duration="16310000" />
       <workItem from="1681030686096" duration="7886000" />
+      <workItem from="1681046129435" duration="430000" />
     </task>
     <task id="LOCAL-00001" summary="Renaming">
       <created>1658340097201</created>

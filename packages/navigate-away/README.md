@@ -31,7 +31,7 @@ yarn add navigate-away react react-router history
 
 <br>
 
-### `useNavigateAway` hook is provided in order to intercept location changes before React gets a chance to paint them on screen.
+### `useNavigateAway` intercepts location changes before React gets a chance to paint them on screen.
 
 <br>
 
@@ -42,8 +42,8 @@ We do not endorse this approach, but we do understand that sometimes it is neces
 <br>
 
 ```javascript
-import { useNavigateAway } from "react-redux-history";
-import { history } from "src/store";
+import { useNavigateAway } from "navigate-away"
+import { history } from "src/store"
 
 const Component = () => {
   useNavigateAway(({ nextLocation, action, navigate }) => {
@@ -52,13 +52,13 @@ const Component = () => {
         ...nextLocation,
         state: {
           ...nextLocation.state,
-          someFlag: true,
+          someFlag: true
         },
       };
 
-      navigate(updatedLocation);
+      navigate(updatedLocation)
     }
-  }, history);
+  }, history)
 
   // ...
 };
@@ -69,8 +69,8 @@ There is also a _component_ version of the hook.
 It comes handy when dealing with libraries such as Formik and you need to pass Formik props to the hook:
 
 ```javascript
-import { NavigateAway } from "react-redux-history";
-import { history } from "src/store";
+import { NavigateAway } from "navigate-away"
+import { history } from "src/store"
 
 const Component = () => {
   // ...
