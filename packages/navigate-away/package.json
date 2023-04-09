@@ -1,7 +1,7 @@
 {
   "name": "navigate-away",
   "version": "1.0.2",
-  "description": "Intercept and handle UI navigation",
+  "description": "Intercept react-router navigation",
   "author": "fum4",
   "license": "MIT",
   "homepage": "https://github.com/fum4/nomadware-oss/blob/master/packages/navigate-away",
@@ -11,7 +11,7 @@
   "sideEffects": false,
   "scripts": {
     "prebuild": "rimraf lib",
-    "build": "tsup src/index.ts --format esm,cjs",
+    "build": "tsup src/index.ts --format esm,cjs --dts",
     "dev": "tsup src/index.ts --format esm,cjs --watch"
   },
   "repository": {
