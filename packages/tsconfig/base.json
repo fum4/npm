@@ -11,7 +11,7 @@
       "dom.iterable",
       "esnext"
     ],
-    "outDir": "lib",
+    "outDir": "dist",
     "jsx": "react",
     "allowJs": true,
     "composite": false,

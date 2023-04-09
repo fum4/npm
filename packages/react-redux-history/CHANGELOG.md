@@ -1,5 +1,11 @@
 # react-redux-history
 
+## 1.5.3
+
+### Patch Changes
+
+- Fix declaration files
+
 ## 1.5.2
 
 ### Patch Changes

@@ -1,4 +1,4 @@
-# @nomadware.io/eslint-config
+# @nomadware-oss/eslint-config
 
 ## 1.0.2
 

@@ -1,5 +1,5 @@
 {
-  "name": "@nomadware.io/tsconfig",
+  "name": "@nomadware-oss/tsconfig",
   "version": "1.0.2",
   "private": true,
   "license": "MIT"

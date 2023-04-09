@@ -1,5 +1,5 @@
 {
-  "name": "@nomadware.io/eslint-config",
+  "name": "@nomadware-oss/eslint-config",
   "version": "1.0.2",
   "private": true,
   "main": "index.js",

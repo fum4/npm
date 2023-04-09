@@ -1,5 +1,11 @@
 # navigate-away
 
+## 1.0.3
+
+### Patch Changes
+
+- Fix declaration files
+
 ## 1.0.2
 
 ### Patch Changes
