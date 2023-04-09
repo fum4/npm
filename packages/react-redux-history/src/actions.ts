@@ -3,7 +3,7 @@ import type { Dispatch } from "redux";
 
 import { LOCATION_CHANGE_REQUEST } from "./types";
 
-export const test = (number) => number * 2;
+export const test = (number: number) => number * 2;
 
 export const push = (to: To, state?: any) => (dispatch: Dispatch) => {
   const location =

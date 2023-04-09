@@ -20,8 +20,8 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'pnpm'
+#        cache: 'pnpm'
     - run: npm i -g pnpm@8.1.1
     - run: pnpm i --frozen-lockfile
-    - run: pnpm build --if-present
+    - run: pnpm build
     - run: pnpm test
