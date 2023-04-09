@@ -1,34 +1,27 @@
 # dependencies
-node_modules
-.pnp
-.pnp.js
+*node_modules
+*.pnp
+*.pnp.js
+
+# build
+*dist
+*.turbo
 
 # test
-coverage
+*coverage
 
 # misc
-.DS_Store
-*.pem
+*.DS_Store
+**.pem
 
 # debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+*npm-debug.log*
+*yarn-debug.log*
+*yarn-error.log*
+*.pnpm-debug.log*
 
 # env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-
-# packages
-packages/*/node_modules
-packages/*/dist
-packages/*/.turbo
-
-# apps
-apps/*/node_modules
-apps/*/dist
-apps/*/.turbo
-apps/*/.next

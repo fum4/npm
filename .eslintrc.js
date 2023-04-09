@@ -1,10 +1,9 @@
 module.exports = {
   root: true,
-  // This tells ESLint to load the config from the package `eslint-config-custom`
   extends: ["@nomadware-oss/eslint-config"],
   settings: {
     next: {
-      rootDir: ["apps/*/"],
+      rootDir: ["apps/react-redux-history-demo/"],
     },
   },
 };
