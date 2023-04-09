@@ -3,7 +3,7 @@ module.exports = {
   extends: ["@nomadware-oss/eslint-config"],
   settings: {
     next: {
-      rootDir: ["apps/*/"],
+      rootDir: ["examples/*/"],
     },
   },
 };
