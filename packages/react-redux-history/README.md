@@ -13,18 +13,6 @@
 
 ## A lightweight library for managing navigation history
 
-### Used in production by [Utilmond][13]. Check it out!
-
-<br>
-
-## 👌 Have any requests?
-
-For any requests such as new features, compatibility with other routing libraries or environments such as Cordova please [open a GitHub issue][15].
-
-Some of them are already implemented and will be incrementally added.
-
-If you are in a rush though you can [open an issue][15], this way we can prioritize correspondingly :)
-
 <br>
 
 ## ✨ Features
@@ -38,10 +26,6 @@ If you are in a rush though you can [open an issue][15], this way we can priorit
 💪 Force current route to re-render capability. [Read more](#force-render)
 
 🚦 Selectors for easy access. [Read more](#selectors)
-
-<br>
-
-...and last but not least
 
 👀 Everything you need to know about your navigation state in your favorite developer tools:
 
@@ -59,15 +43,15 @@ If you are in a rush though you can [open an issue][15], this way we can priorit
 Let's get started by installing the package:
 
 ```shell
-npm install react-redux-history react react-redux redux history
+pnpm add react-redux-history
 ```
 
 ```shell
-pnpm add react-redux-history react react-redux redux history
+yarn add react-redux-history
 ```
 
 ```shell
-yarn add react-redux-history react react-redux redux history
+npm i react-redux-history
 ```
 
 <br>
@@ -123,7 +107,6 @@ export default store;
 
 Lastly, add either `<LocationListener history={history} />` or `useLocationListener(history)` somewhere at the root of your app.
 
-**Only use one of the approaches!** They are only exported like this for flexibility :)
 
 ```javascript
 // App.tsx
@@ -160,21 +143,15 @@ The following options are available:
 
 **Be careful when limiting session storage entries**. The user is still able to go back to previous pages even if they are not saved in session storage. This can cause unexpected behaviour on page reload, especially if you use `skipBack` / `skipForward` or similar logic that alters the navigation flow.
 
-We recommend leaving it as `Infinity` unless you have a good reason to limit it. If you do need to limit it though, we suggest choosing a large enough value such that users cannot easily manage to get past it.
-
 <br><br>
 
 # Features <a id="features"></a>
-
-This package comes with several built-in features.
-
-They helped us a lot in our projects, and we hope they will help you too!
 
 <br>
 
 ## 🌲 Persistent history <a id="persist"></a>
 
-History is persisted out of the box after page refresh by leveraging session storage on page hide.
+History is persisted after page refresh by leveraging session storage.
 
 This helps provide a better user experience and allows you to build a more robust navigation system.
 
@@ -193,15 +170,13 @@ history.push({
 
 In this example, every time the user will try to go back from _page_5_ he will be skipped back 4 pages, reaching _page_1_. The same behaviour will apply when going forward from _page_1_, the user will be skipped forward to _page_5_.
 
-**Note**: Due to the restrictive nature of browser navigation, back or forward actions cannot be stopped. That means that in the previous example the user will actually reach _page_4_ before being redirected to _page_1_. If there is conflicting logic (such as extra redirects) in _page_4_, it will be fired before the middleware manages to completely skip all screens. In order to get past this issue we can use the `isSkipping` flag to, for instance, not render the component tree while skipping. You can find a selector for this in the selectors section.
+**Note**: Due to the restrictive nature of browser navigation, back or forward actions cannot be stopped. That means that in the previous example the user will actually reach _page_4_ before being redirected to _page_1_. If there is conflicting logic (such as extra redirects) in _page_4_, it will be fired before the middleware manages to completely skip all screens. In order to get past this issue we can `selectIsSkipping` to not render the component tree while skipping.
 
 <br>
 
 ## 💪 Force current route to re-render <a id="force-render"></a>
 
-Sometimes you might want to force the current route to re-render, a behaviour which is not possible out of the box with react-router.
-
-This can be achieved by selecting the `forceRender` state in the component you wish to re-render. Then simply 're-navigate' to the route while passing `forceRender: {}` in the state object.
+Force current route to re-render by using `selectForceRender`. 'Re-navigate' to the route while passing `forceRender: {}` in the state object.
 
 ```javascript
 import { useSelector } from "react-redux";
@@ -253,7 +228,7 @@ There are also a few useful selectors for easy access:
 
 <br><br><br>
 
-### Huge thanks going to [Utilmond team][14] for making this possible! 🍻
+### Used in production by [Utilmond][13]
 
 <hr>
 

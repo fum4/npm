@@ -11,7 +11,11 @@
 
 ## Intercept and manipulate location changes
 
-### Used in production by [Utilmond][11]. Check it out!
+
+`useNavigateAway` intercepts location changes **before** React paints them on screen.
+
+
+Use this hook to manipulate the navigation flow, replace the next location or edit its state in a render friendly manner.
 
 <br>
 
@@ -28,16 +32,6 @@ pnpm add navigate-away react react-router history
 ```shell
 yarn add navigate-away react react-router history
 ```
-
-<br>
-
-### `useNavigateAway` intercepts location changes before React gets a chance to paint them on screen.
-
-<br>
-
-Historically, react-router has provided a way to block user navigation. Even so, this is a bad practice and provides a bad experience to the user. More than that, it has been heavily misused. The feature was therefore removed and added back later because lots of users already relied on it.
-
-We do not endorse this approach, but we do understand that sometimes it is necessary. However, we suggest using this hook more as a solution to **manipulating** the navigation flow, rather than **blocking** it. An example would be replacing the next location or editing its state.
 
 <br>
 
@@ -91,6 +85,8 @@ const Component = () => {
 ```
 
 <br><br><br>
+
+### Used in production by [Utilmond][11]
 
 <hr>
 
