@@ -1,0 +1,71 @@
+{
+  "name": "react-redux-history",
+  "version": "1.5.0",
+  "description": "Navigation history made easy",
+  "author": "fum4",
+  "license": "MIT",
+  "homepage": "https://github.com/fum4/react-redux-history#readme",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "prebuild": "rimraf lib",
+    "build": "tsup src/index.ts --format esm,cjs",
+    "dev": "tsup src/index.ts --format esm,cjs --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fum4/react-redux-history.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fum4/react-redux-history/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "peerDependencies": {
+    "history": "^5.0.0",
+    "react": "^18.0.0",
+    "react-redux": "^8.0.0",
+    "redux": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.9",
+    "@babel/core": "^7.18.9",
+    "@babel/preset-env": "^7.18.9",
+    "@babel/preset-react": "^7.18.6",
+    "@nomadware.io/eslint-config": "workspace:*",
+    "@nomadware.io/tsconfig": "workspace:*",
+    "@reduxjs/toolkit": "^1.8.3",
+    "@swc/core": "^1.3.46",
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@types/react-redux": "^7.1.25",
+    "rimraf": "^4.1.2",
+    "tsup": "^6.7.0",
+    "typescript": "^4.7.4"
+  },
+  "keywords": [
+    "react",
+    "router",
+    "redux",
+    "history",
+    "store",
+    "url",
+    "middleware",
+    "navigation",
+    "navigate",
+    "away",
+    "block",
+    "react-router",
+    "connected",
+    "connected-react-router",
+    "redux-history",
+    "redux-first-history"
+  ]
+}

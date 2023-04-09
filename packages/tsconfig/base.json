@@ -1,7 +1,9 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Base",
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "es5",
+    "target": "es6",
     "module": "esnext",
     "moduleResolution": "node",
     "lib": [
@@ -12,9 +14,14 @@
     "outDir": "lib",
     "jsx": "react",
     "allowJs": true,
+    "composite": false,
     "declaration": true,
-    "esModuleInterop": true
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "inlineSources": false,
+    "skipLibCheck": true,
+    "strict": true
   },
-  "include": [ "src/**/*" ],
   "exclude": [ "node_modules" ]
 }
+

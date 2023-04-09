@@ -1,67 +1,23 @@
 {
-  "name": "react-redux-history",
-  "version": "1.5.0-2",
-  "description": "Navigation history made easy",
-  "main": "lib/index.js",
-  "module": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "version": "1.0.0-0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "prebuild": "rimraf lib",
-    "build": "NODE_ENV=production tsc",
-    "release": "release-it",
-    "preview": "rimraf node_modules && npm i && npm run build && rimraf node_modules"
-  },
-  "files": [
-    "lib/**/*"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fum4/react-redux-history.git"
-  },
-  "keywords": [
-    "react",
-    "router",
-    "redux",
-    "history",
-    "store",
-    "url",
-    "middleware",
-    "navigation",
-    "navigate",
-    "away",
-    "block",
-    "react-router",
-    "connected",
-    "connected-react-router",
-    "redux-history",
-    "redux-first-history"
-  ],
-  "author": "fum4",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/fum4/react-redux-history/issues"
-  },
-  "homepage": "https://github.com/fum4/react-redux-history#readme",
-  "peerDependencies": {
-    "history": "^5.0.0",
-    "react": "^18.0.0",
-    "react-redux": "^8.0.0",
-    "react-router": "^6.0.0"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "release": "turbo run build lint && changeset && changeset version && changeset publish"
   },
   "devDependencies": {
-    "@babel/cli": "^7.18.9",
-    "@babel/core": "^7.18.9",
-    "@babel/preset-env": "^7.18.9",
-    "@babel/preset-react": "^7.18.6",
-    "@reduxjs/toolkit": "^1.8.3",
-    "@tsconfig/recommended": "^1.0.1",
-    "@types/history": "^5.0.0",
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "@types/react-redux": "^7.1.25",
-    "@types/react-router": "^5.1.20",
-    "release-it": "^15.5.1",
-    "rimraf": "^4.1.2",
-    "typescript": "^4.7.4"
-  }
+    "@changesets/cli": "^2.26.1",
+    "@nomadware.io/eslint-config": "workspace:*",
+    "eslint": "latest",
+    "prettier": "latest",
+    "turbo": "latest"
+  },
+  "packageManager": "pnpm@8.1.1"
 }

@@ -1,5 +1,12 @@
 node_modules
 npm-debug.log
-src
 .idea
 .github
+
+packages/*/src
+packages/*/node_modules
+packages/*/.turbo
+
+apps/*/src
+apps/*/node_modules
+apps/*/.turbo
