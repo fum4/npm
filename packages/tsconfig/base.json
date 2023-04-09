@@ -3,7 +3,7 @@
   "display": "Base",
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "es6",
+    "target": "es5",
     "module": "esnext",
     "moduleResolution": "node",
     "lib": [
@@ -22,6 +22,7 @@
     "skipLibCheck": true,
     "strict": true
   },
-  "exclude": [ "node_modules" ]
+  "include": ["."],
+  "exclude": ["dist", "node_modules"]
 }
 
