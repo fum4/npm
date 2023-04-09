@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "publishConfig": {
     "access": "public"
@@ -17,6 +16,8 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@nomadware-oss/eslint-config": "workspace:*",
+    "@nomadware-oss/tsconfig": "workspace:*",
     "@types/node": "18.15.11",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
