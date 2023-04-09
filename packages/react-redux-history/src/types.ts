@@ -8,28 +8,6 @@ export enum HistoryAction {
   Replace = "REPLACE",
 }
 
-/**
- * @deprecated - use `HistoryAction` instead
- */
-export enum ActionTypes {
-  Push = "PUSH",
-  Back = "BACK",
-  Forward = "FORWARD",
-  Replace = "REPLACE",
-}
-
-/**
- * @deprecated - internal use only, not relevant for end users
- * @property skipBack - Routes to automatically skip back when reaching the screen
- * @property skipForward - Routes to automatically skip forward when reaching the screen
- * @property forceRender - Use flag to force components to re-render
- */
-export interface LocationState {
-  skipBack?: number;
-  skipForward?: number;
-  forceRender?: Record<never, never>;
-}
-
 export interface RouterLocation extends Location {
   state: any;
   query: Record<string, string>;
