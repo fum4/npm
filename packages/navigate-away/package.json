@@ -1,0 +1,71 @@
+{
+  "name": "@react-redux-history/navigate-away",
+  "version": "1.0.0-0",
+  "description": "Intercept and handle UI navigation",
+  "author": "fum4",
+  "license": "MIT",
+  "homepage": "https://github.com/fum4/react-redux-history#readme",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "prebuild": "rimraf lib",
+    "build": "tsup src/index.ts --format esm,cjs",
+    "dev": "tsup src/index.ts --format esm,cjs --watch",
+    "release": "release-it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fum4/react-redux-history.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fum4/react-redux-history/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "peerDependencies": {
+    "history": "^5.0.0",
+    "react": "^18.0.0",
+    "react-router": "^6.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.9",
+    "@babel/core": "^7.18.9",
+    "@babel/preset-env": "^7.18.9",
+    "@babel/preset-react": "^7.18.6",
+    "@react-redux-history/eslint-config": "workspace:*",
+    "@react-redux-history/tsconfig": "workspace:*",
+    "@swc/core": "^1.3.46",
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@types/react-router": "^5.1.20",
+    "release-it": "^15.5.1",
+    "rimraf": "^4.1.2",
+    "tsup": "^6.7.0",
+    "typescript": "^4.7.4"
+  },
+  "keywords": [
+    "react",
+    "router",
+    "redux",
+    "history",
+    "store",
+    "url",
+    "middleware",
+    "navigation",
+    "navigate",
+    "away",
+    "block",
+    "react-router",
+    "connected",
+    "connected-react-router",
+    "redux-history",
+    "redux-first-history"
+  ]
+}
