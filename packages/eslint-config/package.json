@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-custom",
+  "name": "@react-redux-history/eslint-config",
   "version": "1.0.0-0",
   "main": "index.js",
   "license": "MIT",
