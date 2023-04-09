@@ -1,5 +1,11 @@
 # @nomadware.io/eslint-config
 
+## 1.0.2
+
+### Patch Changes
+
+- Update meta
+
 ## 1.0.1
 
 ### Patch Changes
