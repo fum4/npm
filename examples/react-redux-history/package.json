@@ -1,6 +1,7 @@
 {
   "name": "react-redux-history-demo",
   "version": "0.1.10",
+  "private": true,
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
