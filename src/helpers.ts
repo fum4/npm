@@ -73,11 +73,11 @@ export const findIndex = (array: any[], predicate: Record<string, any>): number 
   }
 };
 
-const pickBy = (object: Record<string, any>, predicate: (entry: any) => boolean): Record<string, any> => {
-  return Object.entries(object)
+const pickBy = (object: Record<string, any>, predicate: (entry: any) => boolean): Record<string, any> => (
+  Object.entries(object)
     .filter((entry) => predicate(object[entry[0]]))
-    .reduce((acc, entry) => ({ ...acc, [entry[0]]: entry[1] }), {});
-};
+    .reduce((acc, entry) => ({ ...acc, [entry[0]]: entry[1] }), {})
+);
 
 const isEqual = (firstObject: Record<string, any>, secondObject: Record<string, any>): boolean => {
   const firstObjectEntries = Object.entries(firstObject);

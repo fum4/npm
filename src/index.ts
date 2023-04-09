@@ -11,15 +11,17 @@ export const configureRouterHistory = (
     storageLimit = Infinity
   } = {} as Partial<Options>
 ) => {
-  const { routerReducer, routerActions } = createRouterSlice(history, { storageKey, storageLimit });
-  const routerMiddleware = createRouterMiddleware(history, routerActions);
+  const { reducer, actions } = createRouterSlice(history, { storageKey, storageLimit });
+  // @ts-ignore
+  const middleware = createRouterMiddleware(history, actions);
 
   return {
-    routerReducer,
-    routerMiddleware
+    routerReducer: reducer,
+    routerMiddleware: middleware
   };
 }
 
+export * from './actions';
 export * from './selectors';
 export * from './LocationListener';
 export * from './useNavigateAway';

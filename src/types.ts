@@ -1,6 +1,6 @@
 import type { NavigateFunction } from 'react-router';
 import type { CaseReducerActions, PayloadAction } from '@reduxjs/toolkit';
-import type { Action, Location, Update, History } from 'history';
+import type { Action, Location, History } from 'history';
 
 export enum ActionTypes {
   Push = 'PUSH',
@@ -42,24 +42,34 @@ export interface AppRouterState<S = LocationState> {
   isSkipping: boolean;
 }
 
-export interface LocationChangePayload<S = LocationState> extends AppRouterState<S> {
-  location: Location;
-  isSkipping: boolean;
-  nextLocationIndex?: number;
+export const LOCATION_CHANGED = '@@router/LOCATION_CHANGED';
+export const LOCATION_CHANGE_REQUEST = '@@router/LOCATION_CHANGE_REQUEST';
+
+export interface LocationChangeRequestAction {
+  type: typeof LOCATION_CHANGE_REQUEST;
+  payload: ({
+    type: Action,
+    location?: Location,
+    delta?: number
+  });
 }
 
-export const LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
-
-export interface LocationChangeAction {
-  type: typeof LOCATION_CHANGE;
-  payload: Update | LocationChangePayload;
+export interface LocationChangedAction {
+  type: typeof LOCATION_CHANGED;
+  // TODO: modify payload as above
+  payload: {
+    type: Action,
+    location?: Location,
+    isSkipping?: boolean;
+    nextLocationIndex?: number;
+  };
 }
 
 export type SliceActions = CaseReducerActions<{
-  push(state: AppRouterState, action: PayloadAction<Update | LocationChangePayload>): void;
-  replace(state: AppRouterState, action: PayloadAction<Update | LocationChangePayload>): void;
-  back(state: AppRouterState, action: PayloadAction<Update | LocationChangePayload>): void;
-  forward(state: AppRouterState, action: PayloadAction<Update | LocationChangePayload>): void;
+  push(state: AppRouterState, action: PayloadAction<{ location: Location }>): void;
+  replace(state: AppRouterState, action: PayloadAction<{ location: Location }>): void;
+  back(state: AppRouterState, action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean; }>): void;
+  forward(state: AppRouterState, action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean; }>): void;
   setSkipping(state: AppRouterState, action: PayloadAction<boolean>): void;
 }, 'router'>
 
