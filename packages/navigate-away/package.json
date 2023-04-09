@@ -1,10 +1,10 @@
 {
   "name": "navigate-away",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Intercept and handle UI navigation",
   "author": "fum4",
   "license": "MIT",
-  "homepage": "https://github.com/fum4/react-redux-history#readme",
+  "homepage": "https://github.com/fum4/nomadware-oss/blob/master/packages/navigate-away",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -16,10 +16,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fum4/react-redux-history.git"
+    "url": "git+https://github.com/fum4/nomadware-oss.git"
   },
   "bugs": {
-    "url": "https://github.com/fum4/react-redux-history/issues"
+    "url": "https://github.com/fum4/nomadware-oss/issues"
   },
   "publishConfig": {
     "access": "public"

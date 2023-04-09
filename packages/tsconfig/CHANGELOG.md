@@ -1,5 +1,11 @@
 # @nomadware.io/tsconfig
 
+## 1.0.1
+
+### Patch Changes
+
+- Clean up & restructure
+
 ## 1.0.0
 
 ### Patch Changes
