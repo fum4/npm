@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c741aaed-5569-41ff-b211-b75e4171a633" name="Changes" comment="Update README">
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/eslint-config/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/eslint-config/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/eslint-config/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/eslint-config/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/navigate-away/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/navigate-away/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/navigate-away/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/tsconfig/base.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/tsconfig/base.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/tsconfig/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/tsconfig/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +33,7 @@
                 <branch-info repo="$PROJECT_DIR$" source="feat/react-router-6" />
                 <branch-info repo="$PROJECT_DIR$" source="feat/force-render" />
                 <branch-info repo="$PROJECT_DIR$" source="feat/redux-first" />
+                <branch-info repo="$PROJECT_DIR$" source="monorepo" />
               </list>
             </value>
           </entry>
@@ -53,7 +42,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="monorepo" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,12 +65,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="monorepo" />
-                    <option name="lastUsedInstant" value="1681016565" />
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1681038868" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1681012119" />
+                    <option name="branchName" value="monorepo" />
+                    <option name="lastUsedInstant" value="1681016565" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="feat/redux-first" />
@@ -136,7 +125,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "monorepo",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "/Users/fum4/_work/@nomadware.io/packages/navigate-away",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
