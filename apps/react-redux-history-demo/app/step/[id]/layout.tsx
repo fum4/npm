@@ -7,7 +7,7 @@ interface Props {
   children: ReactNode;
   params: {
     id: string;
-  }
+  };
 }
 
 export default function StepLayout({ children, params: { id } }: Props) {
@@ -42,5 +42,5 @@ export default function StepLayout({ children, params: { id } }: Props) {
         </Link>
       )}
     </div>
-  )
+  );
 }

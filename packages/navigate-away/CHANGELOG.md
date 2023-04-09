@@ -1,5 +1,11 @@
 # navigate-away
 
+## 1.0.5
+
+### Patch Changes
+
+- Bootstrap demo app & clean up
+
 ## 1.0.4
 
 ### Patch Changes

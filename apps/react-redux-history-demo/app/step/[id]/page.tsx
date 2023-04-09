@@ -1,7 +1,7 @@
 interface Props {
   params: {
     id: string;
-  }
+  };
 }
 
 export default function Step({ params }: Props) {

@@ -5,14 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c741aaed-5569-41ff-b211-b75e4171a633" name="Changes" comment="Update README">
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/react-redux-history-demo/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/apps/react-redux-history-demo/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/react-redux-history-demo/app/api/hello/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/react-redux-history-demo/app/api/hello/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/react-redux-history-demo/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/react-redux-history-demo/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/react-redux-history-demo/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/react-redux-history-demo/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/react-redux-history-demo/app/step/[id]/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/react-redux-history-demo/app/step/[id]/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/react-redux-history-demo/app/step/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/react-redux-history-demo/app/step/[id]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/react-redux-history-demo/app/steps-completed/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/react-redux-history-demo/app/steps-completed/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/eslint-config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/eslint-config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/eslint-config/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/eslint-config/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/react-redux-history-demo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/react-redux-history-demo/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/navigate-away/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/navigate-away/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/navigate-away/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +209,7 @@
       <workItem from="1680995175573" duration="13953000" />
       <workItem from="1681009770281" duration="16310000" />
       <workItem from="1681030686096" duration="7886000" />
-      <workItem from="1681046129435" duration="1537000" />
+      <workItem from="1681046129435" duration="1736000" />
     </task>
     <task id="LOCAL-00001" summary="Renaming">
       <created>1658340097201</created>

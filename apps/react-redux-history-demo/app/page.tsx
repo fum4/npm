@@ -14,10 +14,12 @@ export default function Home() {
           {/*>*/}
           {/*  Start*/}
           {/*</Link>*/}
-          <h2 className="text-gray-400 underline underline-offset-8 decoration-dotted">Testing playground</h2>
+          <h2 className="text-gray-400 underline underline-offset-8 decoration-dotted">
+            Testing playground
+          </h2>
           <h2 className="mt-10">Coming soon...</h2>
         </div>
       </div>
     </main>
-  )
-};
+  );
+}
