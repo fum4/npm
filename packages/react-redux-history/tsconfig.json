@@ -1,5 +1,5 @@
 {
-    "extends": "@react-redux-history/tsconfig/base.json",
+    "extends": "@nomadware.io/tsconfig/base.json",
     "include": ["."],
     "exclude": ["dist", "build", "node_modules"]
 }

@@ -5,8 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c741aaed-5569-41ff-b211-b75e4171a633" name="Changes" comment="Update README">
+      <change afterPath="$PROJECT_DIR$/packages/navigate-away/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/navigate-away/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/react-redux-history/LICENSE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/react-redux-history/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/react-redux-history.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/react-redux-history.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/core/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/core/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/LocationListener.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/LocationListener.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/actions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/actions.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/helpers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/helpers.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/initialState.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/initialState.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/middleware.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/middleware.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/persist.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/persist.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/selectors.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/selectors.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/slice.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/slice.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/types.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/src/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/core/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/eslint-config/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/eslint-config/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/navigate-away/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/navigate-away/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/tsconfig/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/tsconfig/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,9 +145,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/package.json" />
-  </component>
   <component name="ProjectId" id="2CAtnidNRp89l1ha2m8EbLFM2hn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -123,29 +154,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;monorepo&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/fum4/_work/react-redux-history/packages/navigate-away&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/usr/local/lib/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;AtomConfig&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/fum4/_work/react-redux-history/packages/core/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "monorepo",
+    "last_opened_file_path": "/Users/fum4/_work/@nomadware.io/packages/navigate-away",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/usr/local/lib/node_modules/prettier",
+    "settings.editor.selected.configurable": "AtomConfig",
+    "ts.external.directory.path": "/Users/fum4/_work/@nomadware.io/packages/react-redux-history/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages/navigate-away" />
+      <recent name="$PROJECT_DIR$/packages/react-redux-history" />
       <recent name="$PROJECT_DIR$/packages/eslint-config-custom" />
       <recent name="$PROJECT_DIR$/apps/demo" />
       <recent name="$PROJECT_DIR$/packages/core" />
-      <recent name="$PROJECT_DIR$/packages/react-redux-history" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages/react-redux-history" />
@@ -181,6 +213,7 @@
       <workItem from="1680679945555" duration="5286000" />
       <workItem from="1680995175573" duration="13953000" />
       <workItem from="1681009770281" duration="16310000" />
+      <workItem from="1681030686096" duration="1965000" />
     </task>
     <task id="LOCAL-00001" summary="Renaming">
       <created>1658340097201</created>
