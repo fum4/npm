@@ -1,8 +1,8 @@
-import { useLayoutEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import type { History, Update } from 'history';
+import { useLayoutEffect } from "react";
+import { useDispatch } from "react-redux";
+import type { History, Update } from "history";
 
-import { LOCATION_CHANGED, type LocationListenerProps } from './types';
+import { LOCATION_CHANGED, type LocationListenerProps } from "./types";
 
 export const useLocationListener = (history: History) => {
   const dispatch = useDispatch();
@@ -19,11 +19,11 @@ export const useLocationListener = (history: History) => {
     };
 
     return history.listen(onLocationChanged);
-  }, [ history, dispatch ]);
-}
+  }, [history, dispatch]);
+};
 
 export const LocationListener = ({ history }: LocationListenerProps) => {
   useLocationListener(history);
 
   return null;
-}
+};

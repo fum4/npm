@@ -1,5 +1,11 @@
 # react-redux-history
 
+## 1.5.4
+
+### Patch Changes
+
+- Remove source maps
+
 ## 1.5.3
 
 ### Patch Changes

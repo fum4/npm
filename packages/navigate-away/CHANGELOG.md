@@ -1,5 +1,11 @@
 # navigate-away
 
+## 1.0.4
+
+### Patch Changes
+
+- Remove source maps
+
 ## 1.0.3
 
 ### Patch Changes

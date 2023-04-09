@@ -5,8 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c741aaed-5569-41ff-b211-b75e4171a633" name="Changes" comment="Update README">
+      <change beforePath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/bug_report.md" beforeDir="false" afterPath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/bug_report.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/feature_request.md" beforeDir="false" afterPath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/feature_request.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/navigate-away/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/navigate-away/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/navigate-away/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/navigate-away/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/navigate-away/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/src/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/navigate-away/src/useNavigateAway.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/src/useNavigateAway.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/src/LocationListener.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/src/LocationListener.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/src/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/src/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/src/helpers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/src/helpers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/src/initialState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/src/initialState.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/src/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/src/middleware.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/src/persist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/src/persist.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/src/selectors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/src/selectors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/src/slice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/src/slice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

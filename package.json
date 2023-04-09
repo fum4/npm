@@ -10,7 +10,7 @@
     "build": "turbo run build",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "release": "pnpm build && pnpm lint && pnpm format && changeset && changeset version && changeset publish"
+    "release": "pnpm lint && pnpm format && pnpm build && changeset && changeset version && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.1",

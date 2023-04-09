@@ -1,52 +1,60 @@
-import type { Location } from 'history';
+import type { Location } from "history";
 
-import type { RouterLocation } from './types';
+import type { RouterLocation } from "./types";
 
 export const isSameRoute = (
   location: Location,
   history: Location[],
-  currentIndex: number,
-): boolean => (
+  currentIndex: number
+): boolean =>
   location?.key
     ? history[currentIndex]?.key === location.key
-    : isEqual(pickBy(location, Boolean), pickBy(history[currentIndex], Boolean))
-);
+    : isEqual(
+        pickBy(location, Boolean),
+        pickBy(history[currentIndex], Boolean)
+      );
 
 export const isPreviousRoute = (
   location: Location,
   history: Location[],
-  currentIndex: number,
-): boolean => (
+  currentIndex: number
+): boolean =>
   location?.key
     ? history[currentIndex - 1]?.key === location.key
-    : isEqual(pickBy(location, Boolean), pickBy(history[currentIndex - 1], Boolean))
-);
+    : isEqual(
+        pickBy(location, Boolean),
+        pickBy(history[currentIndex - 1], Boolean)
+      );
 
 export const isNextRoute = (
   location: Location,
   history: Location[],
-  currentIndex: number,
-): boolean => (
+  currentIndex: number
+): boolean =>
   location?.key
     ? history[currentIndex + 1]?.key === location.key
-    : isEqual(pickBy(location, Boolean), pickBy(history[currentIndex + 1], Boolean))
-);
+    : isEqual(
+        pickBy(location, Boolean),
+        pickBy(history[currentIndex + 1], Boolean)
+      );
 
 export const isForwardAction = (
   location: Location,
   history: Location[],
-  currentIndex: number,
-) => (
-  !!history.slice(currentIndex + 1).find((historyEntry) => historyEntry.key === location.key)
-);
+  currentIndex: number
+) =>
+  !!history
+    .slice(currentIndex + 1)
+    .find((historyEntry) => historyEntry.key === location.key);
 
 export const isBackAction = (
   location: Location,
   history: Location[],
-  currentIndex: number,
-) => (
-  !!history.slice(0, currentIndex).find((historyEntry) => historyEntry.key === location.key)
-);
+  currentIndex: number
+) =>
+  !!history
+    .slice(0, currentIndex)
+    .find((historyEntry) => historyEntry.key === location.key);
 
 export const injectQuery = (location: Location): RouterLocation => {
   const searchParams = new URLSearchParams(location.search);
@@ -60,7 +68,10 @@ export const parseLocation = (location: Location): RouterLocation => ({
   ...(!location.state && { state: {} }),
 });
 
-export const findIndex = (array: any[], predicate: Record<string, any>): number => {
+export const findIndex = (
+  array: any[],
+  predicate: Record<string, any>
+) => {
   if (Array.isArray(array)) {
     const targetKey = Object.keys(predicate)[0];
     const targetValue = predicate[targetKey];
@@ -71,15 +82,22 @@ export const findIndex = (array: any[], predicate: Record<string, any>): number 
       }
     }
   }
+
+  return 0;
 };
 
-const pickBy = (object: Record<string, any>, predicate: (entry: any) => boolean): Record<string, any> => (
+const pickBy = (
+  object: Record<string, any>,
+  predicate: (entry: any) => boolean
+): Record<string, any> =>
   Object.entries(object)
     .filter((entry) => predicate(object[entry[0]]))
-    .reduce((acc, entry) => ({ ...acc, [entry[0]]: entry[1] }), {})
-);
+    .reduce((acc, entry) => ({ ...acc, [entry[0]]: entry[1] }), {});
 
-const isEqual = (firstObject: Record<string, any>, secondObject: Record<string, any>): boolean => {
+const isEqual = (
+  firstObject: Record<string, any>,
+  secondObject: Record<string, any>
+): boolean => {
   const firstObjectEntries = Object.entries(firstObject);
   const secondObjectEntries = Object.entries(secondObject);
   let result = true;
@@ -88,8 +106,8 @@ const isEqual = (firstObject: Record<string, any>, secondObject: Record<string, 
     return false;
   }
 
-  Object.entries(firstObject).forEach(([ key, value ]) => {
-    if (value && typeof value === 'object') {
+  Object.entries(firstObject).forEach(([key, value]) => {
+    if (value && typeof value === "object") {
       const propertyResult = isEqual(firstObject[key], secondObject[key]);
 
       if (!propertyResult) {
@@ -103,4 +121,4 @@ const isEqual = (firstObject: Record<string, any>, secondObject: Record<string, 
   });
 
   return result;
-}
+};

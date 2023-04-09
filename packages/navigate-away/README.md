@@ -13,15 +13,16 @@
 
 ### Used in production by [Utilmond][11]. Check it out!
 
-
 # Setup <a id="setup"></a>
 
 ```shell
 npm install navigate-away react react-router history
 ```
+
 ```shell
 pnpm add navigate-away react react-router history
 ```
+
 ```shell
 yarn add navigate-away react react-router history
 ```
@@ -39,26 +40,26 @@ We do not endorse this approach, but we do understand that sometimes it is neces
 <br>
 
 ```javascript
-import { useNavigateAway } from 'react-redux-history'
-import { history } from 'src/store'
+import { useNavigateAway } from "react-redux-history";
+import { history } from "src/store";
 
 const Component = () => {
   useNavigateAway(({ nextLocation, action, navigate }) => {
-    if (action === 'POP') {
+    if (action === "POP") {
       const updatedLocation = {
         ...nextLocation,
         state: {
           ...nextLocation.state,
-          someFlag: true
-        }
-      }
+          someFlag: true,
+        },
+      };
 
-      navigate(updatedLocation) 
+      navigate(updatedLocation);
     }
-  }, history)
-  
+  }, history);
+
   // ...
-}
+};
 ```
 
 There is also a _component_ version of the hook.
@@ -66,12 +67,12 @@ There is also a _component_ version of the hook.
 It comes handy when dealing with libraries such as Formik and you need to pass Formik props to the hook:
 
 ```javascript
-import { NavigateAway } from 'react-redux-history'
-import { history } from 'src/store'
+import { NavigateAway } from "react-redux-history";
+import { history } from "src/store";
 
 const Component = () => {
   // ...
-  
+
   return (
     <Formik>
       {(formikProps) => (
@@ -80,11 +81,11 @@ const Component = () => {
           callback={({ nextLocation, action, navigate }) => {
             // Pass the Formik props to the callback
           }}
-       />
+        />
       )}
     </Formik>
-  )
-}
+  );
+};
 ```
 
 <br><br><br>

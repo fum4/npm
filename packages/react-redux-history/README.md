@@ -61,9 +61,11 @@ Let's get started by installing the package:
 ```shell
 npm install react-redux-history react react-redux redux history
 ```
+
 ```shell
 pnpm add react-redux-history react react-redux redux history
 ```
+
 ```shell
 yarn add react-redux-history react react-redux redux history
 ```
@@ -76,21 +78,21 @@ Create a `history` object and pass it to `configureRouterHistory`. The returned 
 
 ```javascript
 // store.js
-import { createBrowserHistory } from 'history'
-import { configureRouterHistory } from 'react-redux-history'
+import { createBrowserHistory } from "history";
+import { configureRouterHistory } from "react-redux-history";
 
-export const history = createBrowserHistory() // export this as we will need it later
+export const history = createBrowserHistory(); // export this as we will need it later
 
 // optional, defaults are listed below
 const options = {
-  storageKey: 'routerState',
+  storageKey: "routerState",
   storageLimit: Infinity,
-}
+};
 
-const { 
-  routerReducer, 
-  routerMiddleware 
-} = configureRouterHistory(history, options)
+const { routerReducer, routerMiddleware } = configureRouterHistory(
+  history,
+  options
+);
 ```
 
 <br>
@@ -104,14 +106,15 @@ Add the reducer and middleware to your store. If you are using Redux Toolkit it 
 const store = configureStore({
   reducer: combineReducers({
     // ...other reducers
-    router: routerReducer
+    router: routerReducer,
   }),
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware()
-    // ...other middleware
-    .prepend(routerMiddleware)
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware()
+      // ...other middleware
+      .prepend(routerMiddleware),
 });
 
-export default store
+export default store;
 ```
 
 <br>
@@ -124,20 +127,20 @@ Lastly, add either `<LocationListener history={history} />` or `useLocationListe
 
 ```javascript
 // App.tsx
-import { useLocationListener, LocationListener } from 'react-redux-history'
-import { history } from 'src/store'
+import { useLocationListener, LocationListener } from "react-redux-history";
+import { history } from "src/store";
 
 const App = () => {
-  useLocationListener(history) // Use either this or the component below, not both!
-  
+  useLocationListener(history); // Use either this or the component below, not both!
+
   return (
     <>
       ...
       <LocationListener history={history} />
       ...
     </>
-  )
-}
+  );
+};
 ```
 
 **Note**: the `history` object provided to `configureRouterHistory` and `useLocationListener` / `LocationListener` must be the same `history` object !
@@ -183,14 +186,14 @@ By setting a `skipBack` / `skipForward` flag on a specific route the user will b
 
 ```javascript
 history.push({
-  pathname: 'page_5',
-  state: { skipBack: 4 }
+  pathname: "page_5",
+  state: { skipBack: 4 },
 });
 ```
 
-In this example, every time the user will try to go back from *page_5* he will be skipped back 4 pages, reaching *page_1*. The same behaviour will apply when going forward from *page_1*, the user will be skipped forward to *page_5*.
+In this example, every time the user will try to go back from _page_5_ he will be skipped back 4 pages, reaching _page_1_. The same behaviour will apply when going forward from _page_1_, the user will be skipped forward to _page_5_.
 
-**Note**: Due to the restrictive nature of browser navigation, back or forward actions cannot be stopped. That means that in the previous example the user will actually reach *page_4* before being redirected to *page_1*. If there is conflicting logic (such as extra redirects) in *page_4*, it will be fired before the middleware manages to completely skip all screens. In order to get past this issue we can use the `isSkipping` flag to, for instance, not render the component tree while skipping. You can find a selector for this in the selectors section.
+**Note**: Due to the restrictive nature of browser navigation, back or forward actions cannot be stopped. That means that in the previous example the user will actually reach _page_4_ before being redirected to _page_1_. If there is conflicting logic (such as extra redirects) in _page_4_, it will be fired before the middleware manages to completely skip all screens. In order to get past this issue we can use the `isSkipping` flag to, for instance, not render the component tree while skipping. You can find a selector for this in the selectors section.
 
 <br>
 
@@ -201,32 +204,34 @@ Sometimes you might want to force the current route to re-render, a behaviour wh
 This can be achieved by selecting the `forceRender` state in the component you wish to re-render. Then simply 're-navigate' to the route while passing `forceRender: {}` in the state object.
 
 ```javascript
-import { useSelector } from 'react-redux'
-import { selectForceRender } from 'react-redux-history'
+import { useSelector } from "react-redux";
+import { selectForceRender } from "react-redux-history";
 
 const Component = () => {
-    // The component will re-render every time the `forceRender` flag reference changes
-    const forceRender = useSelector(selectForceRender)
-    
-    useEffect(() => {
-      // The flag can also be used as a dependency in order to re-trigger effects
-    }, [ forceRender ])
-    
-    return (
-      <button onClick={() => {
+  // The component will re-render every time the `forceRender` flag reference changes
+  const forceRender = useSelector(selectForceRender);
+
+  useEffect(() => {
+    // The flag can also be used as a dependency in order to re-trigger effects
+  }, [forceRender]);
+
+  return (
+    <button
+      onClick={() => {
         history.push({
           // By default `react-router` will not trigger re-rendering when the pathname is the same
-          pathname: 'current_pathname', 
-          state: { 
+          pathname: "current_pathname",
+          state: {
             // Simply pass a new object to force re-rendering
-            forceRender: {} 
-          } 
-        })
-      }}>
-        Re-render
-      </button>
-    )
-}
+            forceRender: {},
+          },
+        });
+      }}
+    >
+      Re-render
+    </button>
+  );
+};
 ```
 
 <br>

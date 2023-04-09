@@ -1,21 +1,21 @@
-import type { CaseReducerActions, PayloadAction } from '@reduxjs/toolkit';
-import type { Action, Location, History } from 'history';
+import type { CaseReducerActions, PayloadAction } from "@reduxjs/toolkit";
+import type { Action, Location, History } from "history";
 
 export enum HistoryAction {
-  Push = 'PUSH',
-  Back = 'BACK',
-  Forward = 'FORWARD',
-  Replace = 'REPLACE',
+  Push = "PUSH",
+  Back = "BACK",
+  Forward = "FORWARD",
+  Replace = "REPLACE",
 }
 
 /**
  * @deprecated - use `HistoryAction` instead
  */
 export enum ActionTypes {
-  Push = 'PUSH',
-  Back = 'BACK',
-  Forward = 'FORWARD',
-  Replace = 'REPLACE',
+  Push = "PUSH",
+  Back = "BACK",
+  Forward = "FORWARD",
+  Replace = "REPLACE",
 }
 
 /**
@@ -53,39 +53,54 @@ export interface RouterState {
 }
 
 export interface AppState {
-  router: RouterState
+  router: RouterState;
 }
 
-export const LOCATION_CHANGED = '@@router/LOCATION_CHANGED';
-export const LOCATION_CHANGE_REQUEST = '@@router/LOCATION_CHANGE_REQUEST';
+export const LOCATION_CHANGED = "@@router/LOCATION_CHANGED";
+export const LOCATION_CHANGE_REQUEST = "@@router/LOCATION_CHANGE_REQUEST";
 
 export interface LocationChangeRequestAction {
   type: typeof LOCATION_CHANGE_REQUEST;
-  payload: ({
-    type: Action,
-    location?: Location,
-    delta?: number
-  });
+  payload: {
+    type: Action;
+    location?: Location;
+    delta?: number;
+  };
 }
 
 export interface LocationChangedAction {
   type: typeof LOCATION_CHANGED;
   // TODO: modify payload as above
   payload: {
-    type: Action,
-    location?: Location,
+    type: Action;
+    location: Location;
     isSkipping?: boolean;
     nextLocationIndex?: number;
   };
 }
 
-export type SliceActions = CaseReducerActions<{
-  push(state: RouterState, action: PayloadAction<{ location: Location }>): void;
-  replace(state: RouterState, action: PayloadAction<{ location: Location }>): void;
-  back(state: RouterState, action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean; }>): void;
-  forward(state: RouterState, action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean; }>): void;
-  setSkipping(state: RouterState, action: PayloadAction<boolean>): void;
-}, 'router'>
+export type SliceActions = CaseReducerActions<
+  {
+    push(
+      state: RouterState,
+      action: PayloadAction<{ location: Location }>
+    ): void;
+    replace(
+      state: RouterState,
+      action: PayloadAction<{ location: Location }>
+    ): void;
+    back(
+      state: RouterState,
+      action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean }>
+    ): void;
+    forward(
+      state: RouterState,
+      action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean }>
+    ): void;
+    setSkipping(state: RouterState, action: PayloadAction<boolean>): void;
+  },
+  "router"
+>;
 
 export interface LocationListenerProps {
   history: History;

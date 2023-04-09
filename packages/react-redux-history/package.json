@@ -1,6 +1,6 @@
 {
   "name": "react-redux-history",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "Navigation history made easy",
   "author": "fum4",
   "license": "MIT",
@@ -11,7 +11,7 @@
   "sideEffects": false,
   "scripts": {
     "prebuild": "rimraf lib",
-    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "build": "tsup src/index.ts --format esm,cjs --minify --dts",
     "dev": "tsup src/index.ts --format esm,cjs --watch"
   },
   "repository": {
