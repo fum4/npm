@@ -290,15 +290,16 @@ const Component = () => {
 
 There are also a few useful selectors for easy access:
 
-- `selectAction`
-- `selectIsSkipping`
+- `selectHistoryAction`
+- `selectIsSkippingRoutes`
 - `selectForceRender`
 - `selectLocationHistory`
-- `selectCurrentIndex`
 - `selectCurrentLocation`
 - `selectCurrentLocationState`
+- `selectCurrentLocationIndex`
 - `selectPreviousLocation`
 - `selectNextLocation`
+- `selectIsNewSession`
 
 <br><br><br>
 

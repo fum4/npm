@@ -1,11 +1,17 @@
-import type { ActionTypes, RouterLocation, LocationState } from './types';
+import type { AppState } from './types';
 
-export const selectAction = (state): ActionTypes => state.router.action;
-export const selectIsSkipping = (state): boolean => state.router.isSkipping;
-export const selectForceRender = (state): Record<never, never> => selectCurrentLocationState(state).forceRender;
-export const selectLocationHistory = (state): RouterLocation<LocationState>[] => state.router.locationHistory;
-export const selectCurrentIndex = (state): number => state.router.currentIndex;
-export const selectCurrentLocation = (state): RouterLocation<LocationState> => state.router.locationHistory[state.router.currentIndex];
-export const selectCurrentLocationState = (state): LocationState => selectCurrentLocation(state).state;
-export const selectPreviousLocation = (state): RouterLocation<LocationState> => state.router.locationHistory[state.router.currentIndex - 1];
-export const selectNextLocation = (state): RouterLocation<LocationState> => state.router.locationHistory[state.router.currentIndex + 1];
+export const selectHistoryAction = (state: AppState) => state.router.action;
+export const selectIsSkippingRoutes = (state: AppState) => state.router.isSkipping;
+export const selectIsNewSession = (state: AppState) => selectLocationHistory(state).length === 1;
+export const selectForceRender = (state: AppState) => selectCurrentLocationState(state).forceRender;
+export const selectLocationHistory = (state: AppState) => state.router.locationHistory;
+export const selectCurrentLocation = (state: AppState) => state.router.locationHistory[state.router.currentIndex];
+export const selectCurrentLocationState = (state: AppState) => selectCurrentLocation(state).state;
+export const selectCurrentLocationIndex = (state: AppState) => state.router.currentIndex;
+export const selectPreviousLocation = (state: AppState) => state.router.locationHistory[state.router.currentIndex - 1];
+export const selectNextLocation = (state: AppState) => state.router.locationHistory[state.router.currentIndex + 1];
+
+// Deprecate
+export const selectCurrentIndex = selectCurrentLocationIndex;
+export const selectIsSkipping = selectIsSkippingRoutes;
+export const selectAction = selectHistoryAction;

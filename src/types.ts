@@ -35,12 +35,16 @@ export interface RouterLocation<S = LocationState> extends Location {
  * therefore there is no need to check the flag in places where skipBack / skipForward is not used.
  */
 
-export interface AppRouterState<S = LocationState> {
+export interface RouterState<S = LocationState> {
   action: ActionTypes;
   locationHistory: RouterLocation<S>[];
   currentIndex: number;
   isSkipping: boolean;
 }
+
+export interface AppState {
+  router: RouterState
+};
 
 export const LOCATION_CHANGED = '@@router/LOCATION_CHANGED';
 export const LOCATION_CHANGE_REQUEST = '@@router/LOCATION_CHANGE_REQUEST';
@@ -66,11 +70,11 @@ export interface LocationChangedAction {
 }
 
 export type SliceActions = CaseReducerActions<{
-  push(state: AppRouterState, action: PayloadAction<{ location: Location }>): void;
-  replace(state: AppRouterState, action: PayloadAction<{ location: Location }>): void;
-  back(state: AppRouterState, action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean; }>): void;
-  forward(state: AppRouterState, action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean; }>): void;
-  setSkipping(state: AppRouterState, action: PayloadAction<boolean>): void;
+  push(state: RouterState, action: PayloadAction<{ location: Location }>): void;
+  replace(state: RouterState, action: PayloadAction<{ location: Location }>): void;
+  back(state: RouterState, action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean; }>): void;
+  forward(state: RouterState, action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean; }>): void;
+  setSkipping(state: RouterState, action: PayloadAction<boolean>): void;
 }, 'router'>
 
 export interface LocationListenerProps {
