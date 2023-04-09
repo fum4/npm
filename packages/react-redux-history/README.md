@@ -59,7 +59,13 @@ If you are in a rush though you can [open an issue][15], this way we can priorit
 Let's get started by installing the package:
 
 ```shell
-npm install react-redux-history react react-redux react-router history
+npm install react-redux-history react react-redux redux history
+```
+```shell
+pnpm add react-redux-history react react-redux redux history
+```
+```shell
+yarn add react-redux-history react react-redux redux history
 ```
 
 <br>

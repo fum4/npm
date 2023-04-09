@@ -10,8 +10,5 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "7.31.8",
     "eslint-config-turbo": "latest"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
