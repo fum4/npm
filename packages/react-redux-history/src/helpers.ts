@@ -68,10 +68,7 @@ export const parseLocation = (location: Location): RouterLocation => ({
   ...(!location.state && { state: {} }),
 });
 
-export const findIndex = (
-  array: any[],
-  predicate: Record<string, any>
-) => {
+export const findIndex = (array: any[], predicate: Record<string, any>) => {
   if (Array.isArray(array)) {
     const targetKey = Object.keys(predicate)[0];
     const targetValue = predicate[targetKey];

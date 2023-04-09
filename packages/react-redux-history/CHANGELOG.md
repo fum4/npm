@@ -1,5 +1,11 @@
 # react-redux-history
 
+## 1.5.5
+
+### Patch Changes
+
+- Fix TS errors && clean up
+
 ## 1.5.4
 
 ### Patch Changes

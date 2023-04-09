@@ -9,9 +9,11 @@
 
 # ⛵ Navigate away
 
-## Intercept location changes before they are rendered on screen
+## Intercept and manipulate location changes
 
 ### Used in production by [Utilmond][11]. Check it out!
+
+<br>
 
 # Setup <a id="setup"></a>
 

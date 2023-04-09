@@ -32,7 +32,7 @@ export const persistOnPageHide = (
 
     pageHideListener = () => {
       saveToSessionStorage(state, { storageKey, storageLimit });
-    }
+    };
 
     window.addEventListener("pagehide", pageHideListener, { once: true });
   }

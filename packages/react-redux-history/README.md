@@ -11,7 +11,7 @@
 
 # ⚛ Navigation history made easy!
 
-## A lightweight library for managing navigation history in React and Redux.
+## A lightweight library for managing navigation history
 
 ### Used in production by [Utilmond][13]. Check it out!
 
