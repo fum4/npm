@@ -1,5 +1,11 @@
 # navigate-away
 
+## 1.0.8
+
+### Patch Changes
+
+- Update README
+
 ## 1.0.7
 
 ### Patch Changes

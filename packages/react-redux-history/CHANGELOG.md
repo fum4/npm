@@ -1,5 +1,11 @@
 # react-redux-history
 
+## 1.5.8
+
+### Patch Changes
+
+- Update README
+
 ## 1.5.7
 
 ### Patch Changes

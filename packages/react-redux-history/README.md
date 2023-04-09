@@ -107,7 +107,6 @@ export default store;
 
 Lastly, add either `<LocationListener history={history} />` or `useLocationListener(history)` somewhere at the root of your app.
 
-
 ```javascript
 // App.tsx
 import { useLocationListener, LocationListener } from "react-redux-history";
