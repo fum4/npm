@@ -1,12 +1,9 @@
-// import { resolve as _resolve } from 'path';
 import { defineConfig } from 'vitest/config';
-
-// const resolve = (p: string) => _resolve(__dirname, p)
+import { resolve } from 'path';
 
 export default defineConfig({
   test: {
-    globals: true,
     environment: 'jsdom',
-    // setupFiles: resolve('test/vitest.setup.ts')
+    setupFiles: resolve(__dirname, 'test/vitest.setup.ts')
   }
 });

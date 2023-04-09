@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Test
 
 on:
   push:
@@ -20,7 +20,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-#        cache: 'pnpm'
     - run: npm i -g pnpm@8.1.1
     - run: pnpm i --frozen-lockfile
     - run: pnpm build
