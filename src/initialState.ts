@@ -1,7 +1,7 @@
 import type { History } from 'history';
 
 import { persistOnPageHide, getSessionState } from './persist';
-import { ActionTypes, type RouterState, type Options } from './types';
+import { HistoryAction, type RouterState, type Options } from './types';
 
 import {
   parseLocation,
@@ -13,7 +13,7 @@ import {
 const getInitialState = (history: History, { storageKey, storageLimit }: Options): RouterState => {
   const location = parseLocation(history.location);
   const defaultState: RouterState = {
-    action: ActionTypes.Push,
+    action: HistoryAction.Push,
     locationHistory: [ location ],
     currentIndex: 0,
     isSkipping: false,
@@ -32,17 +32,17 @@ const getInitialState = (history: History, { storageKey, storageLimit }: Options
 
       if (isPreviousLocation) {
         initialState.currentIndex -= 1;
-        initialState.action = ActionTypes.Back;
+        initialState.action = HistoryAction.Back;
       }
 
       if (isNextLocation) {
         initialState.currentIndex += 1;
-        initialState.action = ActionTypes.Forward;
+        initialState.action = HistoryAction.Forward;
       }
 
       if (isNewLocation) {
         initialState.currentIndex += 1;
-        initialState.action = ActionTypes.Push;
+        initialState.action = HistoryAction.Push;
         initialState.locationHistory.splice(initialState.currentIndex, initialState.locationHistory.length, location);
       }
     }

@@ -2,6 +2,16 @@ import type { NavigateFunction } from 'react-router';
 import type { CaseReducerActions, PayloadAction } from '@reduxjs/toolkit';
 import type { Action, Location, History } from 'history';
 
+export enum HistoryAction {
+  Push = 'PUSH',
+  Back = 'BACK',
+  Forward = 'FORWARD',
+  Replace = 'REPLACE',
+}
+
+/**
+ * @deprecated - use `HistoryAction` instead
+ */
 export enum ActionTypes {
   Push = 'PUSH',
   Back = 'BACK',
@@ -10,8 +20,10 @@ export enum ActionTypes {
 }
 
 /**
+ * @deprecated - internal use only, not relevant for end users
  * @property skipBack - Routes to automatically skip back when reaching the screen
  * @property skipForward - Routes to automatically skip forward when reaching the screen
+ * @property forceRender - Use flag to force components to re-render
  */
 export interface LocationState {
   skipBack?: number;
@@ -19,15 +31,14 @@ export interface LocationState {
   forceRender?: Record<never, never>;
 }
 
-export interface RouterLocation<S = LocationState> extends Location {
-  state: S;
+export interface RouterLocation extends Location {
+  state: any;
   query: Record<string, string>;
 }
 
 /**
  * @property action - Last action ('PUSH', 'REPLACE', 'BACK', 'FORWARD')
  * @property locationHistory - History of all application locations
- * @property location - Current location
  * @property currentIndex - Current location index in application history
  * @property isSkipping - Flag to inform if the UI is in the process of skipping routes.
  * It should be checked before trying to redirect and take action accordingly.
@@ -35,16 +46,16 @@ export interface RouterLocation<S = LocationState> extends Location {
  * therefore there is no need to check the flag in places where skipBack / skipForward is not used.
  */
 
-export interface RouterState<S = LocationState> {
-  action: ActionTypes;
-  locationHistory: RouterLocation<S>[];
+export interface RouterState {
+  action: HistoryAction;
+  locationHistory: RouterLocation[];
   currentIndex: number;
   isSkipping: boolean;
 }
 
 export interface AppState {
   router: RouterState
-};
+}
 
 export const LOCATION_CHANGED = '@@router/LOCATION_CHANGED';
 export const LOCATION_CHANGE_REQUEST = '@@router/LOCATION_CHANGE_REQUEST';

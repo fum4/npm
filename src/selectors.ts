@@ -11,7 +11,16 @@ export const selectCurrentLocationIndex = (state: AppState) => state.router.curr
 export const selectPreviousLocation = (state: AppState) => state.router.locationHistory[state.router.currentIndex - 1];
 export const selectNextLocation = (state: AppState) => state.router.locationHistory[state.router.currentIndex + 1];
 
-// Deprecate
+
+/**
+ * @deprecated - use `selectCurrentLocationIndex` instead
+ */
 export const selectCurrentIndex = selectCurrentLocationIndex;
+/**
+ * @deprecated - use `selectIsSkippingRoutes` instead
+ */
 export const selectIsSkipping = selectIsSkippingRoutes;
+/**
+ * @deprecated - use `selectHistoryAction` instead
+ */
 export const selectAction = selectHistoryAction;

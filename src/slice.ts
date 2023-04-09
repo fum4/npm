@@ -4,7 +4,7 @@ import type { Location, History } from 'history';
 import getInitialState from './initialState';
 import { persistOnPageHide } from './persist';
 import { parseLocation } from './helpers';
-import { type RouterState, type Options, ActionTypes } from './types';
+import { type RouterState, type Options, HistoryAction } from './types';
 
 const createRouterSlice = (history: History, { storageKey, storageLimit }: Options) => (
   createSlice({
@@ -15,7 +15,7 @@ const createRouterSlice = (history: History, { storageKey, storageLimit }: Optio
         const location = parseLocation(action.payload);
 
         state.currentIndex += 1;
-        state.action = ActionTypes.Push;
+        state.action = HistoryAction.Push;
         state.locationHistory.splice(state.currentIndex, state.locationHistory.length, location);
 
         persistOnPageHide(current(state), { storageKey, storageLimit });
@@ -33,7 +33,7 @@ const createRouterSlice = (history: History, { storageKey, storageLimit }: Optio
           location.state = { ...location.state, skipForward };
         }
 
-        state.action = ActionTypes.Replace;
+        state.action = HistoryAction.Replace;
         state.locationHistory.splice(state.currentIndex, 1, location);
 
         delete state.locationHistory[state.currentIndex].state.forceRender;
@@ -57,7 +57,7 @@ const createRouterSlice = (history: History, { storageKey, storageLimit }: Optio
         }
 
         state.isSkipping = isSkipping;
-        state.action = ActionTypes.Back;
+        state.action = HistoryAction.Back;
         state.currentIndex = nextLocationIndex;
 
         delete state.locationHistory[nextLocationIndex].state.forceRender;
@@ -81,7 +81,7 @@ const createRouterSlice = (history: History, { storageKey, storageLimit }: Optio
         }
 
         state.isSkipping = isSkipping;
-        state.action = ActionTypes.Forward;
+        state.action = HistoryAction.Forward;
         state.currentIndex = nextLocationIndex;
 
         delete state.locationHistory[nextLocationIndex].state.forceRender;

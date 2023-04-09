@@ -1,6 +1,6 @@
 import type { Location } from 'history';
 
-import type { LocationState, RouterLocation } from './types';
+import type { RouterLocation } from './types';
 
 export const isSameRoute = (
   location: Location,
@@ -48,14 +48,14 @@ export const isBackAction = (
   !!history.slice(0, currentIndex).find((historyEntry) => historyEntry.key === location.key)
 );
 
-export const injectQuery = (location: Location): RouterLocation<LocationState> => {
+export const injectQuery = (location: Location): RouterLocation => {
   const searchParams = new URLSearchParams(location.search);
   const query = Object.fromEntries(searchParams);
 
   return { ...location, query };
 };
 
-export const parseLocation = (location: Location): RouterLocation<LocationState> => ({
+export const parseLocation = (location: Location): RouterLocation => ({
   ...injectQuery(location),
   ...(!location.state && { state: {} }),
 });
