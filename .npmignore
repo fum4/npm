@@ -1,13 +1,4 @@
-node_modules
-npm-debug.log
-.idea
-.github
+*node_modules
+*npm-debug.log
+*src
 
-packages/*/node_modules
-packages/*/src
-packages/*/.turbo
-
-apps/*/node_modules
-apps/*/src
-apps/*/.turbo
-apps/*/.next

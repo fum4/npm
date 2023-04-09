@@ -1,5 +1,11 @@
 # react-redux-history
 
+## 1.5.6
+
+### Patch Changes
+
+- Integrate demo app & clean up
+
 ## 1.5.5
 
 ### Patch Changes

@@ -1,4 +1,4 @@
-## Demo app @ `react-redux-history` 
+## Demo app @ `react-redux-history`
 
 <hr>
 

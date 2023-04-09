@@ -1,5 +1,11 @@
 # @nomadware-oss/eslint-config
 
+## 1.0.3
+
+### Patch Changes
+
+- Integrate demo app & clean up
+
 ## 1.0.2
 
 ### Patch Changes
