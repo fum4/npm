@@ -1,5 +1,17 @@
 # demo
 
+## 0.0.4
+
+### Patch Changes
+
+- Update meta
+
+## 0.0.3
+
+### Patch Changes
+
+- Clean up & restructure
+
 ## 0.0.2
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
-  "name": "@nomadware.io/eslint-config",
-  "version": "1.0.0",
+  "name": "@nomadware-oss/eslint-config",
+  "version": "1.0.2",
   "private": true,
   "main": "index.js",
   "license": "MIT",

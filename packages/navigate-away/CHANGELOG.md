@@ -1,5 +1,23 @@
 # navigate-away
 
+## 1.0.3
+
+### Patch Changes
+
+- Fix declaration files
+
+## 1.0.2
+
+### Patch Changes
+
+- Update meta
+
+## 1.0.1
+
+### Patch Changes
+
+- Clean up & restructure
+
 ## 1.0.0
 
 ### Patch Changes

@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c741aaed-5569-41ff-b211-b75e4171a633" name="Changes" comment="Update README">
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/eslint-config/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/eslint-config/CHANGELOG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/eslint-config/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/eslint-config/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/navigate-away/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/navigate-away/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/navigate-away/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/react-redux-history/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/tsconfig/base.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/tsconfig/base.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/tsconfig/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/tsconfig/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +191,7 @@
       <workItem from="1680679945555" duration="5286000" />
       <workItem from="1680995175573" duration="13953000" />
       <workItem from="1681009770281" duration="16310000" />
-      <workItem from="1681030686096" duration="3614000" />
+      <workItem from="1681030686096" duration="7886000" />
     </task>
     <task id="LOCAL-00001" summary="Renaming">
       <created>1658340097201</created>

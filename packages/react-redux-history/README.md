@@ -267,7 +267,7 @@ There are also a few useful selectors for easy access:
 [3]: https://img.shields.io/npm/v/react-redux-history?color=white
 [4]: https://www.npmjs.com/package/react-redux-history
 [5]: https://img.shields.io/npm/l/react-redux-history
-[6]: https://github.com/fum4/react-redux-history/blob/master/LICENSE.md
+[6]: https://github.com/fum4/nomadware-oss/blob/master/packages/react-redux-history/LICENSE.md
 [7]: https://camo.githubusercontent.com/67a01fa7cf337616274f39c070a11638f2e65720e414ef55b8dd3f9c2a803b2a/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d526561637426636f6c6f723d323232323232266c6f676f3d5265616374266c6f676f436f6c6f723d363144414642266c6162656c3d
 [8]: https://reactjs.org/
 [9]: https://camo.githubusercontent.com/3a2650b6854cb790e3af41a1cefa87df32efc07aad12d0c0f128a7fbc5998ac3/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d526564757826636f6c6f723d373634414243266c6f676f3d5265647578266c6f676f436f6c6f723d464646464646266c6162656c3d
@@ -276,7 +276,4 @@ There are also a few useful selectors for easy access:
 [12]: https://reactrouter.com/en/main
 [13]: https://utilmond.com
 [14]: https://utilmond.com/about-us
-[15]: https://github.com/fum4/react-redux-history/issues
-[16]: https://github.com/fum4/react-redux-history/pulls
-[17]: https://www.npmjs.com/package/connected-react-router
-[18]: https://www.npmjs.com/package/redux-first-history
+[15]: https://github.com/fum4/nomadware-oss/issues
