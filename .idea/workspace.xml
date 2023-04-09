@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c741aaed-5569-41ff-b211-b75e4171a633" name="Changes" comment="Update README">
-      <change beforePath="$PROJECT_DIR$/.changeset/breezy-boxes-doubt.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/demo/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apps/react-redux-history-demo/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/demo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/react-redux-history-demo/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/eslint-config/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/eslint-config/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/navigate-away/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/navigate-away/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/react-redux-history/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/react-redux-history/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/tsconfig/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/tsconfig/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +178,7 @@
       <workItem from="1680679945555" duration="5286000" />
       <workItem from="1680995175573" duration="13953000" />
       <workItem from="1681009770281" duration="16310000" />
-      <workItem from="1681030686096" duration="3011000" />
+      <workItem from="1681030686096" duration="3058000" />
     </task>
     <task id="LOCAL-00001" summary="Renaming">
       <created>1658340097201</created>
