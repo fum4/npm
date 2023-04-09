@@ -1,6 +1,6 @@
 {
   "name": "@react-redux-history/core",
-  "version": "1.0.0-1",
+  "version": "1.0.0-2",
   "description": "Navigation history made easy",
   "author": "fum4",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "prebuild": "rimraf lib",
     "build": "tsup src/index.ts --format esm,cjs",
     "dev": "tsup src/index.ts --format esm,cjs --watch",
-    "release": "release-it"
+    "release": "release-it --verbose"
   },
   "repository": {
     "type": "git",
