@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "rome check --apply app",
+    "format": "rome format --write app"
   },
   "publishConfig": {
     "access": "public"

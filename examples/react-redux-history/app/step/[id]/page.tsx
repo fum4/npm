@@ -1,9 +1,9 @@
 interface Props {
-  params: {
-    id: string;
-  };
+	params: {
+		id: string;
+	};
 }
 
 export default function Step({ params }: Props) {
-  return <div>{params.id}</div>;
+	return <div>{params.id}</div>;
 }
