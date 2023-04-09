@@ -1,5 +1,29 @@
 # react-redux-history-demo
 
+## 0.1.10
+
+### Patch Changes
+
+- .npmignore
+
+## 0.1.9
+
+### Patch Changes
+
+- .npmignore
+
+## 0.1.8
+
+### Patch Changes
+
+- .npmignore
+
+## 0.1.7
+
+### Patch Changes
+
+- .npmignore
+
 ## 0.1.6
 
 ### Patch Changes

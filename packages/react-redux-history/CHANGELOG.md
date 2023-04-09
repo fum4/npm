@@ -1,5 +1,11 @@
 # react-redux-history
 
+## 1.5.7
+
+### Patch Changes
+
+- .npmignore
+
 ## 1.5.6
 
 ### Patch Changes
