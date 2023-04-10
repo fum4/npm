@@ -1,18 +1,21 @@
 import { type PayloadAction, createSlice, current } from "@reduxjs/toolkit";
-import type { Location, History } from "history";
+import type { Location } from "history";
 
 import getInitialState from "./initialState";
 import { persistOnPageHide } from "./persist";
 import { parseLocation } from "./helpers";
-import { type RouterState, type Options, HistoryAction } from "./types";
+import { type RouterState, type Options, HistoryAction }  from "./types";
 
 const createRouterSlice = (
-  history: History,
-  { storageKey, storageLimit }: Options
-) =>
-  createSlice({
+  location: Location,
+  {
+    storageKey = "routerState",
+    storageLimit = Infinity,
+  } = {} as Partial<Options>
+) => {
+  return createSlice({
     name: "router",
-    initialState: getInitialState(history, { storageKey, storageLimit }),
+    initialState: getInitialState(location, { storageKey, storageLimit }),
     reducers: {
       push: (state: RouterState, action: PayloadAction<Location>) => {
         const location = parseLocation(action.payload);
@@ -115,5 +118,6 @@ const createRouterSlice = (
       },
     },
   });
+};
 
 export default createRouterSlice;

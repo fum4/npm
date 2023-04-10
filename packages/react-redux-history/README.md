@@ -175,7 +175,7 @@ In this example, every time the user will try to go back from _page_5_ he will b
 
 ## 💪 Force current route to re-render <a id="force-render"></a>
 
-Force current route to re-render by using `selectForceRender`. 'Re-navigate' to the route while passing `forceRender: {}` in the state object.
+Force current route to re-render by using `selectForceRender`. Navigate to the same route while passing `forceRender: {}` in location state.
 
 ```javascript
 import { useSelector } from "react-redux"
