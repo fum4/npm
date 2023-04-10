@@ -27,6 +27,10 @@ export const useNavigateAway = ({
   });
 
   useLayoutEffect(() => {
+    if (!router && !history) {
+      throw new Error('`router` or `history` must be provided');
+    }
+
     const navigateAway: NavigateFunction = (...args) => {
       navigatedFromCallback = true;
       // @ts-ignore
@@ -34,15 +38,11 @@ export const useNavigateAway = ({
     };
 
     const isV5Compat = !router?.subscribe;
-    let onLocationChange;
+    const onLocationChange = router?.subscribe || history?.listen;
 
-    try {
-      onLocationChange = router?.subscribe || history.listen;
-    } catch (e) {
-      console.error('`router` or `history` must be provided ', e);
-      return;
+    if (!onLocationChange) {
+      throw new Error('`router` or `history` invalid. `subscribe` or `listen` functions not implemented');
     }
-
 
     let navigatedFromCallback = false;
 
@@ -58,5 +58,5 @@ export const useNavigateAway = ({
         });
       }
     });
-  }, [navigate]);
+  }, [ router, history, navigate ]);
 };

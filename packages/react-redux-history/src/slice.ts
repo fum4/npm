@@ -7,7 +7,7 @@ import { parseLocation } from "./helpers";
 import { type RouterState, type Options, HistoryAction }  from "./types";
 
 const createRouterSlice = (
-  location: Location,
+  initialLocation: Location,
   {
     storageKey = "routerState",
     storageLimit = Infinity,
@@ -15,7 +15,7 @@ const createRouterSlice = (
 ) => {
   return createSlice({
     name: "router",
-    initialState: getInitialState(location, { storageKey, storageLimit }),
+    initialState: getInitialState(initialLocation, { storageKey, storageLimit }),
     reducers: {
       push: (state: RouterState, action: PayloadAction<Location>) => {
         const location = parseLocation(action.payload);
