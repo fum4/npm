@@ -1,5 +1,11 @@
 # navigate-away
 
+## 2.0.0
+
+### Major Changes
+
+- Monorepo, CI/CD, redux first
+
 ## 1.0.8
 
 ### Patch Changes

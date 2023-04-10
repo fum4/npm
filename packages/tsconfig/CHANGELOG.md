@@ -1,5 +1,11 @@
 # @nomadware.io/tsconfig
 
+## 2.0.0
+
+### Major Changes
+
+- Monorepo, CI/CD, redux first
+
 ## 1.0.3
 
 ### Patch Changes

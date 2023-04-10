@@ -62,21 +62,21 @@ Create a `history` object and pass it to `configureRouterHistory`. The returned 
 
 ```javascript
 // store.js
-import { createBrowserHistory } from "history";
-import { configureRouterHistory } from "react-redux-history";
+import { createBrowserHistory } from "history"
+import { configureRouterHistory } from "react-redux-history"
 
-export const history = createBrowserHistory(); // export this as we will need it later
+export const history = createBrowserHistory() // export this as we will need it later
 
 // optional, defaults are listed below
 const options = {
   storageKey: "routerState",
-  storageLimit: Infinity,
-};
+  storageLimit: Infinity
+}
 
 const { routerReducer, routerMiddleware } = configureRouterHistory(
   history,
   options
-);
+)
 ```
 
 <br>
@@ -90,15 +90,15 @@ Add the reducer and middleware to your store. If you are using Redux Toolkit it 
 const store = configureStore({
   reducer: combineReducers({
     // ...other reducers
-    router: routerReducer,
+    router: routerReducer
   }),
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
       // ...other middleware
-      .prepend(routerMiddleware),
+      .prepend(routerMiddleware)
 });
 
-export default store;
+export default store
 ```
 
 <br>
@@ -109,11 +109,11 @@ Lastly, add either `<LocationListener history={history} />` or `useLocationListe
 
 ```javascript
 // App.tsx
-import { useLocationListener, LocationListener } from "react-redux-history";
-import { history } from "src/store";
+import { useLocationListener, LocationListener } from "react-redux-history"
+import { history } from "src/store"
 
 const App = () => {
-  useLocationListener(history); // Use either this or the component below, not both!
+  useLocationListener(history) // Use either this or the component below, not both!
 
   return (
     <>
@@ -163,8 +163,8 @@ By setting a `skipBack` / `skipForward` flag on a specific route the user will b
 ```javascript
 history.push({
   pathname: "page_5",
-  state: { skipBack: 4 },
-});
+  state: { skipBack: 4 }
+})
 ```
 
 In this example, every time the user will try to go back from _page_5_ he will be skipped back 4 pages, reaching _page_1_. The same behaviour will apply when going forward from _page_1_, the user will be skipped forward to _page_5_.
@@ -178,16 +178,16 @@ In this example, every time the user will try to go back from _page_5_ he will b
 Force current route to re-render by using `selectForceRender`. 'Re-navigate' to the route while passing `forceRender: {}` in the state object.
 
 ```javascript
-import { useSelector } from "react-redux";
-import { selectForceRender } from "react-redux-history";
+import { useSelector } from "react-redux"
+import { selectForceRender } from "react-redux-history"
 
 const Component = () => {
   // The component will re-render every time the `forceRender` flag reference changes
-  const forceRender = useSelector(selectForceRender);
+  const forceRender = useSelector(selectForceRender)
 
   useEffect(() => {
     // The flag can also be used as a dependency in order to re-trigger effects
-  }, [forceRender]);
+  }, [forceRender])
 
   return (
     <button
@@ -197,15 +197,15 @@ const Component = () => {
           pathname: "current_pathname",
           state: {
             // Simply pass a new object to force re-rendering
-            forceRender: {},
+            forceRender: {}
           },
         });
       }}
     >
       Re-render
     </button>
-  );
-};
+  )
+}
 ```
 
 <br>

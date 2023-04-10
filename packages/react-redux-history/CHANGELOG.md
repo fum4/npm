@@ -1,5 +1,11 @@
 # react-redux-history
 
+## 2.0.0
+
+### Major Changes
+
+- Monorepo, CI/CD, redux first
+
 ## 1.5.8
 
 ### Patch Changes

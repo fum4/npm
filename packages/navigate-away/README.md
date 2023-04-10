@@ -13,29 +13,36 @@
 
 `useNavigateAway` intercepts location changes **before** React paints them on screen.
 
-Use this hook to manipulate the navigation flow, replace the next location or edit its state in a render friendly manner.
+Using effects for navigation should never be your first option. Waiting for a page to be rendered just to navigate away is a waste of resources and time.
+
+
+Use this hook to manipulate the navigation flow, replace the next location or edit its state in a render friendly manner, **before re-rendering the whole component tree**!
 
 <br>
 
 # Setup <a id="setup"></a>
 
 ```shell
-npm install navigate-away react react-router history
+pnpm add navigate-away
 ```
 
 ```shell
-pnpm add navigate-away react react-router history
+yarn add navigate-away
 ```
 
 ```shell
-yarn add navigate-away react react-router history
+npm i navigate-away
 ```
 
 <br>
 
+Instructions are pretty simple, use the hook wherever you want!
+
+Just be sure to always pass your app's `history` object to it.
+
 ```javascript
-import { useNavigateAway } from "navigate-away";
-import { history } from "src/store";
+import { useNavigateAway } from "navigate-away"
+import { history } from "src/store"
 
 const Component = () => {
   useNavigateAway(({ nextLocation, action, navigate }) => {
@@ -44,16 +51,16 @@ const Component = () => {
         ...nextLocation,
         state: {
           ...nextLocation.state,
-          someFlag: true,
-        },
-      };
+          someFlag: true
+        }
+      }
 
-      navigate(updatedLocation);
+      navigate(updatedLocation)
     }
-  }, history);
+  }, history)
 
   // ...
-};
+}
 ```
 
 There is also a _component_ version of the hook.
@@ -61,8 +68,8 @@ There is also a _component_ version of the hook.
 It comes handy when dealing with libraries such as Formik and you need to pass Formik props to the hook:
 
 ```javascript
-import { NavigateAway } from "navigate-away";
-import { history } from "src/store";
+import { NavigateAway } from "navigate-away"
+import { history } from "src/store"
 
 const Component = () => {
   // ...
@@ -78,9 +85,11 @@ const Component = () => {
         />
       )}
     </Formik>
-  );
-};
+  )
+}
 ```
+
+That's all, enjoy!
 
 <br><br><br>
 
