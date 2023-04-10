@@ -1,5 +1,11 @@
 # navigate-away
 
+## 2.0.1
+
+### Patch Changes
+
+- Prettify README
+
 ## 2.0.0
 
 ### Major Changes
