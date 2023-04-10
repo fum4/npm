@@ -27,7 +27,7 @@
 
 🚦 Selectors for easy access. [Read more](#selectors)
 
-👀 Everything you need to know about your navigation state in your favorite developer tools:
+👀 Easy debug. Find everything you need to know about navigation in your favorite dev tools:
 
 <br>
 
