@@ -7,9 +7,6 @@
     "build": "next build",
     "start": "next start"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "dependencies": {
     "next": "13.3.0",
     "react": "18.2.0",

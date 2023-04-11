@@ -1,4 +1,4 @@
-# ⚛️ Nomadware OSS
+# ⚛ OSS
 
 Monorepo containing open source packages under [Nomadware.io](https://nomadware.io) scope:
 
@@ -7,4 +7,6 @@ Monorepo containing open source packages under [Nomadware.io](https://nomadware.
 
 <hr>
 
-### 🔗 https://nomadware.io
+## 🏅 Sponsors
+
+<img alt="Sponsor - JetBrains" width="250px" height="250px" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png?_ga=2.63300143.1068496944.1680591996-1938842262.1680591996" />
