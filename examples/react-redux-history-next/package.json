@@ -1,15 +1,11 @@
 {
-  "name": "react-redux-history-demo",
-  "version": "0.1.10",
+  "name": "react-redux-history-next",
+  "version": "0.0.1",
   "private": true,
-  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "dependencies": {
     "next": "13.3.0",

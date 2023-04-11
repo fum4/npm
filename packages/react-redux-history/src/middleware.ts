@@ -7,7 +7,7 @@ import {
   selectIsSkippingRoutes,
   selectLocationHistory,
 } from "./selectors";
-import { findIndex, isBackAction, isForwardAction } from "./helpers";
+import { findIndex, isBackAction, isForwardAction, parseLocation } from "./helpers";
 import type { NavigationShim } from "./types";
 
 import {
@@ -32,11 +32,11 @@ const createRouterMiddleware =
       switch (type) {
         case Action.Push:
           // @ts-ignore
-          return next(sliceActions.push(location));
+          return next(sliceActions.push(parseLocation(location)));
 
         case Action.Replace:
           // @ts-ignore
-          return next(sliceActions.replace(location));
+          return next(sliceActions.replace(parseLocation(location)));
 
         case Action.Pop: {
           const state = store.getState();

@@ -1,21 +1,28 @@
 {
   "extends": "./base.json",
-  "display": "Next.js",
+  "display": "Next",
   "compilerOptions": {
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve"
   },
+  "include": [
+    "app",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "paths": {
+    "@/*": [
+      "./*"
+    ]
+  },
   "plugins": [
     {
       "name": "next"
     }
-  ],
-  "paths": {
-    "@/*": ["./*"]
-  },
-  "include": ["app", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
+  ]
 }
