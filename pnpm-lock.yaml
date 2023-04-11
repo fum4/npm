@@ -84,7 +84,7 @@ importers:
         specifier: workspace:*
         version: link:../../packages/tsconfig
       '@types/node':
-        specifier: 18.15.11
+        specifier: ^18.0.27
         version: 18.15.11
       '@types/react':
         specifier: ^18.0.28
@@ -159,6 +159,9 @@ importers:
       '@tsconfig/recommended':
         specifier: ^1.0.1
         version: 1.0.2
+      '@types/node':
+        specifier: ^18.0.27
+        version: 18.15.11
       '@types/react':
         specifier: ^18.0.27
         version: 18.0.33
@@ -223,6 +226,9 @@ importers:
       '@tsconfig/recommended':
         specifier: ^1.0.1
         version: 1.0.2
+      '@types/node':
+        specifier: ^18.0.27
+        version: 18.15.11
       '@types/react':
         specifier: ^18.0.27
         version: 18.0.33
