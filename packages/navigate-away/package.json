@@ -10,7 +10,7 @@
   "types": "./dist/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "prebuild": "rimraf lib",
+    "prebuild": "rimraf dist",
     "build": "tsup src/index.ts --format esm,cjs --minify --dts",
     "dev": "tsup src/index.ts --format esm,cjs --watch"
   },
