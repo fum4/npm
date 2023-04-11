@@ -4,7 +4,7 @@ import type { Location, History } from "history";
 import getInitialState from "./initialState";
 import { persistOnPageHide } from "./persist";
 import { parseLocation } from "./helpers";
-import { type RouterState, type Options, HistoryAction } from "./types";
+import { type RouterState, type RouterLocation, type Options, HistoryAction } from "./types";
 
 const createRouterSlice = (
   history: History,
@@ -14,35 +14,34 @@ const createRouterSlice = (
     name: "router",
     initialState: getInitialState(history, { storageKey, storageLimit }),
     reducers: {
-      push: (state: RouterState, action: PayloadAction<Location>) => {
-        const location = parseLocation(action.payload);
-
+      push: (state: RouterState, action: PayloadAction<RouterLocation>) => {
         state.currentIndex += 1;
         state.action = HistoryAction.Push;
         state.locationHistory.splice(
           state.currentIndex,
           state.locationHistory.length,
-          location
+          action.payload
         );
 
         persistOnPageHide(current(state), { storageKey, storageLimit });
       },
-      replace: (state: RouterState, action: PayloadAction<Location>) => {
-        const location = parseLocation(action.payload);
-        // Copy skip flags when replacing in case they are not overwritten by new state
-        const { skipBack, skipForward } =
-          state.locationHistory[state.currentIndex].state;
+      replace: (state: RouterState, action: PayloadAction<RouterLocation>) => {
+        const newLocation = action.payload;
 
-        if (!location.state?.skipBack && skipBack) {
-          location.state = { ...location.state, skipBack };
+        // Never set flags as `false` if location is replaced
+        const currentLocation = state.locationHistory[state.currentIndex];
+        const { skipBack, skipForward } = currentLocation.state;
+
+        if (skipBack) {
+          newLocation.state = { ...newLocation.state, skipBack };
         }
 
-        if (!location.state?.skipForward && skipForward) {
-          location.state = { ...location.state, skipForward };
+        if (skipForward) {
+          newLocation.state = { ...newLocation.state, skipForward };
         }
 
         state.action = HistoryAction.Replace;
-        state.locationHistory.splice(state.currentIndex, 1, location);
+        state.locationHistory.splice(state.currentIndex, 1, newLocation);
 
         delete state.locationHistory[state.currentIndex].state.forceRender;
 
@@ -58,7 +57,7 @@ const createRouterSlice = (
         const { nextLocationIndex, isSkipping = false } = action.payload;
 
         if (isSkipping) {
-          // When skipping back we also want to skip forward at some point
+          // When skipping back we also want to skip forward
           const skipForward = state.currentIndex - nextLocationIndex;
 
           state.locationHistory[nextLocationIndex].state = {
@@ -88,7 +87,7 @@ const createRouterSlice = (
         const { nextLocationIndex, isSkipping = false } = action.payload;
 
         if (isSkipping) {
-          // When skipping forward we also want to skip back at some point
+          // When skipping forward we also want to skip back
           const skipBack = nextLocationIndex - state.currentIndex;
 
           state.locationHistory[nextLocationIndex].state = {
