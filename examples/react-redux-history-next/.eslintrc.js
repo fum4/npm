@@ -1,4 +1,5 @@
 module.exports = {
   root: true,
-  extends: ["@nw/eslint-config"],
+  // TODO: add to package.json and fix vercel deploy
+  // extends: ["@nw/eslint-config"],
 };

@@ -1,5 +1,6 @@
 {
   // "extends": "@nw/tsconfig/next.json",
+  // TODO: add to package.json and fix vercel deploy
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Next",
   "compilerOptions": {
