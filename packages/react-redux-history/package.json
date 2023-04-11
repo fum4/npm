@@ -62,8 +62,6 @@
     "middleware",
     "navigation",
     "navigate",
-    "away",
-    "block",
     "react-router",
     "connected",
     "connected-react-router",
