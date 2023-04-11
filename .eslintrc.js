@@ -1,9 +1,9 @@
 module.exports = {
   root: true,
-  extends: ["@nomadware-oss/eslint-config"],
+  extends: ["@nw/eslint-config"],
   settings: {
     next: {
-      rootDir: ["examples/*/"],
+      rootDir: ["examples/react-redux-history-next/"],
     },
   },
 };

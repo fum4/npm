@@ -20,7 +20,8 @@
     "esModuleInterop": true,
     "inlineSources": false,
     "skipLibCheck": true,
-    "strict": true
+    "strict": true,
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["."],
   "exclude": ["dist", "node_modules"]

@@ -1,0 +1,16 @@
+{
+  "extends": "./base.json",
+  "display": "Vite",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "useDefineForClassFields": true,
+    "allowJs": false,
+    "esModuleInterop": false,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["src"],
+  "types": ["vite/client"]
+}

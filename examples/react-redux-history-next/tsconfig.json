@@ -1,8 +1,7 @@
 {
-  //  "extends": "@nomadware-oss/tsconfig/nextjs.json",
-  // TODO: uncomment line above and remove everything below
+  // "extends": "@nw/tsconfig/next.json",
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Next.js",
+  "display": "Next",
   "compilerOptions": {
     "baseUrl": ".",
     "target": "es5",

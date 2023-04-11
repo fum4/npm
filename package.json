@@ -2,8 +2,9 @@
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
+  "packageManager": "pnpm@8.1.1",
   "workspaces": [
-    "apps/*",
+    "examples/*",
     "packages/*"
   ],
   "scripts": {
@@ -17,12 +18,11 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.1",
-    "@nomadware-oss/eslint-config": "workspace:*",
+    "@nw/eslint-config": "workspace:*",
     "eslint": "latest",
     "jsdom": "^21.1.1",
     "prettier": "latest",
     "turbo": "latest",
     "vitest": "^0.30.0"
-  },
-  "packageManager": "pnpm@8.1.1"
+  }
 }

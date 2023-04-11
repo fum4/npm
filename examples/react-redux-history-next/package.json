@@ -1,8 +1,7 @@
 {
-  "name": "react-redux-history-demo",
-  "version": "0.1.10",
+  "name": "react-redux-history-next",
+  "version": "0.0.1",
   "private": true,
-  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -17,6 +16,8 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@nw/eslint-config": "workspace:*",
+    "@nw/tsconfig": "workspace:*",
     "@types/node": "18.15.11",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
