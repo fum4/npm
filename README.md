@@ -1,4 +1,4 @@
-# ⚛ OSS
+# OSS
 
 Monorepo containing open source packages under [Nomadware.io](https://nomadware.io) scope:
 
