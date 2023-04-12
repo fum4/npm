@@ -4,7 +4,7 @@
   "description": "Persist Formik values with ease",
   "author": "fum4",
   "license": "MIT",
-  "homepage": "https://github.com/fum4/nomadware-oss/blob/master/packages/formik-persist",
+  "homepage": "https://github.com/fum4/npm/blob/master/packages/formik-persist",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -16,10 +16,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fum4/nomadware-oss.git"
+    "url": "git+https://github.com/fum4/npm.git"
   },
   "bugs": {
-    "url": "https://github.com/fum4/nomadware-oss/issues"
+    "url": "https://github.com/fum4/npm/issues"
   },
   "publishConfig": {
     "access": "public"
