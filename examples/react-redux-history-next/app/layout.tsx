@@ -9,7 +9,7 @@ interface Props {
 export const metadata: Metadata = {
   title: "react-redux-history-next",
   description: "Next.js demo app",
-  icons: "/public/favicon.webp",
+  icons: "/favicon.webp",
 };
 
 export default function RootLayout({ children }: Props) {
