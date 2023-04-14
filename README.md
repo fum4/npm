@@ -1,4 +1,3 @@
-
 <a href="https://nomadware.io">
     <img src="assets/nw_logo.webp" title="Nomadware.io" alt="Nomadware logo" width="75px" height="75px" />
 </a>

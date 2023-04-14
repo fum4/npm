@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   icons: [
     {
       rel: "icon",
-      url: "/favicon.webp"
-    }
-  ]
+      url: "/favicon.webp",
+    },
+  ],
 };
 
 export default function RootLayout({ children }: Props) {

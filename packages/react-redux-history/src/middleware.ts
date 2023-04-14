@@ -7,7 +7,12 @@ import {
   selectIsSkippingRoutes,
   selectLocationHistory,
 } from "./selectors";
-import { findIndex, isBackAction, isForwardAction, parseLocation } from "./helpers";
+import {
+  findIndex,
+  isBackAction,
+  isForwardAction,
+  parseLocation,
+} from "./helpers";
 
 import {
   LOCATION_CHANGED,

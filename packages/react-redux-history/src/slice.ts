@@ -1,10 +1,14 @@
 import { type PayloadAction, createSlice, current } from "@reduxjs/toolkit";
-import type { Location, History } from "history";
+import type { History } from "history";
 
 import getInitialState from "./initialState";
 import { persistOnPageHide } from "./persist";
-import { parseLocation } from "./helpers";
-import { type RouterState, type RouterLocation, type Options, HistoryAction } from "./types";
+import {
+  type RouterState,
+  type RouterLocation,
+  type Options,
+  HistoryAction,
+} from "./types";
 
 const createRouterSlice = (
   history: History,
