@@ -1,4 +1,4 @@
-import type { Values } from './types';
+import type { Values } from "./types";
 
 export const getStorageValues = (
   key: string,
@@ -18,8 +18,12 @@ export const getStorageValues = (
   return null;
 };
 
-export const filterValues = (values: Values, include: string[], exclude: string[]) => (
-  Object.entries(values).reduce((acc, [ key, value ]) => {
+export const filterValues = (
+  values: Values,
+  include: string[],
+  exclude: string[]
+) =>
+  Object.entries(values).reduce((acc, [key, value]) => {
     if (include && !include.includes(key)) {
       return acc;
     }
@@ -31,5 +35,4 @@ export const filterValues = (values: Values, include: string[], exclude: string[
     acc[key] = value;
 
     return acc;
-  }, {})
-);
+  }, {});

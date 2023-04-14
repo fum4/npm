@@ -3,7 +3,12 @@ import type { Location } from "history";
 
 import getInitialState from "./initialState";
 import { persistOnPageHide } from "./persist";
-import { type RouterState, type RouterLocation, type Options, HistoryAction } from "./types";
+import {
+  type RouterState,
+  type RouterLocation,
+  type Options,
+  HistoryAction,
+} from "./types";
 
 const createRouterSlice = (
   initialLocation: Location,

@@ -1,32 +1,32 @@
 {
   "name": "react-redux-history",
-  "version": "2.0.1",
+  "version": "2.0.4",
   "description": "Navigation history made easy",
   "author": "fum4",
   "license": "MIT",
-  "homepage": "https://github.com/fum4/nomadware-oss/blob/master/packages/react-redux-history",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "homepage": "https://github.com/fum4/npm/blob/master/packages/react-redux-history",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "sideEffects": false,
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsup src/index.ts --format esm,cjs --minify --dts",
     "dev": "tsup src/index.ts --format esm,cjs --watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fum4/nomadware-oss.git"
-  },
-  "bugs": {
-    "url": "https://github.com/fum4/nomadware-oss/issues"
-  },
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "dist/**"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fum4/npm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fum4/npm/issues"
+  },
   "peerDependencies": {
     "history": "^5.0.0",
     "react": "^18.0.0",
@@ -49,9 +49,9 @@
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@types/react-redux": "^7.1.25",
-    "rimraf": "^4.1.2",
+    "rimraf": "^5.0.0",
     "tsup": "^6.7.0",
-    "typescript": "^4.7.4"
+    "typescript": "^5.0.4"
   },
   "keywords": [
     "react",
@@ -63,8 +63,6 @@
     "middleware",
     "navigation",
     "navigate",
-    "away",
-    "block",
     "react-router",
     "connected",
     "connected-react-router",
