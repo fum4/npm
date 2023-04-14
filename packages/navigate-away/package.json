@@ -5,14 +5,20 @@
   "author": "fum4",
   "license": "MIT",
   "homepage": "https://github.com/fum4/npm/blob/master/packages/navigate-away",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "sideEffects": false,
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsup src/index.ts --format esm,cjs --minify --dts",
     "dev": "tsup src/index.ts --format esm,cjs --watch"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -21,12 +27,6 @@
   "bugs": {
     "url": "https://github.com/fum4/npm/issues"
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "files": [
-    "dist"
-  ],
   "peerDependencies": {
     "history": "^5.0.0",
     "react": "^18.0.0",
