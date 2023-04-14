@@ -2,9 +2,6 @@
 
 What your PR does, or some other notes
 
-**GitHub issue** \
-https://github.com/fum4/react-redux-history/issues/<issue-id>
-
 <!--
 Commit Type | Emoji
 ----------  | -----

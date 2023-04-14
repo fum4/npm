@@ -1,0 +1,33 @@
+{
+   // "extends": "@nw/tsconfig/vite.json",
+   "display": "Vite",
+   "compilerOptions": {
+      "baseUrl": ".",
+      "target": "es5",
+      "module": "esnext",
+      "moduleResolution": "node",
+      "lib": [
+         "dom",
+         "dom.iterable",
+         "esnext"
+      ],
+      "outDir": "dist",
+      "composite": false,
+      "declaration": true,
+      "declarationMap": true,
+      "inlineSources": false,
+      "skipLibCheck": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "useDefineForClassFields": true,
+      "allowJs": false,
+      "esModuleInterop": false,
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "allowSyntheticDefaultImports": true,
+      "noEmit": true,
+      "jsx": "react-jsx"
+   },
+   "include": ["src"],
+   "types": ["vite/client"]
+}
