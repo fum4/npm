@@ -41,5 +41,5 @@ export const useNavigateAway = (
         });
       }
     });
-  }, [ history, navigate ]);
+  }, [history, navigate]);
 };

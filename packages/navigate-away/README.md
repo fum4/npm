@@ -15,7 +15,6 @@
 
 Using effects for navigation should never be your first option. Waiting for a page to be rendered just to navigate away is a waste of resources and time.
 
-
 Use this hook to manipulate the navigation flow, replace the next location or edit its state in a render friendly manner, **before re-rendering the whole component tree**!
 
 <br>

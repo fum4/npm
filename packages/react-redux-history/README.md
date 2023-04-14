@@ -23,6 +23,8 @@
 
 ⏭️ Skipping screens capability out of the box just by passing a flag when navigating. [Read more](#skip-back)
 
+🔀 Dispatch location changes [Read more](#redux-first)
+
 💪 Force current route to re-render capability. [Read more](#force-render)
 
 🚦 Selectors for easy access. [Read more](#selectors)
@@ -170,6 +172,29 @@ history.push({
 In this example, every time the user will try to go back from _page_5_ he will be skipped back 4 pages, reaching _page_1_. The same behaviour will apply when going forward from _page_1_, the user will be skipped forward to _page_5_.
 
 **Note**: Due to the restrictive nature of browser navigation, back or forward actions cannot be stopped. That means that in the previous example the user will actually reach _page_4_ before being redirected to _page_1_. If there is conflicting logic (such as extra redirects) in _page_4_, it will be fired before the middleware manages to completely skip all screens. In order to get past this issue we can `selectIsSkipping` to not render the component tree while skipping.
+
+<br>
+
+## 🔀 Dispatch location changes <a id="redux-first"></a>
+
+Change current location using redux actions anywhere in your app.
+
+The API is compatible with `history`, it can be used as a drop-in replacement.
+
+```javascript
+import { push, replace, forward, back, go } from 'react-redux-history'
+
+dispatch(push({
+  pathname: 'homepage',
+  state: {
+    ...
+  }
+}))
+
+// or use the short version
+
+dispatch(push('homepage'))
+```
 
 <br>
 
