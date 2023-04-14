@@ -1,5 +1,5 @@
 {
-  "name": "@nomadware-oss/eslint-config",
+  "name": "@nw/eslint-config",
   "version": "2.0.0",
   "private": true,
   "main": "index.js",
@@ -7,7 +7,7 @@
   "sideEffects": false,
   "devDependencies": {
     "eslint": "^7.23.0",
-    "eslint-config-next": "13.0.0",
+    "eslint-config-next": "13.3.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "7.32.2",
     "eslint-config-turbo": "latest"

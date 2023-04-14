@@ -1,3 +1,3 @@
 {
-    "extends": "@nomadware-oss/tsconfig/base.json"
+    "extends": "@nw/tsconfig/base.json"
 }
