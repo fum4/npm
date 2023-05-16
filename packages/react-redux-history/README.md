@@ -13,7 +13,7 @@
 
 ## A lightweight library for managing navigation history
 
-<br>
+<br><br>
 
 ## ✨ Features
 
@@ -35,8 +35,7 @@
 
 <img src="https://i.imgur.com/K2fjcwH.png" alt="Redux DevTools with router history" width="500" />
 
-<br>
-<br>
+<br><br><br>
 
 # Setup <a id="setup"></a>
 
@@ -129,7 +128,7 @@ const App = () => {
 
 **Note**: the `history` object provided to `configureRouterHistory` and `useLocationListener` / `LocationListener` must be the same `history` object !
 
-<br><br>
+<br><br><br>
 
 # Configuration
 
@@ -144,11 +143,10 @@ The following options are available:
 
 **Be careful when limiting session storage entries**. The user is still able to go back to previous pages even if they are not saved in session storage. This can cause unexpected behaviour on page reload, especially if you use `skipBack` / `skipForward` or similar logic that alters the navigation flow.
 
-<br><br>
+<br><br><br>
 
 # Features <a id="features"></a>
 
-<br>
 
 ## 🌲 Persistent history <a id="persist"></a>
 
@@ -259,6 +257,9 @@ There are also a few useful selectors for easy access:
 [![react][7]][8]
 [![redux][9]][10]
 
+<br>
+<br>
+<br>
 <br>
 
 ## 🏅 Supported by
