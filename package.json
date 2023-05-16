@@ -20,9 +20,9 @@
     "@changesets/cli": "^2.26.1",
     "@nw/eslint-config": "workspace:*",
     "eslint": "latest",
-    "jsdom": "^21.1.1",
+    "jsdom": "^21.1.2",
     "prettier": "latest",
     "turbo": "latest",
-    "vitest": "^0.30.0"
+    "vitest": "^0.30.1"
   }
 }

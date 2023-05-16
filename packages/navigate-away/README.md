@@ -11,11 +11,9 @@
 
 ## Intercept and manipulate location changes
 
-`useNavigateAway` intercepts location changes **before** React paints them on screen.
+`useNavigateAway` intercepts location changes before React paints them on screen.
 
-Using effects for navigation should never be your first option. Waiting for a page to be rendered just to navigate away is a waste of resources and time.
-
-Use this hook to manipulate the navigation flow, replace the next location or edit its state in a render friendly manner, **before re-rendering the whole component tree**!
+Use this hook to manipulate the navigation flow, replace the next location or edit its state in a render friendly manner, before re-rendering the whole component tree.
 
 <br>
 
@@ -101,7 +99,13 @@ That's all, enjoy!
 
 <br>
 
-## 🏅 Sponsors
+## 🏅 Supported by
+
+<br>
+
+<a alt="used by Utilmond" href="https://utilmond.com"><img src="https://utilmond.com/static/images/utilmond_whitebg.svg" width="250px" /></a>
+
+<br>
 
 <img alt="Sponsor - JetBrains" width="250px" height="250px" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png?_ga=2.63300143.1068496944.1680591996-1938842262.1680591996" />
 
