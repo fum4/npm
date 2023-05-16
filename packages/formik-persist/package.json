@@ -1,6 +1,6 @@
 {
   "name": "formik-persist",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Persist Formik values with ease",
   "author": "fum4",
   "license": "MIT",
