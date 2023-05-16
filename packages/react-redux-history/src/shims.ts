@@ -1,6 +1,6 @@
-import type { CreateNavigationShimPayload, NavigationShim } from "./types";
+import type { NavigationShimPayload, NavigationShim } from "./types";
 
-export const createNavigationShim = ({ router, history }: Partial<CreateNavigationShimPayload>): NavigationShim => ({
+export const createNavigationShim = ({ router, history }: Partial<NavigationShimPayload>): NavigationShim => ({
   go: (delta) => {
     router ? router.navigate(delta) : history.go(delta);
   },

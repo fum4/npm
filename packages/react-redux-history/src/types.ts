@@ -83,7 +83,7 @@ export type SliceActions = CaseReducerActions<
   "router"
 >;
 
-export type Config = Options & CreateNavigationShimPayload;
+export type Config = Options & NavigationShimPayload;
 
 export interface Options {
   storageKey: string;
@@ -91,8 +91,7 @@ export interface Options {
 }
 
 // TODO: props should be optional
-// TODO: rename
-export interface CreateNavigationShimPayload {
+export interface NavigationShimPayload {
   router: Router;
   history: History;
 }

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import type { RouterSubscriber } from "@remix-run/router";
 import type { Listener } from "history";
 
-import { type CreateNavigationShimPayload, LOCATION_CHANGED } from "./types";
+import { type NavigationShimPayload, LOCATION_CHANGED } from "./types";
 
 const createLocationChangedAction = (type: string) => ({
   type: LOCATION_CHANGED,
@@ -13,7 +13,7 @@ const createLocationChangedAction = (type: string) => ({
   },
 });
 
-export const useLocationListener = ({ history, router }: Partial<CreateNavigationShimPayload>) => {
+export const useLocationListener = ({ history, router }: Partial<NavigationShimPayload>) => {
   const dispatch = useDispatch();
 
   useLayoutEffect(() => {
@@ -39,7 +39,7 @@ export const useLocationListener = ({ history, router }: Partial<CreateNavigatio
   }, [history, router, dispatch]);
 };
 
-export const LocationListener = ({ history, router }: Partial<CreateNavigationShimPayload>) => {
+export const LocationListener = ({ history, router }: Partial<NavigationShimPayload>) => {
   useLocationListener({ history, router });
 
   return null;
