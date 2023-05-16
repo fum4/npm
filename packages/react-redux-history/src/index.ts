@@ -12,7 +12,6 @@ export const configureRouterHistory = ({
     throw new Error('`router` or `history` must be provided');
   }
 
-  // @ts-ignore
   const { location: initialLocation } = router?.state || history;
   const { reducer, actions } = createRouterSlice(initialLocation, options);
   const navigation = createNavigationShim({ router, history });

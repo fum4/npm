@@ -83,10 +83,6 @@ export type SliceActions = CaseReducerActions<
   "router"
 >;
 
-export interface LocationListenerProps {
-  history: History;
-}
-
 export type Config = Options & CreateNavigationShimPayload;
 
 export interface Options {
@@ -94,6 +90,8 @@ export interface Options {
   storageLimit: number;
 }
 
+// TODO: props should be optional
+// TODO: rename
 export interface CreateNavigationShimPayload {
   router: Router;
   history: History;
