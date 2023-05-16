@@ -28,7 +28,7 @@
     "url": "https://github.com/fum4/npm/issues"
   },
   "peerDependencies": {
-    "react": "^18.0.0"
+    "react": "^16.8.4 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.9",
