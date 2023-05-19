@@ -11,7 +11,7 @@
     "dev": "turbo run dev",
     "build": "turbo run build",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
     "release": "pnpm lint && pnpm format && pnpm build && changeset && changeset version && changeset publish",
     "test": "vitest",
     "coverage": "vitest run --coverage"
