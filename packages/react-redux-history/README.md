@@ -237,16 +237,17 @@ const Component = () => {
 
 There are also a few useful selectors for easy access:
 
-- `selectHistoryAction`
-- `selectIsSkippingRoutes`
-- `selectForceRender`
 - `selectLocationHistory`
 - `selectCurrentLocation`
 - `selectCurrentLocationState`
 - `selectCurrentLocationIndex`
-- `selectPreviousLocation`
 - `selectNextLocation`
+- `selectPreviousLocation`
+- `selectBackLocation`
+- `selectHistoryAction`
+- `selectIsSkippingRoutes`
 - `selectIsNewSession`
+- `selectForceRender`
 
 <br><br><br>
 
