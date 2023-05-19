@@ -29,7 +29,7 @@
 
 🚦 Selectors for easy access. [Read more](#selectors)
 
-👀 Everything you need to know about your navigation state in your favorite developer tools:
+👀 Easy debug. Find everything you need to know about navigation in your favorite dev tools:
 
 <br>
 
@@ -198,7 +198,7 @@ dispatch(push('homepage'))
 
 ## 💪 Force current route to re-render <a id="force-render"></a>
 
-Force current route to re-render by using `selectForceRender`. 'Re-navigate' to the route while passing `forceRender: {}` in the state object.
+Force current route to re-render by using `selectForceRender`. Navigate to the same route while passing `forceRender: {}` in location state.
 
 ```javascript
 import { useSelector } from "react-redux"
@@ -256,19 +256,18 @@ There are also a few useful selectors for easy access:
 
 [![react][7]][8]
 [![redux][9]][10]
+[![react-router][13]][14]
 
 <br>
 <br>
 <br>
 <br>
 
-## 🏅 Supported by
+## 🏅 Sponsors
 
 <br>
 
 <a alt="used by Utilmond" href="https://utilmond.com"><img src="https://utilmond.com/static/images/utilmond_whitebg.svg" width="250px" /></a>
-
-<br>
 
 <img alt="Sponsor - JetBrains" width="250px" height="250px" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png?_ga=2.63300143.1068496944.1680591996-1938842262.1680591996" />
 
@@ -284,3 +283,5 @@ There are also a few useful selectors for easy access:
 [10]: https://redux.js.org/
 [11]: https://utilmond.com
 [12]: https://github.com/fum4/npm/actions
+[13]: https://camo.githubusercontent.com/a5f1968a99631284ca552953929cff7b6abb375853bb0944fae0dc520c45c73b/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d52656163742b526f7574657226636f6c6f723d434134323435266c6f676f3d52656163742b526f75746572266c6f676f436f6c6f723d464646464646266c6162656c3d
+[14]: https://reactrouter.com/en/main
