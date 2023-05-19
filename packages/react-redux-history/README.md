@@ -249,6 +249,16 @@ There are also a few useful selectors for easy access:
 - `selectIsNewSession`
 - `selectForceRender`
 
+<br><br><br><br>
+
+## 🏅 Sponsors
+
+<br>
+
+<a alt="used by Utilmond" href="https://utilmond.com"><img src="https://utilmond.com/static/images/utilmond_whitebg.svg" width="250px" /></a>
+
+<img alt="Sponsor - JetBrains" width="250px" height="250px" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png?_ga=2.63300143.1068496944.1680591996-1938842262.1680591996" />
+
 <br><br><br>
 
 ### Used in production by [Utilmond][11]
@@ -258,19 +268,6 @@ There are also a few useful selectors for easy access:
 [![react][7]][8]
 [![redux][9]][10]
 [![react-router][13]][14]
-
-<br>
-<br>
-<br>
-<br>
-
-## 🏅 Sponsors
-
-<br>
-
-<a alt="used by Utilmond" href="https://utilmond.com"><img src="https://utilmond.com/static/images/utilmond_whitebg.svg" width="250px" /></a>
-
-<img alt="Sponsor - JetBrains" width="250px" height="250px" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png?_ga=2.63300143.1068496944.1680591996-1938842262.1680591996" />
 
 [1]: https://img.shields.io/github/actions/workflow/status/fum4/npm/test.yml?branch=master&logo=github&color=029e2b
 [2]: https://img.shields.io/bundlephobia/min/react-redux-history?logo=supabase&logoColor=yellow
