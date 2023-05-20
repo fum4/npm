@@ -171,6 +171,8 @@ In this example, every time the user will try to go back from _page_5_ he will b
 
 **Note**: Due to the restrictive nature of browser navigation, back or forward actions cannot be stopped. That means that in the previous example the user will actually reach _page_4_ before being redirected to _page_1_. If there is conflicting logic (such as extra redirects) in _page_4_, it will be fired before the middleware manages to completely skip all screens. In order to get past this issue we can `selectIsSkipping` to not render the component tree while skipping.
 
+*We managed this at Utilmond by leveraging the selector in our general purpose loading component. When the flag is `true`, we render a loading backdrop instead of the current route. This prevents any conflicting logic to be fired and mess with the redirects.*
+
 <br>
 
 ## 🔀 Dispatch location changes <a id="redux-first"></a>
