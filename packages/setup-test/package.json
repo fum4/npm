@@ -1,7 +1,7 @@
 {
   "name": "setup-test",
-  "version": "0.0.1-alpha.2",
-  "description": "Extremely lightweight, highly configurable utility for setting up your tests",
+  "version": "0.0.1-beta.1",
+  "description": "Extremely lightweight, highly configurable utility for your testing setup",
   "author": "fum4",
   "license": "MIT",
   "homepage": "https://github.com/fum4/npm/blob/master/packages/setup-test",
