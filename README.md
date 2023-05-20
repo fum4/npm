@@ -12,6 +12,7 @@ Package source code:
 
 - [react-redux-history](https://github.com/fum4/npm/tree/master/packages/react-redux-history)
 - [navigate-away](https://github.com/fum4/npm/tree/master/packages/navigate-away)
+- [setup-test](https://github.com/fum4/npm/tree/master/packages/setup-test)
 
 <br>
 <br>
