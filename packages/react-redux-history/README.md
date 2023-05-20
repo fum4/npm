@@ -21,19 +21,19 @@ No worries, we are here to help.
 
 ## ✨ Features
 
-📜 Save all navigation history in store. [Get started](#setup)
+📜 Save all navigation history in store   [Get started](#setup)
 
-🌲 Persist history after reloading the page. [Read more](#persist)
+🌲 Persist history after reloading the page   [Read more](#persist)
 
-⏭️ Skipping screens capability out of the box just by passing a flag when navigating. [Read more](#skip-back)
+⏭️ Skipping screens capability out of the box just by passing a flag when navigating   [Read more](#skip-back)
 
-🔀 Dispatch location changes. [Read more](#redux-first)
+🔀 Dispatch location changes   [Read more](#redux-first)
 
-👊 Force current route to re-render. [Read more](#force-render)
+👊 Force current route to re-render   [Read more](#force-render)
 
-🚦 Selectors for easy access. [Read more](#selectors)
+🚦 Selectors for easy access   [Read more](#selectors)
 
-👀 Easy debug. Find everything you need to know about navigation in your favorite dev tools:
+🐛 Easy debug. Find everything you need to know about navigation in your favorite dev tools:
 
 <br>
 
