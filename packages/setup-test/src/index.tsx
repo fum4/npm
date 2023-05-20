@@ -19,14 +19,14 @@ interface HandlerConfig {
 }
 
 const setupTestEnvironment = (baseConfig: Configuration) => {
-  return (component: any, config: any) => {
-    return createSetup(component, config, baseConfig);
+  return (Component: any, config: any) => {
+    return createSetup(Component, config, baseConfig);
   };
 };
 
 const createSetup = (
-  component: any,
-  defaultConfig: { [key: string]: any; deepMerge?: boolean },
+  Component: any,
+  defaultConfig: { [key: string]: any; deepMerge?: boolean, props: Record<string, unknown> },
   baseConfig: Configuration
 ) => {
   return ({
@@ -44,24 +44,28 @@ const createSetup = (
     );
 
     return setupTest({
-      component,
+      Component,
       handlers,
-      render: baseConfig.render.handler,
-      renderOptions: deepMerge
-        ? merge({}, baseConfig.render.options, renderOptions)
-        : renderOptions || baseConfig.render.options,
+      // @ts-ignore
+      props: config.props,
+      render: {
+        handler: baseConfig.render.handler,
+        options: deepMerge
+          ? merge({}, baseConfig.render.options, renderOptions)
+          : renderOptions || baseConfig.render.options,
+      },
     });
   };
 };
 
-const setupTest = ({ component, handlers, render, renderOptions }: any) => {
+const setupTest = ({ Component, handlers, props = {}, render }: any) => {
   handlers.forEach(({ handler, value }: any) => {
     if (value) {
       handler(value);
     }
   });
 
-  return render(component, renderOptions);
+  return render.handler(<Component {...props} />, render.options);
 };
 
 export default setupTestEnvironment;

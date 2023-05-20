@@ -1,6 +1,6 @@
 {
   "name": "setup-test",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1-beta.2",
   "description": "Extremely lightweight, highly configurable utility for your testing setup",
   "author": "fum4",
   "license": "MIT",
@@ -11,8 +11,8 @@
   "sideEffects": false,
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "tsup src/index.ts --format esm,cjs --minify --dts",
-    "dev": "tsup src/index.ts --format esm,cjs --watch"
+    "build": "tsup src/index.tsx --format esm,cjs --minify --dts",
+    "dev": "tsup src/index.tsx --format esm,cjs --watch"
   },
   "files": [
     "dist"
