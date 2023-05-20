@@ -50,5 +50,8 @@
     "rtl",
     "testing",
     "library"
-  ]
+  ],
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }

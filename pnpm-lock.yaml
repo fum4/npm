@@ -293,6 +293,10 @@ importers:
         version: 5.0.4
 
   packages/setup-test:
+    dependencies:
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
     devDependencies:
       '@babel/cli':
         specifier: ^7.18.9
