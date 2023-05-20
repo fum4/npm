@@ -6,10 +6,10 @@ interface Configuration {
     options?: any;
   }
   deepMerge?: boolean;
-  mock: Mock;
+  mocks: MocksConfig;
 }
 
-interface Mock {
+interface MocksConfig {
   [name: string]: HandlerConfig;
 }
 
@@ -34,7 +34,7 @@ const createSetup = (
     renderOptions = baseConfig.render.options = {},
     ...config // TODO: move this up
   } = {}) => {
-    const handlers = Object.entries(baseConfig.mock).map(
+    const handlers = Object.entries(baseConfig.mocks).map(
       ([name, handlerConfig]) => ({
         handler: handlerConfig.handler,
         value: deepMerge
