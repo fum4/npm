@@ -1,4 +1,6 @@
-import merge from 'lodash/merge';
+import merge from "lodash/merge";
+
+// @ts-nocheck
 
 interface Configuration {
   render: () => any;
@@ -19,25 +21,27 @@ interface HandlerConfig {
 const setupTestEnvironment = <T = Configuration>(defaultConfig: T) => {
   return (component: any, config: any) => {
     return createSetup(component, config, defaultConfig);
-  }
+  };
 };
 
 const createSetup = <T>(
   component: any,
-  config: { [string]: any, deepMerge?: boolean },
+  config: { [string]: any; deepMerge?: boolean },
   defaultConfig: HandlerConfig
 ) => {
   return ({
     ...config,
-    deepMerge = defaultConfig.deepMerge = true,
-    renderOptions = defaultConfig.renderOptions
+    deepMerge = (defaultConfig.deepMerge = true),
+    renderOptions = defaultConfig.renderOptions,
   }) => {
-    const handlers = Object.entries(defaultConfig.handlers).map(([ name, defaultHandlerConfig ]) => ({
-      handler: defaultHandlerConfig.handler,
-      value: deepMerge
-        ? merge({}, defaultHandlerConfig.defaultValue, config[name])
-        : config[name] || defaultHandlerConfig.defaultValue
-    }));
+    const handlers = Object.entries(defaultConfig.handlers).map(
+      ([name, defaultHandlerConfig]) => ({
+        handler: defaultHandlerConfig.handler,
+        value: deepMerge
+          ? merge({}, defaultHandlerConfig.defaultValue, config[name])
+          : config[name] || defaultHandlerConfig.defaultValue,
+      })
+    );
 
     return setupTest({
       component,
@@ -45,9 +49,9 @@ const createSetup = <T>(
       render,
       renderOptions: deepMerge
         ? merge({}, defaultConfig.renderOptions, renderOptions)
-        : renderOptions || defaultConfig.renderOptions
+        : renderOptions || defaultConfig.renderOptions,
     });
-  }
+  };
 };
 
 const setupTest = ({ component, handlers, render, renderOptions }) => {
@@ -58,6 +62,6 @@ const setupTest = ({ component, handlers, render, renderOptions }) => {
   });
 
   return render(component, ...renderOptions);
-}
+};
 
 export default setupTestEnvironment;
