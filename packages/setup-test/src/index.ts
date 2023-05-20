@@ -1,8 +1,10 @@
 import merge from "lodash/merge";
 
 interface Configuration {
-  render: (...args) => any;
-  renderOptions?: any;
+  render: {
+    handler: (...args) => any;
+    options?: any;
+  }
   deepMerge?: boolean;
   handlers: Handlers;
 }
@@ -29,7 +31,7 @@ const createSetup = (
 ) => {
   return ({
     deepMerge = (baseConfig.deepMerge = true),
-    renderOptions = baseConfig.renderOptions = {},
+    renderOptions = baseConfig.render.options = {},
     ...config // TODO: move this up
   } = {}) => {
     const handlers = Object.entries(baseConfig.handlers).map(
@@ -44,10 +46,10 @@ const createSetup = (
     return setupTest({
       component,
       handlers,
-      render: baseConfig.render,
+      render: baseConfig.render.handler,
       renderOptions: deepMerge
-        ? merge({}, baseConfig.renderOptions, renderOptions)
-        : renderOptions || baseConfig.renderOptions,
+        ? merge({}, baseConfig.render.options, renderOptions)
+        : renderOptions || baseConfig.render.options,
     });
   };
 };
