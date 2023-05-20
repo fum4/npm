@@ -1,6 +1,6 @@
 {
   "name": "setup-test",
-  "version": "0.0.1-beta.2",
+  "version": "0.0.1-beta.3",
   "description": "Extremely lightweight, highly configurable utility for your testing setup",
   "author": "fum4",
   "license": "MIT",
