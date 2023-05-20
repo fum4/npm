@@ -28,10 +28,9 @@ const createSetup = (
   defaultConfig: Configuration
 ) => {
   return ({
-    // @ts-ignore
-    ...config,
     deepMerge = (defaultConfig.deepMerge = true),
     renderOptions = defaultConfig.renderOptions,
+    ...config // TODO: move this up
   }) => {
     const handlers = Object.entries(defaultConfig.handlers).map(
       ([name, defaultHandlerConfig]) => ({
