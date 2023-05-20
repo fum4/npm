@@ -19,6 +19,8 @@ No worries, we are here to help.
 
 <hr>
 
+<br>
+
 📜 Save all navigation history in store   [Get started](#setup)
 
 🌲 Persist history after reloading the page   [Read more](#persist)
