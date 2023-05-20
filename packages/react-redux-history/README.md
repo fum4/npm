@@ -13,7 +13,7 @@
 
 Managing your app navigation gets pretty tricky, pretty fast.
 
-Lots of applications need to know more about their navigation state than what their router provides.
+Lots of applications need to know more about their navigation than what their router provides.
 
 No worries, we are here to help.
 
