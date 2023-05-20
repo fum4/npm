@@ -1,0 +1,54 @@
+{
+  "name": "setup-test",
+  "version": "0.0.0-alpha.1",
+  "description": "Set up your test environment with setupTest!",
+  "author": "fum4",
+  "license": "MIT",
+  "homepage": "https://github.com/fum4/npm/blob/master/packages/setup-test",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "tsup src/index.ts --format esm,cjs --minify --dts",
+    "dev": "tsup src/index.ts --format esm,cjs --watch"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fum4/npm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fum4/npm/issues"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.9",
+    "@babel/core": "^7.18.9",
+    "@babel/preset-env": "^7.18.9",
+    "@babel/preset-react": "^7.18.6",
+    "@nw/eslint-config": "workspace:*",
+    "@nw/tsconfig": "workspace:*",
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/node": "^20.1.5",
+    "@types/react": "^18.0.27",
+    "rimraf": "^5.0.0",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.4"
+  },
+  "keywords": [
+    "setup",
+    "test",
+    "configure",
+    "environment",
+    "jest",
+    "rtl",
+    "testing",
+    "library"
+  ]
+}
