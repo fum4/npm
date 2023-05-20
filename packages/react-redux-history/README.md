@@ -17,9 +17,7 @@ Lots of applications need to know more about their navigation than what their ro
 
 No worries, we are here to help.
 
-<br><br>
-
-## ✨ Features
+<hr>
 
 📜 Save all navigation history in store   [Get started](#setup)
 
@@ -33,7 +31,7 @@ No worries, we are here to help.
 
 🚦 Selectors for easy access   [Read more](#selectors)
 
-🐛 Easy debug. Find everything you need to know about navigation in your favorite dev tools:
+🐛 Easy debug, find everything you need to know about navigation in your favorite dev tools:
 
 <br>
 
