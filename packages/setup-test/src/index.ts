@@ -1,7 +1,5 @@
 import merge from "lodash/merge";
 
-// @ts-nocheck
-
 interface Configuration {
   render: () => any;
   renderOptions?: any;
@@ -10,7 +8,7 @@ interface Configuration {
 }
 
 interface Handlers {
-  [string]: HandlerConfig;
+  [name: string]: HandlerConfig;
 }
 
 interface HandlerConfig {
@@ -18,18 +16,19 @@ interface HandlerConfig {
   defaultValue?: any;
 }
 
-const setupTestEnvironment = <T = Configuration>(defaultConfig: T) => {
+const setupTestEnvironment = (defaultConfig: Configuration) => {
   return (component: any, config: any) => {
     return createSetup(component, config, defaultConfig);
   };
 };
 
-const createSetup = <T>(
+const createSetup = (
   component: any,
-  config: { [string]: any; deepMerge?: boolean },
-  defaultConfig: HandlerConfig
+  config: { [key: string]: any; deepMerge?: boolean },
+  defaultConfig: Configuration
 ) => {
   return ({
+    // @ts-ignore
     ...config,
     deepMerge = (defaultConfig.deepMerge = true),
     renderOptions = defaultConfig.renderOptions,
@@ -46,7 +45,7 @@ const createSetup = <T>(
     return setupTest({
       component,
       handlers,
-      render,
+      render: defaultConfig.render,
       renderOptions: deepMerge
         ? merge({}, defaultConfig.renderOptions, renderOptions)
         : renderOptions || defaultConfig.renderOptions,
@@ -54,8 +53,8 @@ const createSetup = <T>(
   };
 };
 
-const setupTest = ({ component, handlers, render, renderOptions }) => {
-  handlers.forEach(({ handler, value }) => {
+const setupTest = ({ component, handlers, render, renderOptions }: any) => {
+  handlers.forEach(({ handler, value }: any) => {
     if (value) {
       handler(value);
     }
