@@ -1,7 +1,7 @@
 import merge from "lodash/merge";
 
 interface Configuration {
-  render: () => any;
+  render: (...args) => any;
   renderOptions?: any;
   deepMerge?: boolean;
   handlers: Handlers;
@@ -16,38 +16,38 @@ interface HandlerConfig {
   defaultValue?: any;
 }
 
-const setupTestEnvironment = (defaultConfig: Configuration) => {
+const setupTestEnvironment = (baseConfig: Configuration) => {
   return (component: any, config: any) => {
-    return createSetup(component, config, defaultConfig);
+    return createSetup(component, config, baseConfig);
   };
 };
 
 const createSetup = (
   component: any,
-  config: { [key: string]: any; deepMerge?: boolean },
-  defaultConfig: Configuration
+  defaultConfig: { [key: string]: any; deepMerge?: boolean },
+  baseConfig: Configuration
 ) => {
   return ({
-    deepMerge = (defaultConfig.deepMerge = true),
-    renderOptions = defaultConfig.renderOptions,
+    deepMerge = (baseConfig.deepMerge = true),
+    renderOptions = baseConfig.renderOptions = {},
     ...config // TODO: move this up
-  }) => {
-    const handlers = Object.entries(defaultConfig.handlers).map(
-      ([name, defaultHandlerConfig]) => ({
-        handler: defaultHandlerConfig.handler,
+  } = {}) => {
+    const handlers = Object.entries(baseConfig.handlers).map(
+      ([name, handlerConfig]) => ({
+        handler: handlerConfig.handler,
         value: deepMerge
-          ? merge({}, defaultHandlerConfig.defaultValue, config[name])
-          : config[name] || defaultHandlerConfig.defaultValue,
+          ? merge({}, handlerConfig.defaultValue, defaultConfig[name], config[name])
+          : config[name] || defaultConfig[name] || handlerConfig.defaultValue,
       })
     );
 
     return setupTest({
       component,
       handlers,
-      render: defaultConfig.render,
+      render: baseConfig.render,
       renderOptions: deepMerge
-        ? merge({}, defaultConfig.renderOptions, renderOptions)
-        : renderOptions || defaultConfig.renderOptions,
+        ? merge({}, baseConfig.renderOptions, renderOptions)
+        : renderOptions || baseConfig.renderOptions,
     });
   };
 };
@@ -59,7 +59,7 @@ const setupTest = ({ component, handlers, render, renderOptions }: any) => {
     }
   });
 
-  return render(component, ...renderOptions);
+  return render(component, renderOptions);
 };
 
 export default setupTestEnvironment;
