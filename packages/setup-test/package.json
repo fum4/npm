@@ -27,6 +27,12 @@
   "bugs": {
     "url": "https://github.com/fum4/npm/issues"
   },
+  "dependencies": {
+    "lodash": "^4.0.0"
+  },
+  "peerDependencies": {
+    "react": "*"
+  },
   "devDependencies": {
     "@babel/cli": "^7.18.9",
     "@babel/core": "^7.18.9",
@@ -51,8 +57,5 @@
     "rtl",
     "testing",
     "library"
-  ],
-  "dependencies": {
-    "lodash": "^4.17.21"
-  }
+  ]
 }

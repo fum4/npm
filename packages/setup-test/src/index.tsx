@@ -1,8 +1,9 @@
+import React from "react";
 import merge from "lodash/merge";
 
 interface Configuration {
   render: {
-    handler: (...args) => any;
+    handler: (...args: any[]) => any;
     options?: any;
   }
   deepMerge?: boolean;
@@ -38,7 +39,9 @@ const createSetup = (
       ([name, handlerConfig]) => ({
         handler: handlerConfig.handler,
         value: deepMerge
+          // @ts-ignore
           ? merge({}, handlerConfig.defaultValue, defaultConfig[name], config[name])
+          // @ts-ignore
           : config[name] || defaultConfig[name] || handlerConfig.defaultValue,
       })
     );
