@@ -11,7 +11,11 @@
 
 # ⚛ Navigation history made easy!
 
-## A lightweight library for managing navigation history
+Managing your app navigation gets pretty tricky, pretty fast.
+
+Lots of applications need to know more about their navigation state than what their router provides.
+
+No worries, we are here to help.
 
 <br><br>
 
@@ -23,9 +27,9 @@
 
 ⏭️ Skipping screens capability out of the box just by passing a flag when navigating. [Read more](#skip-back)
 
-🔀 Dispatch location changes [Read more](#redux-first)
+🔀 Dispatch location changes. [Read more](#redux-first)
 
-💪 Force current route to re-render capability. [Read more](#force-render)
+👊 Force current route to re-render. [Read more](#force-render)
 
 🚦 Selectors for easy access. [Read more](#selectors)
 
@@ -198,7 +202,7 @@ dispatch(push('homepage'))
 
 <br>
 
-## 💪 Force current route to re-render <a id="force-render"></a>
+## 👊 Force current route to re-render <a id="force-render"></a>
 
 Force current route to re-render by using `selectForceRender`. Navigate to the same route while passing `forceRender: {}` in location state.
 
