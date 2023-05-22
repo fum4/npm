@@ -1,8 +1,8 @@
 {
-  "version": "2.0.1",
+  "version": "2.1.0",
   "private": true,
   "license": "MIT",
-  "packageManager": "pnpm@8.1.1",
+  "packageManager": "pnpm@8.5.1",
   "workspaces": [
     "examples/*",
     "packages/*"
@@ -11,7 +11,7 @@
     "dev": "turbo run dev",
     "build": "turbo run build",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
     "release": "pnpm lint && pnpm format && pnpm build && changeset && changeset version && changeset publish",
     "test": "vitest",
     "coverage": "vitest run --coverage"
@@ -20,9 +20,9 @@
     "@changesets/cli": "^2.26.1",
     "@nw/eslint-config": "workspace:*",
     "eslint": "latest",
-    "jsdom": "^21.1.2",
+    "jsdom": "^22.0.0",
     "prettier": "latest",
     "turbo": "latest",
-    "vitest": "^0.30.1"
+    "vitest": "^0.31.1"
   }
 }

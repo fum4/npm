@@ -1,10 +1,10 @@
 {
-  "name": "navigate-away",
-  "version": "2.0.5",
-  "description": "Intercept react-router navigation",
+  "name": "setup-test",
+  "version": "0.0.0-alpha.1",
+  "description": "Set up your test environment with setupTest!",
   "author": "fum4",
   "license": "MIT",
-  "homepage": "https://github.com/fum4/npm/blob/master/packages/navigate-away",
+  "homepage": "https://github.com/fum4/npm/blob/master/packages/setup-test",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -27,12 +27,6 @@
   "bugs": {
     "url": "https://github.com/fum4/npm/issues"
   },
-  "peerDependencies": {
-    "history": "^5.0.0",
-    "react": "^16.8.4 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^16.8.4 || ^17.0.0 || ^18.0.0",
-    "react-router": "^5.0.0 || ^6.0.0"
-  },
   "devDependencies": {
     "@babel/cli": "^7.18.9",
     "@babel/core": "^7.18.9",
@@ -40,33 +34,21 @@
     "@babel/preset-react": "^7.18.6",
     "@nw/eslint-config": "workspace:*",
     "@nw/tsconfig": "workspace:*",
-    "@remix-run/router": "^1.5.0",
-    "@swc/core": "^1.3.46",
     "@tsconfig/recommended": "^1.0.1",
     "@types/node": "^20.1.5",
     "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "@types/react-router": "^5.1.20",
     "rimraf": "^5.0.0",
     "tsup": "^6.7.0",
     "typescript": "^5.0.4"
   },
   "keywords": [
-    "react",
-    "router",
-    "redux",
-    "history",
-    "store",
-    "url",
-    "middleware",
-    "navigation",
-    "navigate",
-    "away",
-    "block",
-    "react-router",
-    "connected",
-    "connected-react-router",
-    "redux-history",
-    "redux-first-history"
+    "setup",
+    "test",
+    "configure",
+    "environment",
+    "jest",
+    "rtl",
+    "testing",
+    "library"
   ]
 }

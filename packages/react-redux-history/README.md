@@ -11,25 +11,27 @@
 
 # ⚛ Navigation history made easy!
 
-## A lightweight library for managing navigation history
+Lots of applications need more control over their navigation than what their router provides.
 
-<br><br>
+No worries, we are here to help.
 
-## ✨ Features
+<hr>
 
-📜 Save all navigation history in store. [Get started](#setup)
+<br>
 
-🌲 Persist history after reloading the page. [Read more](#persist)
+📜 Save all navigation history in store   [Get started](#setup)
 
-⏭️ Skipping screens capability out of the box just by passing a flag when navigating. [Read more](#skip-back)
+🌲 Persist history after reloading the page   [Read more](#persist)
 
-🔀 Dispatch location changes [Read more](#redux-first)
+⏭️ Skipping screens capability out of the box   [Read more](#skip-back)
 
-💪 Force current route to re-render capability. [Read more](#force-render)
+🔀 Dispatch location changes   [Read more](#redux-first)
 
-🚦 Selectors for easy access. [Read more](#selectors)
+👊 Force current route to re-render   [Read more](#force-render)
 
-👀 Easy debug. Find everything you need to know about navigation in your favorite dev tools:
+🚦 Selectors for easy access   [Read more](#selectors)
+
+🐛 Easy debug, find everything you need to know about navigation in your favorite dev tools:
 
 <br>
 
@@ -171,6 +173,8 @@ In this example, every time the user will try to go back from _page_5_ he will b
 
 **Note**: Due to the restrictive nature of browser navigation, back or forward actions cannot be stopped. That means that in the previous example the user will actually reach _page_4_ before being redirected to _page_1_. If there is conflicting logic (such as extra redirects) in _page_4_, it will be fired before the middleware manages to completely skip all screens. In order to get past this issue we can `selectIsSkipping` to not render the component tree while skipping.
 
+*We managed this at Utilmond by leveraging the selector in our general purpose loading component. When the flag is `true`, we render a loading backdrop instead of the current route. This prevents any conflicting logic to be fired and mess with the redirects.*
+
 <br>
 
 ## 🔀 Dispatch location changes <a id="redux-first"></a>
@@ -196,7 +200,7 @@ dispatch(push('homepage'))
 
 <br>
 
-## 💪 Force current route to re-render <a id="force-render"></a>
+## 👊 Force current route to re-render <a id="force-render"></a>
 
 Force current route to re-render by using `selectForceRender`. Navigate to the same route while passing `forceRender: {}` in location state.
 
@@ -237,16 +241,27 @@ const Component = () => {
 
 There are also a few useful selectors for easy access:
 
-- `selectHistoryAction`
-- `selectIsSkippingRoutes`
-- `selectForceRender`
 - `selectLocationHistory`
 - `selectCurrentLocation`
 - `selectCurrentLocationState`
 - `selectCurrentLocationIndex`
-- `selectPreviousLocation`
 - `selectNextLocation`
+- `selectPreviousLocation`
+- `selectBackLocation`
+- `selectHistoryAction`
+- `selectIsSkippingRoutes`
 - `selectIsNewSession`
+- `selectForceRender`
+
+<br><br><br><br>
+
+## 🏅 Sponsors
+
+<br>
+
+<a alt="used by Utilmond" href="https://utilmond.com"><img src="https://utilmond.com/static/images/utilmond_whitebg.svg" width="250px" /></a>
+
+<img alt="Sponsor - JetBrains" width="250px" height="250px" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png?_ga=2.63300143.1068496944.1680591996-1938842262.1680591996" />
 
 <br><br><br>
 
@@ -257,19 +272,6 @@ There are also a few useful selectors for easy access:
 [![react][7]][8]
 [![redux][9]][10]
 [![react-router][13]][14]
-
-<br>
-<br>
-<br>
-<br>
-
-## 🏅 Sponsors
-
-<br>
-
-<a alt="used by Utilmond" href="https://utilmond.com"><img src="https://utilmond.com/static/images/utilmond_whitebg.svg" width="250px" /></a>
-
-<img alt="Sponsor - JetBrains" width="250px" height="250px" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png?_ga=2.63300143.1068496944.1680591996-1938842262.1680591996" />
 
 [1]: https://img.shields.io/github/actions/workflow/status/fum4/npm/test.yml?branch=master&logo=github&color=029e2b
 [2]: https://img.shields.io/bundlephobia/min/react-redux-history?logo=supabase&logoColor=yellow
