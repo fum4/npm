@@ -88,19 +88,7 @@ const Component = () => {
 
 That's all, enjoy!
 
-<br><br><br>
-
-### Used in production by [Utilmond][11]
-
-<hr>
-
-[![react][7]][8]
-[![react-router][9]][10]
-
-<br>
-<br>
-<br>
-<br>
+<br><br><br><br>
 
 ## 🏅 Sponsors
 
@@ -109,6 +97,15 @@ That's all, enjoy!
 <a alt="used by Utilmond" href="https://utilmond.com"><img src="https://utilmond.com/static/images/utilmond_whitebg.svg" width="250px" /></a>
 
 <img alt="Sponsor - JetBrains" width="250px" height="250px" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png?_ga=2.63300143.1068496944.1680591996-1938842262.1680591996" />
+
+<br><br><br>
+
+### Used in production by [Utilmond][11]
+
+<hr>
+
+[![react][7]][8]
+[![react-router][9]][10]
 
 [1]: https://img.shields.io/github/actions/workflow/status/fum4/npm/test.yml?branch=master&logo=github&color=029e2b
 [2]: https://img.shields.io/bundlephobia/min/navigate-away?logo=supabase&logoColor=yellow
