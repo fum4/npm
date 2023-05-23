@@ -90,7 +90,7 @@ That's all, enjoy!
 
 <br><br><br><br>
 
-## 🏅 Sponsors
+## 🚀 Powered by
 
 <br>
 

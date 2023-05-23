@@ -76,10 +76,10 @@ const options = {
   storageLimit: Infinity
 }
 
-const { routerReducer, routerMiddleware } = configureRouterHistory(
-  history,
-  options
-)
+const { 
+  routerReducer, 
+  routerMiddleware 
+} = configureRouterHistory(history, options)
 ```
 
 <br>
@@ -99,7 +99,7 @@ const store = configureStore({
     getDefaultMiddleware()
       // ...other middleware
       .prepend(routerMiddleware)
-});
+})
 
 export default store
 ```
@@ -124,8 +124,8 @@ const App = () => {
       <LocationListener history={history} />
       ...
     </>
-  );
-};
+  )
+}
 ```
 
 **Note**: the `history` object provided to `configureRouterHistory` and `useLocationListener` / `LocationListener` must be the same `history` object !
@@ -226,7 +226,7 @@ const Component = () => {
             // Simply pass a new object to force re-rendering
             forceRender: {}
           },
-        });
+        })
       }}
     >
       Re-render
@@ -255,7 +255,7 @@ There are also a few useful selectors for easy access:
 
 <br><br><br><br>
 
-## 🏅 Sponsors
+## 🚀 Powered by
 
 <br>
 
