@@ -31,8 +31,8 @@ const createSetup = (
   baseConfig: Configuration
 ) => {
   return ({
-    deepMerge = (baseConfig.deepMerge = true),
-    renderOptions = baseConfig.render.options = {},
+    deepMerge = baseConfig.deepMerge !== false,
+    renderOptions = baseConfig.render.options || {},
     ...config // TODO: move this up
   } = {}) => {
     const handlers = Object.entries(baseConfig.mocks).map(
