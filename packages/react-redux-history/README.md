@@ -11,9 +11,9 @@
 
 # ⚛ Navigation history made easy!
 
-Lots of applications need more control over their navigation than what their router provides.
+Lots of applications need more control over their navigation than what their router provides
 
-No worries, we are here to help.
+No worries, we are here to help
 
 <hr>
 
