@@ -1,6 +1,6 @@
 {
   "name": "navigate-away",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "Intercept react-router navigation",
   "author": "fum4",
   "license": "MIT",
