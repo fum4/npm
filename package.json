@@ -17,7 +17,7 @@
     "coverage": "vitest run --coverage"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.26.1",
+    "@changesets/cli": "^2.26.2",
     "@nw/eslint-config": "workspace:*",
     "eslint": "latest",
     "jsdom": "^22.1.0",
