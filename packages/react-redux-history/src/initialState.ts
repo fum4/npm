@@ -29,19 +29,19 @@ const getInitialState = (
     const isRefresh = isSameRoute(
       location,
       initialState.locationHistory,
-      initialState.currentIndex
+      initialState.currentIndex,
     );
 
     if (!isRefresh) {
       const isPreviousLocation = isPreviousRoute(
         location,
         initialState.locationHistory,
-        initialState.currentIndex
+        initialState.currentIndex,
       );
       const isNextLocation = isNextRoute(
         location,
         initialState.locationHistory,
-        initialState.currentIndex
+        initialState.currentIndex,
       );
       const isNewLocation = !isPreviousLocation && !isNextLocation;
 
@@ -61,7 +61,7 @@ const getInitialState = (
         initialState.locationHistory.splice(
           initialState.currentIndex,
           initialState.locationHistory.length,
-          location
+          location,
         );
       }
     }

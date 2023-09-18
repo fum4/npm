@@ -4,7 +4,7 @@ let pageHideListener: () => void;
 
 const saveToSessionStorage = (
   state: Readonly<RouterState>,
-  { storageKey, storageLimit }: Options
+  { storageKey, storageLimit }: Options,
 ) => {
   sessionStorage.setItem(
     storageKey,
@@ -14,16 +14,16 @@ const saveToSessionStorage = (
         state.currentIndex,
         storageLimit -
           1 -
-          (state.locationHistory.length - 1 - state.currentIndex)
+          (state.locationHistory.length - 1 - state.currentIndex),
       ),
       locationHistory: state.locationHistory.slice(-storageLimit),
-    })
+    }),
   );
 };
 
 export const persistOnPageHide = (
   state: Readonly<RouterState>,
-  { storageKey, storageLimit }: Options
+  { storageKey, storageLimit }: Options,
 ) => {
   if (storageLimit) {
     if (pageHideListener) {

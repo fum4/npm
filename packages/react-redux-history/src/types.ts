@@ -16,20 +16,33 @@ export interface RouterLocation extends Location {
   query: Record<string, string>;
 }
 
-/**
- * @property action - Last action ('PUSH', 'REPLACE', 'BACK', 'FORWARD')
- * @property locationHistory - History of all application locations
- * @property currentIndex - Current location index in application history
- * @property isSkipping - Flag to inform if the UI is in the process of skipping routes.
- * It should be checked before trying to redirect and take action accordingly.
- * This will be set to true only while using skipBack / skipForward functionality (e.g. project create),
- * therefore there is no need to check the flag in places where skipBack / skipForward is not used.
- */
-
 export interface RouterState {
+  /**
+   * @property action
+   * @type {HistoryAction}
+   * @description - Last history action ('PUSH', 'REPLACE', 'BACK', 'FORWARD')
+   */
   action: HistoryAction;
+  /**
+   * @property locationHistory
+   * @type {RouterLocation[]}
+   * @description - History of all visited locations
+   */
   locationHistory: RouterLocation[];
+  /**
+   * @property currentIndex
+   * @type {number}
+   * @description - Current location index
+   */
   currentIndex: number;
+  /**
+   * @property isSkipping
+   * @type {boolean}
+   * @description - Flag to inform if the UI is in the process of skipping routes
+   * It should be checked before trying to redirect and take action accordingly
+   * This will be set to `true` only while using `skipBack` / `skipForward` functionality
+   * No need to check the flag in places where `skipBack` / `skipForward` is not used
+   */
   isSkipping: boolean;
 }
 
@@ -64,19 +77,19 @@ export type SliceActions = CaseReducerActions<
   {
     push(
       state: RouterState,
-      action: PayloadAction<{ location: Location }>
+      action: PayloadAction<{ location: Location }>,
     ): void;
     replace(
       state: RouterState,
-      action: PayloadAction<{ location: Location }>
+      action: PayloadAction<{ location: Location }>,
     ): void;
     back(
       state: RouterState,
-      action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean }>
+      action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean }>,
     ): void;
     forward(
       state: RouterState,
-      action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean }>
+      action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean }>,
     ): void;
     setSkipping(state: RouterState, action: PayloadAction<boolean>): void;
   },

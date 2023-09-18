@@ -27,7 +27,7 @@ const createRouterSlice = (
         state.locationHistory.splice(
           state.currentIndex,
           state.locationHistory.length,
-          action.payload
+          action.payload,
         );
 
         persistOnPageHide(current(state), { storageKey, storageLimit });
@@ -59,7 +59,7 @@ const createRouterSlice = (
         action: PayloadAction<{
           nextLocationIndex: number;
           isSkipping: boolean;
-        }>
+        }>,
       ) => {
         const { nextLocationIndex, isSkipping = false } = action.payload;
 
@@ -89,7 +89,7 @@ const createRouterSlice = (
         action: PayloadAction<{
           nextLocationIndex: number;
           isSkipping: boolean;
-        }>
+        }>,
       ) => {
         const { nextLocationIndex, isSkipping = false } = action.payload;
 

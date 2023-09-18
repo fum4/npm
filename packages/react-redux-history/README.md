@@ -11,9 +11,9 @@
 
 # ⚛ Navigation history made easy!
 
-Lots of applications need more control over their navigation than what their router provides.
+Lots of applications need more control over their navigation than what their router provides
 
-No worries, we are here to help.
+No worries, we are here to help
 
 <hr>
 
@@ -76,10 +76,10 @@ const options = {
   storageLimit: Infinity
 }
 
-const { routerReducer, routerMiddleware } = configureRouterHistory(
-  history,
-  options
-)
+const { 
+  routerReducer, 
+  routerMiddleware 
+} = configureRouterHistory(history, options)
 ```
 
 <br>
@@ -99,7 +99,7 @@ const store = configureStore({
     getDefaultMiddleware()
       // ...other middleware
       .prepend(routerMiddleware)
-});
+})
 
 export default store
 ```
@@ -124,8 +124,8 @@ const App = () => {
       <LocationListener history={history} />
       ...
     </>
-  );
-};
+  )
+}
 ```
 
 **Note**: the `history` object provided to `configureRouterHistory` and `useLocationListener` / `LocationListener` must be the same `history` object !
@@ -226,7 +226,7 @@ const Component = () => {
             // Simply pass a new object to force re-rendering
             forceRender: {}
           },
-        });
+        })
       }}
     >
       Re-render
@@ -255,13 +255,15 @@ There are also a few useful selectors for easy access:
 
 <br><br><br><br>
 
-## 🏅 Sponsors
+## 🚀 Powered by
 
 <br>
 
-<a alt="used by Utilmond" href="https://utilmond.com"><img src="https://utilmond.com/static/images/utilmond_whitebg.svg" width="250px" /></a>
+<a href="https://www.utilmond.com"><img alt="used by Utilmond" src="https://utilmond.com/static/images/utilmond_whitebg.svg" width="250px" /></a>
 
-<img alt="Sponsor - JetBrains" width="250px" height="250px" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png?_ga=2.63300143.1068496944.1680591996-1938842262.1680591996" />
+<a href="https://www.jetbrains.com/"><img alt="Sponsor - JetBrains" width="250px" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png?_ga=2.63300143.1068496944.1680591996-1938842262.1680591996" /></a>
+
+<a href="https://www.sentry.io"><img alt="Sponsor - Sentry" width="250px" src="https://i.ibb.co/1v7GSBd/sentry.png" /></a>
 
 <br><br><br>
 
