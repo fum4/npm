@@ -31,11 +31,9 @@ const createRouterMiddleware =
 
       switch (type) {
         case Action.Push:
-          // @ts-ignore
           return next(sliceActions.push(transformLocation(location)));
 
         case Action.Replace:
-          // @ts-ignore
           return next(sliceActions.replace(transformLocation(location)));
 
         case Action.Pop: {

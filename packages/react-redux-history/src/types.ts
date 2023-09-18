@@ -77,11 +77,11 @@ export type SliceActions = CaseReducerActions<
   {
     push(
       state: RouterState,
-      action: PayloadAction<{ location: Location }>,
+      action: PayloadAction<RouterLocation>,
     ): void;
     replace(
       state: RouterState,
-      action: PayloadAction<{ location: Location }>,
+      action: PayloadAction<RouterLocation>,
     ): void;
     back(
       state: RouterState,

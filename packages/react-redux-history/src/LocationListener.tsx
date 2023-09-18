@@ -1,11 +1,11 @@
 import { useLayoutEffect } from "react";
 import { useDispatch } from "react-redux";
 import type { RouterSubscriber } from "@remix-run/router";
-import type { Listener } from "history";
+import type { Listener, Location } from "history";
 
 import { type NavigationShimPayload, LOCATION_CHANGED } from "./types";
 
-const createLocationChangedAction = (type: string) => ({
+const createLocationChangedAction = (type: string, location: Location) => ({
   type: LOCATION_CHANGED,
   payload: {
     location,
@@ -22,16 +22,16 @@ export const useLocationListener = ({ history, router }: Partial<NavigationShimP
     }
 
     if (router) {
-      const onLocationChanged: RouterSubscriber = ({ historyAction }) => {
-        dispatch(createLocationChangedAction(historyAction));
+      const onLocationChanged: RouterSubscriber = ({ historyAction, location }) => {
+        dispatch(createLocationChangedAction(historyAction, location));
       };
 
       return router.subscribe(onLocationChanged);
     }
 
     if (history) {
-      const onLocationChanged: Listener = ({ action }) => {
-        dispatch(createLocationChangedAction(action));
+      const onLocationChanged: Listener = ({ action, location }) => {
+        dispatch(createLocationChangedAction(action, location));
       };
 
       return history.listen(onLocationChanged);

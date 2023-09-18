@@ -60,21 +60,10 @@ export const transformLocation = (location: Location): RouterLocation => {
   const searchParams = new URLSearchParams(location.search);
   const query = Object.fromEntries(searchParams);
 
-  const {
-    state = {},
-    pathname,
-    search,
-    hash,
-    key
-  } = location;
-
   return {
-    state,
-    pathname,
-    search,
-    hash,
     query,
-    key
+    ...location,
+    ...(!location.state && { state: {} }),
   };
 };
 
