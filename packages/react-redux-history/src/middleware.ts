@@ -74,7 +74,7 @@ const createRouterMiddleware =
               sliceActions.forward({
                 isSkipping: Boolean(routesToSkip),
                 nextLocationIndex,
-              })
+              }),
             );
           }
 
@@ -103,7 +103,7 @@ const createRouterMiddleware =
               sliceActions.back({
                 isSkipping: Boolean(routesToSkip),
                 nextLocationIndex,
-              })
+              }),
             );
           }
 

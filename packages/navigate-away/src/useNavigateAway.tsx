@@ -14,7 +14,7 @@ export const NavigateAway = ({
 
 export const useNavigateAway = (
   callback: NavigateAwayCallback,
-  history: History
+  history: History,
 ) => {
   const navigate = useNavigate();
   const callbackRef = useRef(callback);

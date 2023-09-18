@@ -74,19 +74,19 @@ export type SliceActions = CaseReducerActions<
   {
     push(
       state: RouterState,
-      action: PayloadAction<{ location: Location }>
+      action: PayloadAction<{ location: Location }>,
     ): void;
     replace(
       state: RouterState,
-      action: PayloadAction<{ location: Location }>
+      action: PayloadAction<{ location: Location }>,
     ): void;
     back(
       state: RouterState,
-      action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean }>
+      action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean }>,
     ): void;
     forward(
       state: RouterState,
-      action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean }>
+      action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean }>,
     ): void;
     setSkipping(state: RouterState, action: PayloadAction<boolean>): void;
   },

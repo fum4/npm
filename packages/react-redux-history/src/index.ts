@@ -9,7 +9,7 @@ export const configureRouterHistory = (
   {
     storageKey = "routerState",
     storageLimit = Infinity,
-  } = {} as Partial<Options>
+  } = {} as Partial<Options>,
 ) => {
   const { reducer, actions } = createRouterSlice(history, {
     storageKey,

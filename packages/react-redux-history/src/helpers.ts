@@ -5,43 +5,43 @@ import type { RouterLocation } from "./types";
 export const isSameRoute = (
   location: Location,
   history: Location[],
-  currentIndex: number
+  currentIndex: number,
 ): boolean =>
   location?.key
     ? history[currentIndex]?.key === location.key
     : isEqual(
         pickBy(location, Boolean),
-        pickBy(history[currentIndex], Boolean)
+        pickBy(history[currentIndex], Boolean),
       );
 
 export const isPreviousRoute = (
   location: Location,
   history: Location[],
-  currentIndex: number
+  currentIndex: number,
 ): boolean =>
   location?.key
     ? history[currentIndex - 1]?.key === location.key
     : isEqual(
         pickBy(location, Boolean),
-        pickBy(history[currentIndex - 1], Boolean)
+        pickBy(history[currentIndex - 1], Boolean),
       );
 
 export const isNextRoute = (
   location: Location,
   history: Location[],
-  currentIndex: number
+  currentIndex: number,
 ): boolean =>
   location?.key
     ? history[currentIndex + 1]?.key === location.key
     : isEqual(
         pickBy(location, Boolean),
-        pickBy(history[currentIndex + 1], Boolean)
+        pickBy(history[currentIndex + 1], Boolean),
       );
 
 export const isForwardAction = (
   location: Location,
   history: Location[],
-  currentIndex: number
+  currentIndex: number,
 ) =>
   !!history
     .slice(currentIndex + 1)
@@ -50,7 +50,7 @@ export const isForwardAction = (
 export const isBackAction = (
   location: Location,
   history: Location[],
-  currentIndex: number
+  currentIndex: number,
 ) =>
   !!history
     .slice(0, currentIndex)
@@ -85,7 +85,7 @@ export const findIndex = (array: any[], predicate: Record<string, any>) => {
 
 const pickBy = (
   object: Record<string, any>,
-  predicate: (entry: any) => boolean
+  predicate: (entry: any) => boolean,
 ): Record<string, any> =>
   Object.entries(object)
     .filter((entry) => predicate(object[entry[0]]))
@@ -93,7 +93,7 @@ const pickBy = (
 
 const isEqual = (
   firstObject: Record<string, any>,
-  secondObject: Record<string, any>
+  secondObject: Record<string, any>,
 ): boolean => {
   const firstObjectEntries = Object.entries(firstObject);
   const secondObjectEntries = Object.entries(secondObject);

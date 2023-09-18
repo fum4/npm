@@ -52,7 +52,7 @@ const FormikPersist = ({
       setValues,
       storage.getItem,
       storage.setItem,
-    ]
+    ],
   );
 
   usePersist(values);
