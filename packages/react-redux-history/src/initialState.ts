@@ -1,4 +1,4 @@
-import type { History } from "history";
+import type { Location } from "history";
 
 import { persistOnPageHide, getSessionState } from "./persist";
 import { HistoryAction, type RouterState, type Options } from "./types";
@@ -11,10 +11,10 @@ import {
 } from "./helpers";
 
 const getInitialState = (
-  history: History,
-  { storageKey, storageLimit }: Options,
+  initialLocation: Location,
+  { storageKey, storageLimit }: Options
 ): RouterState => {
-  const location = parseLocation(history.location);
+  const location = parseLocation(initialLocation);
   const defaultState: RouterState = {
     action: HistoryAction.Push,
     locationHistory: [location],

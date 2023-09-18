@@ -1,5 +1,8 @@
-import type { CaseReducerActions, PayloadAction } from "@reduxjs/toolkit";
+import type { Router } from "@remix-run/router";
 import type { Action, Location, History } from "history";
+import type { CaseReducerActions, PayloadAction } from "@reduxjs/toolkit";
+import {To} from "@remix-run/router/history";
+import {RouterNavigateOptions} from "@remix-run/router/router";
 
 export enum HistoryAction {
   Push = "PUSH",
@@ -93,11 +96,21 @@ export type SliceActions = CaseReducerActions<
   "router"
 >;
 
-export interface LocationListenerProps {
-  history: History;
-}
+export type Config = Options & NavigationShimPayload;
 
 export interface Options {
   storageKey: string;
   storageLimit: number;
+}
+
+// TODO: props should be optional
+export interface NavigationShimPayload {
+  router: Router;
+  history: History;
+}
+
+export interface NavigationShim {
+  go(delta: number): void;
+  push(to: To, opts?: RouterNavigateOptions): void;
+  replace(to: To, opts?: RouterNavigateOptions): void;
 }

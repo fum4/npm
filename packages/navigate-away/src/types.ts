@@ -1,4 +1,5 @@
 import type { NavigateFunction } from "react-router";
+import type { Router } from "@remix-run/router";
 import type { Action, Location, History } from "history";
 
 export type NavigateAwayCallback = ({
@@ -14,5 +15,6 @@ export interface NavigateAwayCallbackParams {
 
 export interface NavigateAwayProps {
   callback: NavigateAwayCallback;
-  history: History;
+  history?: History;
+  router?: Router;
 }

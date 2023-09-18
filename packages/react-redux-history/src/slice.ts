@@ -1,5 +1,5 @@
 import { type PayloadAction, createSlice, current } from "@reduxjs/toolkit";
-import type { History } from "history";
+import type { Location } from "history";
 
 import getInitialState from "./initialState";
 import { persistOnPageHide } from "./persist";
@@ -11,12 +11,15 @@ import {
 } from "./types";
 
 const createRouterSlice = (
-  history: History,
-  { storageKey, storageLimit }: Options,
-) =>
-  createSlice({
+  initialLocation: Location,
+  {
+    storageKey = "routerState",
+    storageLimit = Infinity,
+  } = {} as Partial<Options>
+) => {
+  return createSlice({
     name: "router",
-    initialState: getInitialState(history, { storageKey, storageLimit }),
+    initialState: getInitialState(initialLocation, { storageKey, storageLimit }),
     reducers: {
       push: (state: RouterState, action: PayloadAction<RouterLocation>) => {
         state.currentIndex += 1;
@@ -118,5 +121,6 @@ const createRouterSlice = (
       },
     },
   });
+};
 
 export default createRouterSlice;

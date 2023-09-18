@@ -1,22 +1,23 @@
-import type { History } from "history";
-
 import createRouterMiddleware from "./middleware";
 import createRouterSlice from "./slice";
-import type { Options } from "./types";
+import { createNavigationShim } from "./shims";
+import type { Config } from "./types";
 
-export const configureRouterHistory = (
-  history: History,
-  {
-    storageKey = "routerState",
-    storageLimit = Infinity,
-  } = {} as Partial<Options>,
-) => {
-  const { reducer, actions } = createRouterSlice(history, {
-    storageKey,
-    storageLimit,
-  });
+export const configureRouterHistory = ({
+  router,
+  history,
+  ...options
+}: Partial<Config>) => {
+  if (!router && !history) {
+    throw new Error('`router` or `history` must be provided');
+  }
+
   // @ts-ignore
-  const middleware = createRouterMiddleware(history, actions);
+  const { location: initialLocation } = router?.state || history;
+  const { reducer, actions } = createRouterSlice(initialLocation, options);
+  const navigation = createNavigationShim({ router, history });
+  // @ts-ignore
+  const middleware = createRouterMiddleware(navigation, actions);
 
   return {
     routerReducer: reducer,

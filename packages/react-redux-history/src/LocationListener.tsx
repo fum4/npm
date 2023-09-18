@@ -1,29 +1,46 @@
 import { useLayoutEffect } from "react";
 import { useDispatch } from "react-redux";
-import type { History, Update } from "history";
+import type { RouterSubscriber } from "@remix-run/router";
+import type { Listener } from "history";
 
-import { LOCATION_CHANGED, type LocationListenerProps } from "./types";
+import { type NavigationShimPayload, LOCATION_CHANGED } from "./types";
 
-export const useLocationListener = (history: History) => {
+const createLocationChangedAction = (type: string) => ({
+  type: LOCATION_CHANGED,
+  payload: {
+    location,
+    type,
+  },
+});
+
+export const useLocationListener = ({ history, router }: Partial<NavigationShimPayload>) => {
   const dispatch = useDispatch();
 
   useLayoutEffect(() => {
-    const onLocationChanged = ({ location, action }: Update) => {
-      dispatch({
-        type: LOCATION_CHANGED,
-        payload: {
-          location,
-          type: action,
-        },
-      });
-    };
+    if (!router && !history) {
+      throw new Error('`router` or `history` must be provided');
+    }
 
-    return history.listen(onLocationChanged);
-  }, [history, dispatch]);
+    if (router) {
+      const onLocationChanged: RouterSubscriber = ({ historyAction }) => {
+        dispatch(createLocationChangedAction(historyAction));
+      };
+
+      return router.subscribe(onLocationChanged);
+    }
+
+    if (history) {
+      const onLocationChanged: Listener = ({ action }) => {
+        dispatch(createLocationChangedAction(action));
+      };
+
+      return history.listen(onLocationChanged);
+    }
+  }, [history, router, dispatch]);
 };
 
-export const LocationListener = ({ history }: LocationListenerProps) => {
-  useLocationListener(history);
+export const LocationListener = ({ history, router }: Partial<NavigationShimPayload>) => {
+  useLocationListener({ history, router });
 
   return null;
 };

@@ -1,4 +1,4 @@
-import { type History, Action } from "history";
+import { Action } from "history";
 import type { Middleware } from "redux";
 
 import {
@@ -7,12 +7,8 @@ import {
   selectIsSkippingRoutes,
   selectLocationHistory,
 } from "./selectors";
-import {
-  findIndex,
-  isBackAction,
-  isForwardAction,
-  parseLocation,
-} from "./helpers";
+import { findIndex, isBackAction, isForwardAction, parseLocation } from "./helpers";
+import type { NavigationShim } from "./types";
 
 import {
   LOCATION_CHANGED,
@@ -23,7 +19,7 @@ import {
 } from "./types";
 
 const createRouterMiddleware =
-  (historyApi: History, sliceActions: SliceActions): Middleware =>
+  (navigation: NavigationShim, sliceActions: SliceActions): Middleware =>
   (store) =>
   (next) =>
   (action: LocationChangedAction | LocationChangeRequestAction) => {
@@ -67,7 +63,7 @@ const createRouterMiddleware =
               : 0;
 
             if (routesToSkip) {
-              historyApi.go(routesToSkip);
+              navigation.go(routesToSkip);
             }
 
             return next(
@@ -96,7 +92,7 @@ const createRouterMiddleware =
               : 0;
 
             if (routesToSkip) {
-              historyApi.go(routesToSkip);
+              navigation.go(routesToSkip);
             }
 
             return next(
@@ -124,15 +120,15 @@ const createRouterMiddleware =
         case Action.Push: {
           const { state, ...locationWithoutState } = location!;
 
-          return historyApi.push(locationWithoutState, state);
+          return navigation.push(locationWithoutState, state);
         }
         case Action.Replace: {
           const { state, ...locationWithoutState } = location!;
 
-          return historyApi.replace(locationWithoutState, state);
+          return navigation.replace(locationWithoutState, state);
         }
         case Action.Pop: {
-          return historyApi.go(delta!);
+          return navigation.go(delta!);
         }
       }
     }
