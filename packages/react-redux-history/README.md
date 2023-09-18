@@ -50,11 +50,11 @@ pnpm add react-redux-history
 ```
 
 ```shell
-yarn add react-redux-history
+npm i react-redux-history
 ```
 
 ```shell
-npm i react-redux-history
+yarn add react-redux-history
 ```
 
 <br>

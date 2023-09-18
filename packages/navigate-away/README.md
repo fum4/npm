@@ -24,11 +24,11 @@ pnpm add navigate-away
 ```
 
 ```shell
-yarn add navigate-away
+npm i navigate-away
 ```
 
 ```shell
-npm i navigate-away
+yarn add navigate-away
 ```
 
 <br>
