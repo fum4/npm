@@ -1,7 +1,7 @@
 {
   "name": "navigate-away",
-  "version": "3.0.0-rc.1",
-  "description": "Intercept react-router navigation",
+  "version": "3.0.0",
+  "description": "Intercept react navigation",
   "author": "fum4",
   "license": "MIT",
   "homepage": "https://github.com/fum4/npm/blob/master/packages/navigate-away",

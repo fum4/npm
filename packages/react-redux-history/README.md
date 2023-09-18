@@ -17,6 +17,10 @@ No worries, we are here to help
 
 <hr>
 
+#### Compatible with both react-router v6 and v5 API
+
+<hr>
+
 <br>
 
 📜 Save all navigation history in store   [Get started](#setup)
@@ -61,26 +65,38 @@ yarn add react-redux-history
 
 ### Step 2)
 
-Create a `history` object and pass it to `configureRouterHistory`. The returned reducer and middleware will be used to connect to the store.
+Create a browser router and pass it to `configureRouterHistory`. The returned reducer and middleware will be used to connect to the store:
 
 ```javascript
 // store.js
-import { createBrowserHistory } from "history"
-import { configureRouterHistory } from "react-redux-history"
-
-export const history = createBrowserHistory() // export this as we will need it later
+import { configureRouterHistory } from 'react-redux-history'
+import { createBrowserRouter } from 'react-router-dom'
+import { routes } from 'src/routes'
 
 // optional, defaults are listed below
 const options = {
-  storageKey: "routerState",
+  storageKey: 'routerState',
   storageLimit: Infinity
 }
 
-const { 
-  routerReducer, 
-  routerMiddleware 
-} = configureRouterHistory(history, options)
+export const router = createBrowserRouter(routes);
+export const { routerReducer, routerMiddleware } = configureRouterHistory({ router, ...options })
 ```
+
+
+Backwards compatibility with `react-router` legacy v5 API is also supported:
+
+```javascript
+// store.js
+import { configureRouterHistory } from 'react-redux-history'
+import { createBrowserHistory } from 'history'
+
+const options = { ... }
+
+export const history = createBrowserHistory() // react-router legacy v5 API
+export const { routerReducer, routerMiddleware } = configureRouterHistory({ history, ...options })
+```
+For more info regarding differences between react-router v5 and v6 API check out the [official docs][15]
 
 <br>
 
@@ -98,7 +114,7 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
       // ...other middleware
-      .prepend(routerMiddleware)
+      .concat(routerMiddleware)
 })
 
 export default store
@@ -108,27 +124,28 @@ export default store
 
 ### Step 4)
 
-Lastly, add either `<LocationListener history={history} />` or `useLocationListener(history)` somewhere at the root of your app.
+Lastly, add either `<LocationListener />` or `useLocationListener` somewhere at the root of your app:
 
 ```javascript
 // App.tsx
-import { useLocationListener, LocationListener } from "react-redux-history"
-import { history } from "src/store"
+import { useLocationListener, LocationListener } from 'react-redux-history'
+// use the `history` object if working with `react-router` v5 API
+import { router } from 'src/store'
 
 const App = () => {
-  useLocationListener(history) // Use either this or the component below, not both!
-
+  useLocationListener(router) // use either this or the component below, not both!
+  
   return (
     <>
       ...
-      <LocationListener history={history} />
+      <LocationListener router={router} /> 
       ...
     </>
   )
 }
 ```
 
-**Note**: the `history` object provided to `configureRouterHistory` and `useLocationListener` / `LocationListener` must be the same `history` object !
+**Note**: the `router` / `history` objects provided to `configureRouterHistory` and `useLocationListener` / `LocationListener` must be the same objects !
 
 <br><br><br>
 
@@ -164,7 +181,7 @@ By setting a `skipBack` / `skipForward` flag on a specific route the user will b
 
 ```javascript
 history.push({
-  pathname: "page_5",
+  pathname: 'page_5',
   state: { skipBack: 4 }
 })
 ```
@@ -205,8 +222,8 @@ dispatch(push('homepage'))
 Force current route to re-render by using `selectForceRender`. Navigate to the same route while passing `forceRender: {}` in location state.
 
 ```javascript
-import { useSelector } from "react-redux"
-import { selectForceRender } from "react-redux-history"
+import { useSelector } from 'react-redux'
+import { selectForceRender } from 'react-redux-history'
 
 const Component = () => {
   // The component will re-render every time the `forceRender` flag reference changes
@@ -221,7 +238,7 @@ const Component = () => {
       onClick={() => {
         history.push({
           // By default `react-router` will not trigger re-rendering when the pathname is the same
-          pathname: "current_pathname",
+          pathname: 'current_pathname',
           state: {
             // Simply pass a new object to force re-rendering
             forceRender: {}
@@ -289,3 +306,4 @@ There are also a few useful selectors for easy access:
 [12]: https://github.com/fum4/npm/actions
 [13]: https://camo.githubusercontent.com/a5f1968a99631284ca552953929cff7b6abb375853bb0944fae0dc520c45c73b/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d52656163742b526f7574657226636f6c6f723d434134323435266c6f676f3d52656163742b526f75746572266c6f676f436f6c6f723d464646464646266c6162656c3d
 [14]: https://reactrouter.com/en/main
+[15]: https://reactrouter.com/en/main/upgrading/v5#introduction

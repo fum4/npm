@@ -15,6 +15,12 @@ Intercept location changes before React paints them on screen.
 
 Use this hook to manipulate the navigation flow, replace the next location or edit its state in a render friendly manner, before re-rendering the whole component tree.
 
+<hr>
+
+#### Compatible with both react-router v6 and v5 API
+
+<hr>
+
 <br>
 
 # Setup <a id="setup"></a>
@@ -35,15 +41,16 @@ yarn add navigate-away
 
 Instructions are pretty simple, use the hook wherever you want!
 
-Just be sure to always pass your app's `history` object to it.
+Just be sure to always pass your app's `router` object to it (or `history` if working with `react-router` v5 API)
 
 ```javascript
-import { useNavigateAway } from "navigate-away"
-import { history } from "src/store"
+import { useNavigateAway } from 'navigate-away'
+import { router } from 'src/store'
 
 const Component = () => {
   useNavigateAway(({ nextLocation, action, navigate }) => {
-    if (action === "POP") {
+    // do something with the location
+    if (action === 'POP') {
       const updatedLocation = {
         ...nextLocation,
         state: {
@@ -52,9 +59,10 @@ const Component = () => {
         }
       }
 
+      // then navigate
       navigate(updatedLocation)
     }
-  }, history)
+  }, router) // use the `history` object if working with `react-router` v5 API
 
   // ...
 }
@@ -65,8 +73,8 @@ There is also a _component_ version of the hook.
 It comes handy when dealing with libraries such as Formik and you need to pass Formik props to the hook:
 
 ```javascript
-import { NavigateAway } from "navigate-away"
-import { history } from "src/store"
+import { NavigateAway } from 'navigate-away'
+import { router } from 'src/store'
 
 const Component = () => {
   // ...
@@ -75,9 +83,9 @@ const Component = () => {
     <Formik>
       {(formikProps) => (
         <NavigateAway
-          history={history}
+          router={router}
           callback={({ nextLocation, action, navigate }) => {
-            // Pass the Formik props to the callback
+            // use Formik props in the callback
           }}
         />
       )}
