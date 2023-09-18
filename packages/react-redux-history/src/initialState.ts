@@ -4,7 +4,7 @@ import { persistOnPageHide, getSessionState } from "./persist";
 import { HistoryAction, type RouterState, type Options } from "./types";
 
 import {
-  parseLocation,
+  transformLocation,
   isSameRoute,
   isPreviousRoute,
   isNextRoute,
@@ -14,7 +14,7 @@ const getInitialState = (
   initialLocation: Location,
   { storageKey, storageLimit }: Options
 ): RouterState => {
-  const location = parseLocation(initialLocation);
+  const location = transformLocation(initialLocation);
   const defaultState: RouterState = {
     action: HistoryAction.Push,
     locationHistory: [location],

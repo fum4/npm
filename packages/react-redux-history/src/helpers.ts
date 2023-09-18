@@ -56,17 +56,27 @@ export const isBackAction = (
     .slice(0, currentIndex)
     .find((historyEntry) => historyEntry.key === location.key);
 
-export const injectQuery = (location: Location): RouterLocation => {
+export const transformLocation = (location: Location): RouterLocation => {
   const searchParams = new URLSearchParams(location.search);
   const query = Object.fromEntries(searchParams);
 
-  return { ...location, query };
-};
+  const {
+    state = {},
+    pathname,
+    search,
+    hash,
+    key
+  } = location;
 
-export const parseLocation = (location: Location): RouterLocation => ({
-  ...injectQuery(location),
-  ...(!location.state && { state: {} }),
-});
+  return {
+    state,
+    pathname,
+    search,
+    hash,
+    query,
+    key
+  };
+};
 
 export const findIndex = (array: any[], predicate: Record<string, any>) => {
   if (Array.isArray(array)) {
