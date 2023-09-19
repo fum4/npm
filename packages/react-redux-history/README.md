@@ -17,7 +17,7 @@ No worries, we are here to help
 
 <hr>
 
-#### Compatible with both react-router v6 and v5 API
+**Compatible with both react-router v6 and v5 API**
 
 <hr>
 
@@ -47,7 +47,7 @@ No worries, we are here to help
 
 ### Step 1)
 
-Let's get started by installing the package:
+Let's get started by installing the package
 
 ```shell
 pnpm add react-redux-history
@@ -65,7 +65,7 @@ yarn add react-redux-history
 
 ### Step 2)
 
-Create a browser router and pass it to `configureRouterHistory`. The returned reducer and middleware will be used to connect to the store:
+Create a browser router and pass it to `configureRouterHistory`. The returned reducer and middleware will be used to connect to the store
 
 ```javascript
 // store.js
@@ -80,11 +80,14 @@ const options = {
 }
 
 export const router = createBrowserRouter(routes);
-export const { routerReducer, routerMiddleware } = configureRouterHistory({ router, ...options })
+export const { routerReducer, routerMiddleware } = configureRouterHistory({
+  router,
+  ...options 
+})
 ```
 
 
-Backwards compatibility with `react-router` legacy v5 API is also supported:
+Backwards compatibility with `react-router` legacy v5 API is also supported
 
 ```javascript
 // store.js
@@ -93,16 +96,19 @@ import { createBrowserHistory } from 'history'
 
 const options = { ... }
 
-export const history = createBrowserHistory() // react-router legacy v5 API
-export const { routerReducer, routerMiddleware } = configureRouterHistory({ history, ...options })
+export const history = createBrowserHistory() // react-router v5 API
+export const { routerReducer, routerMiddleware } = configureRouterHistory({ 
+  history, 
+  ...options
+})
 ```
-For more info regarding differences between react-router v5 and v6 API check out the [official docs][15]
+For more info regarding differences between v5 and v6 API check out the [official docs][15]
 
 <br>
 
 ### Step 3)
 
-Add the reducer and middleware to your store. If you are using Redux Toolkit it should look something like this:
+Add the reducer and middleware to your store. It should look something like this
 
 ```javascript
 // store.js
@@ -124,13 +130,12 @@ export default store
 
 ### Step 4)
 
-Lastly, add either `<LocationListener />` or `useLocationListener` somewhere at the root of your app:
+Lastly, add either `<LocationListener />` or `useLocationListener` at app's root
 
 ```javascript
 // App.tsx
 import { useLocationListener, LocationListener } from 'react-redux-history'
-// use the `history` object if working with `react-router` v5 API
-import { router } from 'src/store'
+import { router } from 'src/store' // use `history` if working with v5 API
 
 const App = () => {
   useLocationListener(router) // use either this or the component below, not both!
@@ -145,13 +150,13 @@ const App = () => {
 }
 ```
 
-**Note**: the `router` / `history` objects provided to `configureRouterHistory` and `useLocationListener` / `LocationListener` must be the same objects !
+**Note**: the `router` / `history` objects provided to `configureRouterHistory` **and** `useLocationListener` / `LocationListener` must be the same objects !
 
 <br><br><br>
 
 # Configuration
 
-The middleware can be configured by passing an options object as the second argument to `configureRouterHistory`.
+The middleware can be configured by passing an options object to `configureRouterHistory`.
 
 The following options are available:
 

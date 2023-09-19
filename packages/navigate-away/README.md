@@ -17,7 +17,7 @@ Use this hook to manipulate the navigation flow, replace the next location or ed
 
 <hr>
 
-#### Compatible with both react-router v6 and v5 API
+**Compatible with both react-router v6 and v5 API**
 
 <hr>
 
@@ -41,7 +41,7 @@ yarn add navigate-away
 
 Instructions are pretty simple, use the hook wherever you want!
 
-Just be sure to always pass your app's `router` object to it (or `history` if working with `react-router` v5 API)
+Just be sure to always pass your app's `router` object to it
 
 ```javascript
 import { useNavigateAway } from 'navigate-away'
@@ -62,7 +62,7 @@ const Component = () => {
       // then navigate
       navigate(updatedLocation)
     }
-  }, router) // use the `history` object if working with `react-router` v5 API
+  }, router) // use `history` if working with v5 API
 
   // ...
 }
@@ -70,7 +70,7 @@ const Component = () => {
 
 There is also a _component_ version of the hook.
 
-It comes handy when dealing with libraries such as Formik and you need to pass Formik props to the hook:
+It comes handy when dealing with libraries like Formik and you need to pass props to the hook
 
 ```javascript
 import { NavigateAway } from 'navigate-away'
@@ -83,7 +83,7 @@ const Component = () => {
     <Formik>
       {(formikProps) => (
         <NavigateAway
-          router={router}
+          router={router} // use `history` if working with v5 API
           callback={({ nextLocation, action, navigate }) => {
             // use Formik props in the callback
           }}
