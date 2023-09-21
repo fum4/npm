@@ -30,7 +30,7 @@ importers:
         specifier: ^0.34.4
         version: 0.34.4(jsdom@22.1.0)
 
-  examples/react-redux-history-app:
+  examples/demo-app:
     dependencies:
       react:
         specifier: ^18.2.0
