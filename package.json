@@ -1,8 +1,8 @@
 {
-  "version": "2.1.0",
+  "version": "3.0.0",
   "private": true,
   "license": "MIT",
-  "packageManager": "pnpm@8.5.1",
+  "packageManager": "pnpm@8.7.6",
   "workspaces": [
     "examples/**",
     "packages/**"
