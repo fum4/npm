@@ -1,18 +1,18 @@
-import type { Location } from "history";
+import type { Location } from 'history';
 
-import { persistOnPageHide, getSessionState } from "./persist";
-import { HistoryAction, type RouterState, type Options } from "./types";
+import { persistOnPageHide, getSessionState } from './persist';
+import { HistoryAction, type RouterState, type Options } from './types';
 
 import {
   transformLocation,
   isSameRoute,
   isPreviousRoute,
   isNextRoute,
-} from "./helpers";
+} from './helpers';
 
 const getInitialState = (
   initialLocation: Location,
-  { storageKey, storageLimit }: Options
+  { storageKey, storageLimit }: Options,
 ): RouterState => {
   const location = transformLocation(initialLocation);
   const defaultState: RouterState = {

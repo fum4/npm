@@ -1,4 +1,4 @@
-import type { RouterState, Options } from "./types";
+import type { RouterState, Options } from './types';
 
 let pageHideListener: () => void;
 
@@ -27,14 +27,14 @@ export const persistOnPageHide = (
 ) => {
   if (storageLimit) {
     if (pageHideListener) {
-      window.removeEventListener("pagehide", pageHideListener);
+      window.removeEventListener('pagehide', pageHideListener);
     }
 
     pageHideListener = () => {
       saveToSessionStorage(state, { storageKey, storageLimit });
     };
 
-    window.addEventListener("pagehide", pageHideListener, { once: true });
+    window.addEventListener('pagehide', pageHideListener, { once: true });
   }
 };
 

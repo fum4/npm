@@ -1,6 +1,6 @@
-import type { NavigateFunction } from "react-router";
-import type { Router } from "@remix-run/router";
-import type { Action, Location, History } from "history";
+import type { NavigateFunction } from 'react-router';
+import type { Router } from '@remix-run/router';
+import type { Action, Location, History } from 'history';
 
 export type NavigateAwayCallback = ({
   action,
