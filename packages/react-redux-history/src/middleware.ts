@@ -1,14 +1,19 @@
-import { Action } from "history";
-import type { Middleware } from "redux";
+import { Action } from 'history';
+import type { Middleware } from 'redux';
 
 import {
   selectCurrentLocationIndex,
   selectCurrentLocationState,
   selectIsSkippingRoutes,
   selectLocationHistory,
-} from "./selectors";
-import { findIndex, isBackAction, isForwardAction, transformLocation } from "./helpers";
-import type { NavigationShim } from "./types";
+} from './selectors';
+import {
+  findIndex,
+  isBackAction,
+  isForwardAction,
+  transformLocation,
+} from './helpers';
+import type { NavigationShim } from './types';
 
 import {
   LOCATION_CHANGED,
@@ -16,7 +21,7 @@ import {
   type LocationChangeRequestAction,
   type LocationChangedAction,
   type SliceActions,
-} from "./types";
+} from './types';
 
 const createRouterMiddleware =
   (navigation: NavigationShim, sliceActions: SliceActions): Middleware =>

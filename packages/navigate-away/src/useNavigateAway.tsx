@@ -1,9 +1,9 @@
-import { useRef, useLayoutEffect } from "react";
-import { type NavigateFunction, useNavigate } from "react-router";
-import type { RouterState } from "@remix-run/router";
-import type { Update } from "history";
+import { useRef, useLayoutEffect } from 'react';
+import { type NavigateFunction, useNavigate } from 'react-router';
+import type { RouterState } from '@remix-run/router';
+import type { Update } from 'history';
 
-import type { NavigateAwayProps } from "./types";
+import type { NavigateAwayProps } from './types';
 
 export const NavigateAway = ({
   callback,
@@ -17,7 +17,7 @@ export const NavigateAway = ({
 export const useNavigateAway = ({
   callback,
   history,
-  router
+  router,
 }: NavigateAwayProps) => {
   const navigate = useNavigate();
   const callbackRef = useRef(callback);
@@ -41,7 +41,9 @@ export const useNavigateAway = ({
     const onLocationChange = router?.subscribe || history?.listen;
 
     if (!onLocationChange) {
-      throw new Error('`router` or `history` invalid. `subscribe` or `listen` functions not implemented');
+      throw new Error(
+        '`router` or `history` invalid. `subscribe` or `listen` functions not implemented',
+      );
     }
 
     let navigatedFromCallback = false;
@@ -58,5 +60,5 @@ export const useNavigateAway = ({
         });
       }
     });
-  }, [ router, history, navigate ]);
+  }, [router, history, navigate]);
 };

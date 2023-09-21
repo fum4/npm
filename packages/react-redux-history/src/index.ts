@@ -1,7 +1,7 @@
-import createRouterMiddleware from "./middleware";
-import createRouterSlice from "./slice";
-import { createNavigationShim } from "./shims";
-import type { Config } from "./types";
+import createRouterMiddleware from './middleware';
+import createRouterSlice from './slice';
+import { createNavigationShim } from './shims';
+import type { Config } from './types';
 
 export const configureRouterHistory = ({
   router,
@@ -23,7 +23,7 @@ export const configureRouterHistory = ({
   };
 };
 
-export * from "./actions";
-export * from "./selectors";
-export * from "./LocationListener";
-export * from "./types";
+export * from './actions';
+export * from './selectors';
+export * from './LocationListener';
+export * from './types';

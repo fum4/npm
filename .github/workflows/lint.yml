@@ -23,4 +23,5 @@ jobs:
       - run: npm i -g pnpm@8.6.11
       - run: pnpm i --frozen-lockfile
       - run: pnpm build
+      - run: pnpm format
       - run: pnpm lint
