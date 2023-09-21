@@ -1,10 +1,10 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect } from 'react';
 
-import { getStorageValues, filterValues } from "./utils";
-import { PersistOptions } from "./types";
+import { getStorageValues, filterValues } from './utils';
+import { PersistOptions } from './types';
 
 const usePersist = ({
-  key = "use-persist",
+  key = 'use-persist',
   values,
   setValues,
   setToStorage = localStorage.setItem,
@@ -16,7 +16,7 @@ const usePersist = ({
 }: PersistOptions) => {
   const initialValues = useMemo(
     () => getStorageValues(key, decode, getFromStorage),
-    [key, decode, getFromStorage]
+    [key, decode, getFromStorage],
   );
   const [initialized, setInitialized] = useState(!initialValues);
 

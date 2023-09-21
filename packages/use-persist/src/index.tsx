@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import type { ConfigOptions, PersistProps, Values } from "./types";
-import usePersist from "./usePersist";
+import type { ConfigOptions, PersistProps, Values } from './types';
+import usePersist from './usePersist';
 
 const configurePersist = (options: ConfigOptions) => {
   const Persist = (props: PersistProps) => {
@@ -16,5 +16,5 @@ const configurePersist = (options: ConfigOptions) => {
   };
 };
 
-export * from "./types";
+export * from './types';
 export default configurePersist;

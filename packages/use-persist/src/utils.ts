@@ -1,9 +1,9 @@
-import type { Values } from "./types";
+import type { Values } from './types';
 
 export const getStorageValues = (
   key: string,
   decode: (value: string) => any,
-  getFromStorage: (key: string) => any
+  getFromStorage: (key: string) => any,
 ) => {
   const persisted = getFromStorage(key);
 
@@ -21,7 +21,7 @@ export const getStorageValues = (
 export const filterValues = (
   values: Values,
   include: string[],
-  exclude: string[]
+  exclude: string[],
 ) =>
   Object.entries(values).reduce((acc, [key, value]) => {
     if (include && !include.includes(key)) {
