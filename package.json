@@ -9,7 +9,8 @@
   ],
   "scripts": {
     "dev": "turbo run dev",
-    "build": "pnpm format && turbo run lint && turbo run build",
+    "prebuild": "pnpm i && pnpm format && pnpm lint",
+    "build": "pnpm prebuild && turbo run build",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "release": "pnpm build && changeset && changeset version && changeset publish",
