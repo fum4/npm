@@ -1,6 +1,6 @@
 {
    "extends": "@nw/tsconfig/vite.json",
-   "display": "react-redux-history demo",
+   "display": "demo-app",
    "compilerOptions": {
       "baseUrl": ".",
       "target": "es2015",
