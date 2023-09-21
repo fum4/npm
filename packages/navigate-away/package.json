@@ -12,7 +12,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsup src/index.ts --format esm,cjs --minify --dts",
-    "dev": "tsup src/index.ts --format esm,cjs --watch"
+    "dev": "tsup src/index.ts --format esm --watch"
   },
   "files": [
     "dist"
