@@ -1,14 +1,14 @@
-import type { Router } from "@remix-run/router";
-import type { Action, Location, History } from "history";
-import type { CaseReducerActions, PayloadAction } from "@reduxjs/toolkit";
-import {To} from "@remix-run/router/history";
-import {RouterNavigateOptions} from "@remix-run/router/router";
+import type { Router } from '@remix-run/router';
+import type { Action, Location, History } from 'history';
+import type { CaseReducerActions, PayloadAction } from '@reduxjs/toolkit';
+import { To } from '@remix-run/router/history';
+import { RouterNavigateOptions } from '@remix-run/router/router';
 
 export enum HistoryAction {
-  Push = "PUSH",
-  Back = "BACK",
-  Forward = "FORWARD",
-  Replace = "REPLACE",
+  Push = 'PUSH',
+  Back = 'BACK',
+  Forward = 'FORWARD',
+  Replace = 'REPLACE',
 }
 
 export interface RouterLocation extends Location {
@@ -50,8 +50,8 @@ export interface AppState {
   router: RouterState;
 }
 
-export const LOCATION_CHANGED = "@@router/LOCATION_CHANGED";
-export const LOCATION_CHANGE_REQUEST = "@@router/LOCATION_CHANGE_REQUEST";
+export const LOCATION_CHANGED = '@@router/LOCATION_CHANGED';
+export const LOCATION_CHANGE_REQUEST = '@@router/LOCATION_CHANGE_REQUEST';
 
 export interface LocationChangeRequestAction {
   type: typeof LOCATION_CHANGE_REQUEST;
@@ -75,14 +75,8 @@ export interface LocationChangedAction {
 
 export type SliceActions = CaseReducerActions<
   {
-    push(
-      state: RouterState,
-      action: PayloadAction<RouterLocation>,
-    ): void;
-    replace(
-      state: RouterState,
-      action: PayloadAction<RouterLocation>,
-    ): void;
+    push(state: RouterState, action: PayloadAction<RouterLocation>): void;
+    replace(state: RouterState, action: PayloadAction<RouterLocation>): void;
     back(
       state: RouterState,
       action: PayloadAction<{ nextLocationIndex: number; isSkipping: boolean }>,
@@ -93,7 +87,7 @@ export type SliceActions = CaseReducerActions<
     ): void;
     setSkipping(state: RouterState, action: PayloadAction<boolean>): void;
   },
-  "router"
+  'router'
 >;
 
 export type Config = Options & NavigationShimPayload;

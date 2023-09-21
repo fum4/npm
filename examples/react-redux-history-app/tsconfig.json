@@ -1,9 +1,9 @@
 {
-   // "extends": "@nw/tsconfig/vite.json",
-   "display": "Vite",
+   "extends": "@nw/tsconfig/vite.json",
+   "display": "react-redux-history demo",
    "compilerOptions": {
       "baseUrl": ".",
-      "target": "es5",
+      "target": "es2015",
       "module": "esnext",
       "moduleResolution": "node",
       "lib": [

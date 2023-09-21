@@ -4,15 +4,15 @@
   "license": "MIT",
   "packageManager": "pnpm@8.5.1",
   "workspaces": [
-    "examples/*",
-    "packages/*"
+    "examples/**",
+    "packages/**"
   ],
   "scripts": {
     "dev": "turbo run dev",
-    "build": "turbo run build",
+    "build": "pnpm format && turbo run lint && turbo run build",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "release": "pnpm lint && pnpm format && pnpm build && changeset && changeset version && changeset publish",
+    "release": "pnpm build && changeset && changeset version && changeset publish",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },

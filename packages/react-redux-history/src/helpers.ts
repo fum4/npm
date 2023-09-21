@@ -1,6 +1,6 @@
-import type { Location } from "history";
+import type { Location } from 'history';
 
-import type { RouterLocation } from "./types";
+import type { RouterLocation } from './types';
 
 export const isSameRoute = (
   location: Location,
@@ -103,7 +103,7 @@ const isEqual = (
   }
 
   Object.entries(firstObject).forEach(([key, value]) => {
-    if (value && typeof value === "object") {
+    if (value && typeof value === 'object') {
       const propertyResult = isEqual(firstObject[key], secondObject[key]);
 
       if (!propertyResult) {
