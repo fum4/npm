@@ -39,7 +39,7 @@
     "@babel/cli": "^7.22.15",
     "@babel/core": "^7.22.20",
     "@babel/preset-env": "^7.22.20",
-    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-react": "^7.23.3",
     "@nw/eslint-config": "workspace:*",
     "@nw/tsconfig": "workspace:*",
     "@reduxjs/toolkit": "^1.8.3",

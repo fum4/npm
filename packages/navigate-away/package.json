@@ -38,7 +38,7 @@
     "@babel/cli": "^7.22.15",
     "@babel/core": "^7.22.20",
     "@babel/preset-env": "^7.22.20",
-    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-react": "^7.23.3",
     "@nw/eslint-config": "workspace:*",
     "@nw/tsconfig": "workspace:*",
     "@remix-run/router": "^1.9.0",
